@@ -1,0 +1,7267 @@
+TÀI LIỆU ĐẶC TẢ NGHIỆP VỤ
+
+Quản lý cửa hàng Phở bò
+
+DỰ ÁN : Hệ thống Quản lý và Bán Phở Bò
+
+Người thực hiện : ……………Trần Ngọc Linh…………………………...
+
+Ngày ban hành   : ……………………06/07/2026………………………...
+
+Mã tài liệu           : …………………TNL06………………………………...
+
+Phiên bản            : ……………………1.0…………………………………...
+
+Trạng thái tài liệu
+
+DRAFT
+
+Người viết
+
+Trần Ngọc Linh
+
+Người review
+
+Người phê duyệt
+
+Trần Ngọc Linh
+
+QA
+
+Trần Ngọc Linh
+
+Phiên bản
+
+1.0
+
+Ngày phát hành
+
+06/07/2026
+
+KIỂM SOÁT TÀI LIỆU
+
+Thông tin kiểm soát
+
+Ngày
+
+Người lập
+
+Người kiểm tra
+
+/ Kết quả
+
+Người phê duyệt
+
+/ Kết quả
+
+06/07/2026
+
+Trần Ngọc Linh
+
+DONE
+
+DONE
+
+Thông tin lịch sử
+
+Ngày
+
+Người thực hiện
+
+Phiên bản
+
+Nội dung
+
+06/07/2026
+
+Trần Ngọc Linh
+
+0.1
+
+Khởi tạo tài liệu đặc tả yêu cầu phần mềm (SRS) hoàn chỉnh cho dự án Hệ thống Quản lý và Bán Phở Bò
+
+Tài liệu liên quan, tham khảo
+
+Ngày
+
+Tên tài liệu
+
+Nguồn
+
+06/07/2026
+
+Quy trình nghiệp vụ chuỗi nhà hàng Phở Bò
+
+Tài liệu nội bộ quán
+
+06/07/2026
+
+Tiêu chuẩn đặc tả phần mềm IEEE 830 / IEEE 29148
+
+IEEE Computer Society
+
+MỤC LỤC
+
+KIỂM SOÁT TÀI LIỆU3
+
+Thông tin kiểm soát3
+
+Thông tin lịch sử3
+
+Tài liệu liên quan, tham khảo3
+
+PHẦN 1: GIỚI THIỆU10
+
+1.1 Mục đích tài liệu10
+
+1.2 Phạm vi tài liệu10
+
+1.3Tổng quan ứng dụng10
+
+1.4 Thuật ngữ viết tắt10
+
+PHẦN 2: YÊU CẦU TỔNG THỂ12
+
+2.1 Sơ đồ quan hệ đối tượng (Link)12
+
+Hệ thống tương tác với 4 Actor chính:12
+
+2.2 Sơ đồ Use Case16
+
+2.3 Sơ đồ luồng(Link)18
+
+2.4. Sơ đồ chuyển trạng thái(Link)21
+
+2.5. Phân quyền23
+
+2.5.1. Phân quyền chức năng23
+
+2.5.2. Phân quyền dữ liệu23
+
+2.6. Site Map23
+
+PHẦN 3: CHỨC NĂNG24
+
+3.1. UC-01 - Đăng ký tài khoản (Register)27
+
+3.1.1. Đặc tả Use Case27
+
+3.1.2. Sơ đồ luồng chi tiết27
+
+3.1.3. Giao diện27
+
+3.1.4. Mô tả chi tiết27
+
+3.2. UC-02 - Đăng nhập (Login)28
+
+3.2.1. Đặc tả Use Case28
+
+3.2.2. Sơ đồ luồng chi tiết28
+
+3.2.3. Giao diện29
+
+3.2.4. Mô tả chi tiết29
+
+3.3. UC-03 - Quản lý thông tin cá nhân (Profile Management)29
+
+3.3.1. Đặc tả Use Case29
+
+3.3.2. Sơ đồ luồng chi tiết29
+
+3.3.3. Giao diện30
+
+3.3.4. Mô tả chi tiết30
+
+3.4. UC-04 - Quản lý địa chỉ giao hàng (Address Book)30
+
+3.4.1. Đặc tả Use Case30
+
+3.4.2. Sơ đồ luồng chi tiết30
+
+3.4.3. Giao diện31
+
+3.4.4. Mô tả chi tiết31
+
+3.5. UC-05 - Xem và tìm kiếm thực đơn (Browse &amp; Search Menu)31
+
+3.5.1. Đặc tả Use Case31
+
+3.5.2. Sơ đồ luồng chi tiết32
+
+3.5.3. Giao diện32
+
+3.5.4. Mô tả chi tiết32
+
+3.6. UC-06 - Tùy chỉnh món ăn (Customize Product Options)32
+
+3.6.1. Đặc tả Use Case32
+
+3.6.2. Sơ đồ luồng chi tiết33
+
+3.6.3. Giao diện33
+
+3.6.4. Mô tả chi tiết33
+
+3.7. UC-07 - Quản lý giỏ hàng (Cart Management)33
+
+3.7.1. Đặc tả Use Case33
+
+3.7.2. Sơ đồ luồng chi tiết34
+
+3.7.3. Giao diện34
+
+3.7.4. Mô tả chi tiết34
+
+3.8. UC-08 - Áp dụng mã giảm giá (Apply Voucher)34
+
+3.8.1. Đặc tả Use Case34
+
+3.8.2. Sơ đồ luồng chi tiết35
+
+3.8.3. Giao diện35
+
+3.8.4. Mô tả chi tiết35
+
+3.9. UC-09 - Đặt hàng Online (Checkout)35
+
+3.9.1. Đặc tả Use Case35
+
+3.9.2. Sơ đồ luồng chi tiết36
+
+3.9.3. Giao diện36
+
+3.9.4. Mô tả chi tiết36
+
+3.10. UC-10 - Thanh toán trực tuyến (Online Payment)36
+
+3.10.1. Đặc tả Use Case36
+
+3.10.2. Sơ đồ luồng chi tiết37
+
+3.10.3. Giao diện37
+
+3.10.4. Mô tả chi tiết37
+
+3.11. UC-11 - Theo dõi trạng thái đơn hàng (Order Tracking)37
+
+3.11.1. Đặc tả Use Case37
+
+3.11.2. Sơ đồ luồng chi tiết38
+
+3.11.3. Giao diện38
+
+3.11.4. Mô tả chi tiết38
+
+3.12. UC-12 - Lịch sử đơn hàng (Order History)39
+
+3.12.1. Đặc tả Use Case39
+
+3.12.2. Sơ đồ luồng chi tiết39
+
+3.12.3. Giao diện39
+
+3.12.4. Mô tả chi tiết39
+
+3.13. UC-13 - Đánh giá &amp; phản hồi (Review &amp; Feedback)40
+
+3.13.1. Đặc tả Use Case40
+
+3.13.2. Sơ đồ luồng chi tiết40
+
+3.13.3. Giao diện40
+
+3.13.4. Mô tả chi tiết40
+
+3.14. UC-14 - Tiếp nhận đơn trực tuyến (Order Acceptance)41
+
+3.14.1. Đặc tả Use Case41
+
+3.14.2. Sơ đồ luồng chi tiết41
+
+3.14.3. Giao diện41
+
+3.14.4. Mô tả chi tiết41
+
+3.15. UC-15 - Cập nhật trạng thái đơn (Order Status Management)42
+
+3.15.1. Đặc tả Use Case42
+
+3.15.2. Sơ đồ luồng chi tiết42
+
+3.15.3. Giao diện42
+
+3.15.4. Mô tả chi tiết43
+
+3.16. UC-16 - Quản lý bàn tại quán (Table Management)43
+
+3.16.1. Đặc tả Use Case43
+
+3.16.2. Sơ đồ luồng chi tiết43
+
+3.16.3. Giao diện44
+
+3.16.4. Mô tả chi tiết44
+
+3.17. UC-17 - Gọi món tại quầy - POS (Point of Sale Ordering)44
+
+3.17.1. Đặc tả Use Case44
+
+3.17.2. Sơ đồ luồng chi tiết44
+
+3.17.3. Giao diện45
+
+3.17.4. Mô tả chi tiết45
+
+3.18. UC-18 - Thanh toán tại quầy (POS Payment Handling)45
+
+3.18.1. Đặc tả Use Case45
+
+3.18.2. Sơ đồ luồng chi tiết45
+
+3.18.3. Giao diện46
+
+3.18.4. Mô tả chi tiết46
+
+3.19. UC-19 - In hóa đơn (Invoice Printing)46
+
+3.19.1. Đặc tả Use Case46
+
+3.19.2. Sơ đồ luồng chi tiết46
+
+3.19.3. Giao diện47
+
+3.19.4. Mô tả chi tiết47
+
+3.20. UC-20 - Quản lý trạng thái món ăn tại bếp (Kitchen Status Management)47
+
+3.20.1. Đặc tả Use Case47
+
+3.20.2. Sơ đồ luồng chi tiết47
+
+3.20.3. Giao diện48
+
+3.20.4. Mô tả chi tiết48
+
+3.21. UC-21 - Quản lý tài khoản người dùng (User Account Management)48
+
+3.21.1. Đặc tả Use Case48
+
+3.21.2. Sơ đồ luồng chi tiết49
+
+3.21.3. Giao diện49
+
+3.21.4. Mô tả chi tiết49
+
+3.22. UC-22 - Quản lý danh mục thực đơn (Category CRUD)49
+
+3.22.1. Đặc tả Use Case49
+
+3.22.2. Sơ đồ luồng chi tiết50
+
+3.22.3. Giao diện50
+
+3.22.4. Mô tả chi tiết50
+
+3.23. UC-23 - Quản lý món ăn và giá cả (Product CRUD)50
+
+3.23.1. Đặc tả Use Case50
+
+3.23.2. Sơ đồ luồng chi tiết51
+
+3.23.3. Giao diện51
+
+3.23.4. Mô tả chi tiết51
+
+3.24. UC-24 - Quản lý mã khuyến mãi và chiến dịch (Voucher Management)51
+
+3.24.1. Đặc tả Use Case51
+
+3.24.2. Sơ đồ luồng chi tiết52
+
+3.24.3. Giao diện52
+
+3.24.4. Mô tả chi tiết52
+
+3.25. UC-25 - Kiểm duyệt đánh giá và phản hồi (Review Moderation)52
+
+3.25.1. Đặc tả Use Case52
+
+3.25.2. Sơ đồ luồng chi tiết53
+
+3.25.3. Giao diện53
+
+3.25.4. Mô tả chi tiết53
+
+3.26. UC-26 - Quản lý cấu hình toàn hệ thống (System Configuration)54
+
+3.26.1. Đặc tả Use Case54
+
+3.26.2. Sơ đồ luồng chi tiết54
+
+3.26.3. Giao diện54
+
+3.26.4. Mô tả chi tiết54
+
+3.27. UC-27 - Báo cáo &amp; Thống kê kinh doanh (Reporting &amp; Analytics)55
+
+3.27.1. Đặc tả Use Case55
+
+3.27.2. Sơ đồ luồng chi tiết55
+
+3.27.3. Giao diện55
+
+3.27.4. Mô tả chi tiết55
+
+3.28. UC-28 - Quản lý ca làm việc &amp; Chấm công (Shift &amp; Attendance Management)56
+
+3.28.1. Đặc tả Use Case56
+
+3.28.2. Sơ đồ luồng chi tiết56
+
+3.28.3. Giao diện56
+
+3.28.4. Mô tả chi tiết56
+
+3.29. UC-29 - Quản lý kho nguyên liệu (Ingredient Inventory Management)57
+
+3.29.1. Đặc tả Use Case57
+
+3.29.2. Sơ đồ luồng chi tiết57
+
+3.29.3. Giao diện57
+
+3.29.4. Mô tả chi tiết58
+
+PHẦN 4: CÁC COMPONENT, THÔNG BÁO, CẢNH BÁO59
+
+4.1. Component chính59
+
+4.2. Mẫu thông báo/cảnh báo60
+
+PHẦN 5: LINK ISSUE62
+
+PHẦN 1: GIỚI THIỆU
+
+1.1 Mục đích tài liệu
+
+Tài liệu Đặc tả Yêu cầu Phần mềm (SRS) này xác định toàn bộ các yêu cầu chức năng (Functional Requirements) và yêu cầu phi chức năng (Non-functional Requirements) cho dự án Hệ thống Quản lý và Bán Phở Bò.
+
+Tài liệu này được xây dựng nhằm mục đích:
+
+Định hướng phát triển: Làm căn cứ kỹ thuật chính xác cho đội ngũ lập trình viên (Developers) thiết kế kiến trúc hệ thống, cơ sở dữ liệu và triển khai mã nguồn (Coding).
+
+Tiêu chuẩn nghiệm thu: Cung cấp tài liệu tham chiếu cốt lõi cho đội ngũ kiểm thử (Tester/QA) xây dựng kịch bản kiểm thử (Test Cases) và đảm bảo chất lượng phần mềm.
+
+Cam kết phạm vi: Là văn bản thống nhất giữa các bên liên quan (Khách hàng/Chủ cửa hàng và Đội ngũ phát triển dự án) về phạm vi, tính năng và giới hạn kỹ thuật của ứng dụng, tránh phát sinh yêu cầu (Scope Creep) trong quá trình triển khai.
+
+1.2 Phạm vi tài liệu
+
+Hệ thống hoạt động theo mô hình Web Application (Client - Server), đáp ứng quy trình bán hàng cho một cửa hàng hoặc chuỗi cửa hàng phở bò. Phạm vi bao gồm:
+
+Phân hệ Khách hàng: Đặt món trực tuyến, thanh toán, tùy chỉnh món ăn và theo dõi trạng thái đơn hàng.
+
+Phân hệ Nhân viên: Tiếp nhận đơn hàng, xử lý món tại bếp, bán hàng trực tiếp (POS) và quản lý trạng thái.
+
+Phân hệ Quản trị viên: Quản lý toàn bộ cấu hình hệ thống, DB món ăn, phân quyền tài khoản và báo cáo.
+
+Tổng quan ứng dụng
+
+Hệ thống là giải pháp số hóa quy trình kinh doanh phở. Khách hàng sử dụng giao diện trực quan để tùy chỉnh tô phở, đặt món và thanh toán trực tuyến. Nhân viên cửa hàng sử dụng màn hình POS và quản lý đơn hàng theo thời gian thực. Ứng dụng đảm bảo hiệu suất cao, bảo mật bằng chuẩn JWT/OAuth, đồng bộ dữ liệu liên tục.
+
+1.4 Thuật ngữ viết tắt
+
+STT
+
+Từ viết tắt
+
+Diễn giải
+
+1
+
+SRS
+
+Software Requirements Specification (Đặc tả yêu cầu phần mềm)
+
+2
+
+API
+
+Application Programming Interface (Giao diện lập trình ứng dụng)
+
+3
+
+DB
+
+Database (Cơ sở dữ liệu)
+
+4
+
+CRUD
+
+Create, Read, Update, Delete (Tạo, Đọc, Cập nhật, Xóa)
+
+5
+
+UI
+
+User Interface (Giao diện người dùng)
+
+6
+
+UX
+
+User Experience (Trải nghiệm người dùng)
+
+7
+
+JWT
+
+JSON Web Token (Mã thông báo web an toàn để xác thực)
+
+8
+
+OAuth
+
+Open Authorization (Giao thức ủy quyền, dùng cho đăng nhập Google)
+
+9
+
+OTP
+
+One Time Password (Mật khẩu dùng một lần)
+
+10
+
+POS
+
+Point of Sale (Điểm bán hàng tại quầy)
+
+11
+
+COD
+
+Cash on Delivery (Thanh toán bằng tiền mặt khi nhận hàng)
+
+12
+
+UUID
+
+Universally Unique Identifier (Định danh duy nhất toàn cầu)
+
+PHẦN 2: YÊU CẦU TỔNG THỂ
+
+2.1 Sơ đồ quan hệ đối tượng (Link)
+
+Hệ thống tương tác với 4 Actor chính:
+
+Khách hàng (Customer): * Tương tác với hệ thống qua giao diện Web/App để xem thực đơn, tùy chỉnh món ăn, quản lý giỏ hàng, áp dụng mã giảm giá, đặt hàng trực tuyến, thanh toán và gửi đánh giá/phản hồi.
+
+Nhân viên (Staff): * Bao gồm thu ngân, bồi bàn, nhân viên bếp. Sử dụng hệ thống tại cửa hàng để vận hành máy POS (gọi món, thanh toán, in hóa đơn tại quầy), tiếp nhận/cập nhật trạng thái đơn hàng trực tuyến và quản lý trạng thái chế biến món ăn tại khu vực bếp (KITCHEN_QUEUE).
+
+Quản lý (Manager): * Có quyền giám sát hoạt động vận hành của nhà hàng. Thực hiện phê duyệt/kiểm duyệt các đánh giá từ khách hàng, theo dõi các báo cáo &amp; thống kê kinh doanh, quản lý ca làm việc, chấm công cho nhân viên và kiểm soát lượng tồn kho nguyên liệu phục vụ món ăn.
+
+Quản trị viên (Admin): * Sở hữu quyền hạn cao nhất trong hệ thống. Chịu trách nhiệm quản lý cấu hình toàn hệ thống, quản lý tài khoản người dùng/phân quyền (ROLES, USER_ROLES), cấu hình danh mục thực đơn (Category, Product, Option Groups) và thiết lập các chiến dịch mã khuyến mãi (Voucher).
+
+Hình 2.1- Sơ đồ ERD hệ thống quản lý và bán phở bò
+
+Thực thể (Entity)
+
+Mục đích (Purpose)
+
+Thuộc tính chính (Key Attributes)
+
+USERS
+
+Lưu trữ thông tin tài khoản đăng nhập hệ thống của tất cả các đối tượng (Khách hàng, Nhân viên, Admin).
+
+user_id (PK), username, password_hash, email, phone, status, created_at
+
+ROLES
+
+Định nghĩa các vai trò/quyền hạn trong hệ thống (như Admin, Nhân viên phục vụ, Nhân viên bếp, Thu ngân, Khách hàng).
+
+role_id (PK), role_name, description
+
+USER_ROLES
+
+Bảng trung gian để phân quyền, cho phép một người dùng có thể đảm nhận một hoặc nhiều vai trò.
+
+user_id (FK), role_id (FK)
+
+CUSTOMER_PROFILES
+
+Lưu trữ thông tin chi tiết riêng của Khách hàng để phục vụ chăm sóc khách hàng và tích điểm thành viên.
+
+customer_id (PK), user_id (FK), full_name, loyalty_points
+
+EMPLOYEE_PROFILES
+
+Lưu trữ thông tin nhân sự, vị trí làm việc của Nhân viên và Quản lý phục vụ cho việc chấm công, chia ca và tracking vận hành.
+
+employee_id (PK), user_id (FK), full_name, position, hire_date
+
+ADDRESS_BOOK
+
+Quản lý danh sách địa chỉ nhận hàng của khách hàng phục vụ cho luồng đặt hàng Online giao tận nơi.
+
+address_id (PK), customer_id (FK), receiver_name, receiver_phone, address_detail, is_default
+
+CATEGORIES
+
+Phân loại danh mục thực đơn (Ví dụ: Phở Nước, Phở Trộn, Đồ uống, Món ăn kèm).
+
+category_id (PK), category_name, description, is_active
+
+PRODUCTS
+
+Lưu trữ thông tin chi tiết của các món ăn, đồ uống có trong thực đơn quán phở.
+
+product_id (PK), category_id (FK), product_name, base_price, description, image_url, is_available
+
+OPTION_GROUPS
+
+Định nghĩa nhóm các tùy chọn đi kèm món ăn (Ví dụ: &quot;Lượng bánh phở&quot;, &quot;Loại thịt&quot;, &quot;Yêu cầu hành&quot;).
+
+group_id (PK), group_name, is_required, max_selectable
+
+PRODUCT_OPTION_GROUPS
+
+Bảng liên kết trung gian, xác định món ăn nào sẽ áp dụng những nhóm tùy chọn nào.
+
+product_id (FK), group_id (FK)
+
+PRODUCT_OPTIONS
+
+Lưu trữ các lựa chọn cụ thể trong một nhóm và giá tiền cộng thêm (Ví dụ: Nhiều bánh +5k, Thêm trứng chần +5k).
+
+option_id (PK), group_id (FK), option_name, incremental_price, is_available
+
+CARTS
+
+Quản lý giỏ hàng hiện tại của khách hàng khi họ đang duyệt thực đơn trên ứng dụng/website Online.
+
+cart_id (PK), customer_id (FK), updated_at
+
+CART_ITEMS
+
+Lưu vết các món ăn cụ thể được khách hàng thêm vào giỏ hàng kèm theo số lượng.
+
+cart_item_id (PK), cart_id (FK), product_id (FK), quantity
+
+CART_ITEM_OPTIONS
+
+Lưu trữ các tùy chọn (như thêm trứng, ít hành) đi kèm cho từng món ăn cụ thể nằm trong giỏ hàng.
+
+cart_item_id (FK), option_id (FK)
+
+VOUCHERS
+
+Quản lý các mã giảm giá, chương trình khuyến mãi, điều kiện áp dụng và giới hạn lượt sử dụng.
+
+voucher_id (PK), code, discount_type, discount_value, min_order_value, start_date, end_date, usage_limit, used_count
+
+TABLES
+
+Quản lý danh sách bàn ăn, sức chứa và trạng thái hoạt động tại quán để phục vụ cho luồng POS.
+
+table_id (PK), table_number, capacity, status (Trống/Có khách/Đang dọn)
+
+ORDERS
+
+Lưu trữ thông tin tổng quan của đơn hàng, áp dụng chung cho cả đơn đặt Online và gọi món tại quầy (POS).
+
+order_id (PK), customer_id (FK), table_id (FK), voucher_id (FK), order_type, status, total_amount, discount_amount, final_amount, shipping_address, notes, created_at
+
+ORDER_ITEMS
+
+Lưu lại chi tiết danh sách món ăn, số lượng và giá bán ngay tại thời điểm chốt đơn của từng hóa đơn.
+
+order_item_id (PK), order_id (FK), product_id (FK), quantity, price_at_order
+
+ORDER_ITEM_OPTIONS
+
+Đóng băng dữ liệu tùy chọn món ăn mà khách đã chốt để làm căn cứ làm món và đối chiếu hóa đơn sau này.
+
+order_item_id (FK), option_id (FK)
+
+KITCHEN_QUEUE
+
+Hàng đợi điều phối của nhà bếp, giúp đầu bếp theo dõi, tiếp nhận xử lý và cập nhật tiến độ nấu từng món.
+
+queue_id (PK), order_item_id (FK), item_status (Chờ/Đang nấu/Đã xong), updated_at
+
+PAYMENTS
+
+Lưu trữ lịch sử giao dịch, phương thức thanh toán và trạng thái dòng tiền của từng đơn hàng.
+
+payment_id (PK), order_id (FK), payment_method, payment_status, transaction_id, amount, paid_at
+
+REVIEWS
+
+Lưu vết đánh giá số sao và phản hồi của khách hàng sau khi hoàn thành đơn hàng nhằm cải thiện chất lượng.
+
+review_id (PK), order_id (FK), customer_id (FK), rating, comment, moderation_status, created_at
+
+2.2 Sơ đồ Use Case
+
+Khách hàng: UC-01 Đăng ký, UC-02 Đăng nhập, UC-03 Quản lý thông tin cá nhân, UC-04 Quản lý địa chỉ, UC-05 Xem/tìm kiếm menu, UC-06 Tùy chỉnh món, UC-07 Quản lý giỏ hàng, UC-08 Áp mã giảm giá, UC-09 Đặt hàng Online, UC-10 Thanh toán trực tuyến, UC-11 Theo dõi đơn hàng, UC-12 Lịch sử đơn hàng cá nhân, UC-13 Đánh giá &amp; phản hồi.
+
+Nhân viên: UC-14 Tiếp nhận đơn trực tuyến, UC-15 Cập nhật trạng thái đơn, UC-16 Quản lý bàn, UC-17 Gọi món tại quầy (POS), UC-18 Thanh toán tại quầy, UC-19 In hóa đơn, UC-20 Quản lý trạng thái món tại bếp.
+
+Quản lý cửa hàng (Manager): UC-21 Quản lý tài khoản nhân viên, UC-24 Quản lý khuyến mãi, UC-25 Kiểm duyệt phản hồi, UC-27 Báo cáo doanh thu theo ca/ngày, UC-28 Quản lý ca làm việc và chấm công, UC-29 Quản lý nhập/xuất kho nguyên liệu.
+
+Chủ cửa hàng (Admin): UC-21 Quản lý toàn bộ tài khoản hệ thống, UC-22 Quản lý danh mục, UC-23 Quản lý món ăn và giá cả, UC-24 Quản lý chiến dịch khuyến mãi, UC-25 Quản lý phản hồi, UC-26 Quản lý cấu hình hệ thống, UC-27 Toàn quyền xem Báo cáo &amp; Thống kê tài chính tổng thể (Lãi/Lỗ), UC-28 Quản lý cấu hình ca làm việc.
+
+Hình 2.2-Sơ đồ use case hệ thống quản lý và bán phở bò
+
+Actor
+
+Mô tả
+
+Chức năng chính
+
+Khách hàng (Customer)
+
+Người dùng sử dụng hệ thống để xem thực đơn, đặt món phở trực tuyến, thanh toán và theo dõi đơn hàng cá nhân.
+
+Đăng ký, đăng nhập, quản lý thông tin cá nhân, quản lý địa chỉ, xem/tìm kiếm menu, tùy chỉnh món, quản lý giỏ hàng, áp mã giảm giá, đặt hàng, thanh toán, theo dõi đơn hàng, xem lịch sử đơn, đánh giá.
+
+Nhân viên (Staff)
+
+Nhân viên cửa hàng thực hiện các nghiệp vụ bán hàng, tiếp nhận đơn, xử lý đơn tại quầy, cập nhật trạng thái món và hỗ trợ vận hành tại quán.
+
+Đăng nhập, tiếp nhận đơn, cập nhật trạng thái đơn, quản lý bàn, gọi món tại quầy POS, thanh toán tại quầy, in hóa đơn, quản lý trạng thái món.
+
+Quản trị viên (Admin)
+
+Người có quyền quản lý cao nhất trong hệ thống, chịu trách nhiệm quản trị dữ liệu, cấu hình, tài khoản và theo dõi báo cáo kinh doanh.
+
+Đăng nhập, quản lý tài khoản, quản lý danh mục, quản lý món ăn, quản lý khuyến mãi, quản lý phản hồi, quản lý cấu hình, báo cáo.
+
+2.3 Sơ đồ luồng(Link)
+
+Luồng tổng thể bắt đầu từ bước người dùng truy cập hệ thống, đăng nhập hoặc đăng ký, sau đó hệ thống kiểm tra vai trò để điều hướng đến các chức năng phù hợp. Mọi thao tác nghiệp vụ đều được lưu lại vào các bảng dữ liệu tương ứng như Tài khoản, Hồ sơ khách hàng, Thực đơn, Quản lý bàn, Đơn hàng, Chi tiết đơn hàng và Hàng đợi bếp.
+
+Hình 2.3 - Sơ đồ luồng tổng thể hệ thống
+
+Bước
+
+Mô tả chi tiết hành động
+
+Bảng dữ liệu liên quan
+
+Bước 1: Truy cập hệ thống
+
+Người dùng mở ứng dụng hoặc website Quản lý quán phở bò. Hệ thống tiếp nhận yêu cầu, kiểm tra trạng thái phiên làm việc (session). Nếu chưa có phiên đăng nhập hợp lệ, hệ thống hiển thị tùy chọn Đăng nhập hoặc Đăng ký.
+
+Ghi nhận session tạm thời
+
+Bước 2: Điền thông tin Đăng ký (Đối với Khách hàng)
+
+Khách hàng chọn &quot;Đăng ký&quot;, nhập các thông tin bao gồm: Họ tên, Số điện thoại, Email và Mật khẩu. Hệ thống tiến hành kiểm tra tính hợp lệ của dữ liệu (định dạng email, số điện thoại, độ mạnh mật khẩu và đảm bảo Email/Số điện thoại chưa tồn tại).
+
+USERS (Kiểm tra trùng lặp)
+
+Bước 3: Lưu thông tin tài khoản mới
+
+Khi thông tin hợp lệ, hệ thống sẽ băm mã hóa mật khẩu (password hashing), tạo mới một bản ghi tài khoản với trạng thái hoạt động và tự động gán mã quyền mặc định là Customer. Đồng thời khởi tạo hồ sơ khách hàng.
+
+USERS, USER_ROLES, CUSTOMER_PROFILES (Lưu dữ liệu mới)
+
+Bước 4: Thực hiện Đăng nhập
+
+Người dùng (Khách hàng tự đăng ký) hoặc Nội bộ (Nhân viên/Quản lý/Admin sử dụng tài khoản do hệ thống cấp sẵn) nhập Username (hoặc Email/Số điện thoại) và Mật khẩu.
+
+USERS
+
+Bước 5: Xác thực tài khoản
+
+Hệ thống mã hóa mật khẩu người dùng vừa nhập và đối chiếu với password_hash trong DB.
+
+- Nếu sai: Trả về thông báo lỗi và yêu cầu nhập lại.
+
+- Nếu đúng: Tạo mã phiên làm việc (Access Token/Session) hợp lệ.
+
+USERS (Truy vấn xác thực)
+
+Bước 6: Kiểm tra vai trò &amp; Đọc hồ sơ
+
+Hệ thống tiến hành kiểm tra mã quyền (role_id) liên kết với tài khoản vừa đăng nhập để xác định danh tính. Hệ thống sẽ quét qua bảng hồ sơ tương ứng (CUSTOMER_PROFILES cho khách hoặc EMPLOYEE_PROFILES cho nhân sự nội bộ) để lấy thông tin hiển thị.
+
+USER_ROLES, ROLES, CUSTOMER_PROFILES, EMPLOYEE_PROFILES
+
+Bước 7: Điều hướng chức năng (4 Actor)
+
+Dựa trên vai trò được xác định ở Bước 6, hệ thống điều hướng người dùng đến giao diện chức năng phù hợp:
+
+- Khách hàng: Vào trang chủ, xem thực đơn trực tuyến, giỏ hàng.
+
+- Nhân viên: Vào màn hình POS gọi món tại quầy hoặc màn hình quản lý bếp.
+
+- Quản lý: Vào dashboard quản lý ca trực, kho hàng, duyệt đánh giá, báo cáo.
+
+- Quản trị viên: Vào màn hình Admin quản trị danh mục, phân quyền, cấu hình hệ thống.
+
+Hệ thống điều hướng Front-end
+
+2.4. Sơ đồ chuyển trạng thái(Link)
+
+Các trạng thái cốt lõi được áp dụng trực tiếp vào vòng đời của đơn hàng (Orders). Theo quy trình vận hành của quán, một đơn hàng sẽ luân chuyển tuần tự từ trạng thái chờ xác nhận, đã xác nhận, đang chế biến, đang phục vụ/đang giao và cuối cùng là hoàn thành. Tiến trình này có thể chuyển sang trạng thái đã hủy tại các giai đoạn phù hợp dựa trên quy định nghiệp vụ hệ thống.
+
+Hình 2.4 - Sơ đồ chuyển trạng thái Orders
+
+Trạng thái (State)
+
+Ý nghĩa nghiệp vụ (Description)
+
+Người có quyền cập nhật (Authorized Roles)
+
+CHỜ XÁC NHẬN
+
+(CHO_XAC_NHAN)
+
+Đơn hàng Online vừa được Khách hàng tạo từ Web/App, đang đợi hệ thống hoặc cửa hàng tiếp nhận.
+
+- Hệ thống (Tự động khởi tạo)
+
+- Nhân viên / Quản lý (Tiếp nhận đơn)
+
+ĐÃ XÁC NHẬN
+
+(DA_XAC_NHAN)
+
+Đơn hàng Online đã được cửa hàng chấp nhận, chuẩn bị chuyển thông tin xuống bộ phận bếp để chế biến.
+
+- Nhân viên / Quản lý (Thao tác xác nhận)
+
+- Quản trị viên (Admin)
+
+ĐANG CHẾ BIẾN
+
+(DANG_CHE_BIEN)
+
+- Đơn Online: Bếp đã nhận và đang nấu món.
+
+- Đơn tại quầy: Tạo trực tiếp từ máy POS và chuyển thẳng vào trạng thái này.
+
+- Hệ thống (Tự động chuyển khi tạo đơn POS)
+
+- Nhân viên bếp (Bấm nhận nấu tại KITCHEN_QUEUE)
+
+ĐANG GIAO
+
+(DANG_GIAO)
+
+Món ăn đối với đơn Online đã nấu xong, đã đóng gói và bàn giao cho Shipper đi giao.
+
+- Nhân viên quầy / Thu ngân (Xác nhận giao hàng)
+
+- Quản lý
+
+ĐANG PHỤC VỤ
+
+(DANG_PHUC_VU)
+
+Món ăn đối với đơn tại quán đã nấu xong, nhân viên bồi bàn đã mang ra phục vụ tại bàn cho khách.
+
+- Nhân viên phục vụ / Thu ngân
+
+HOÀN THÀNH
+
+(HOAN_THANH)
+
+- Đơn Online: Shipper giao thành công và thu tiền.
+
+- Đơn tại quán: Khách ăn xong và đã thanh toán hoàn tất tại quầy POS.
+
+- Hệ thống (Tự động chuyển khi PAYMENTS ghi nhận thành công)
+
+- Nhân viên thu ngân / Quản lý
+
+ĐÃ HỦY
+
+(DA_HUY)
+
+Đơn hàng bị hủy bỏ giữa chừng do khách đổi ý, shipper không liên lạc được, hoặc do bếp hết nguyên liệu đột xuất.
+
+- Khách hàng (Chỉ được hủy khi đơn ở trạng thái Chờ xác nhận)
+
+- Nhân viên (Hủy do sự cố bếp/ship)
+
+- Quản lý / Admin (Có quyền hủy ở mọi giai đoạn trước khi Hoàn thành)
+
+2.5. Phân quyền
+
+2.5.1. Phân quyền chức năng
+
+STT
+
+Chức năng
+
+Customer
+
+Staff
+
+Manager
+
+Admin
+
+1
+
+Đăng ký tài khoản (UC-01)
+
+X
+
+2
+
+Đăng nhập (UC-02)
+
+X
+
+X
+
+X
+
+X
+
+3
+
+Quản lý thông tin cá nhân (UC-03)
+
+X
+
+X
+
+X
+
+X
+
+4
+
+Quản lý địa chỉ giao hàng (UC-04)
+
+X
+
+5
+
+Xem và tìm kiếm thực đơn (UC-05)
+
+X
+
+X
+
+X
+
+X
+
+6
+
+Tùy chỉnh món ăn (UC-06)
+
+X
+
+X
+
+7
+
+Quản lý giỏ hàng (UC-07)
+
+X
+
+8
+
+Áp dụng mã giảm giá (UC-08)
+
+X
+
+X
+
+X
+
+9
+
+Đặt hàng Online (UC-09)
+
+X
+
+10
+
+Thanh toán trực tuyến (UC-10)
+
+X
+
+11
+
+Theo dõi trạng thái đơn hàng (UC-11)
+
+X
+
+X
+
+X
+
+12
+
+Lịch sử đơn hàng (UC-12)
+
+X
+
+X
+
+X
+
+X
+
+13
+
+Đánh giá &amp; phản hồi (UC-13)
+
+X
+
+14
+
+Tiếp nhận đơn trực tuyến (UC-14)
+
+X
+
+X
+
+15
+
+Cập nhật trạng thái đơn (UC-15)
+
+X
+
+X
+
+16
+
+Quản lý bàn tại quán (UC-16)
+
+X
+
+X
+
+17
+
+Gọi món tại quầy - POS (UC-17)
+
+X
+
+X
+
+18
+
+Thanh toán tại quầy (UC-18)
+
+X
+
+X
+
+19
+
+In hóa đơn (UC-19)
+
+X
+
+X
+
+20
+
+Quản lý trạng thái món ăn tại bếp (UC-20)
+
+X
+
+21
+
+Quản lý tài khoản người dùng (UC-21)
+
+X
+
+22
+
+Quản lý danh mục thực đơn (UC-22)
+
+X
+
+23
+
+Quản lý món ăn và giá cả (UC-23)
+
+X
+
+24
+
+Quản lý mã khuyến mãi (UC-24)
+
+X
+
+X
+
+25
+
+Kiểm duyệt đánh giá (UC-25)
+
+X
+
+X
+
+26
+
+Quản lý cấu hình toàn hệ thống (UC-26)
+
+X
+
+27
+
+Báo cáo &amp; Thống kê kinh doanh (UC-27)
+
+X
+
+X
+
+28
+
+Quản lý ca làm việc &amp; Chấm công (UC-28)
+
+X
+
+29
+
+Quản lý kho nguyên liệu (UC-29)
+
+X
+
+2.5.2. Phân quyền dữ liệu
+
+Quy ước quyền:
+
+R (Read): Xem/Đọc
+
+C (Create): Tạo mới
+
+U (Update): Cập nhật
+
+D (Delete): Xóa
+
+F (Full): Toàn quyền (CRUD)
+
+Own: Chỉ thao tác trên dữ liệu của chính mình (đối với Khách hàng) hoặc dữ liệu thuộc phạm vi cửa hàng/ca làm việc (đối với Nhân viên/Quản lý).
+
+Loại dữ liệu
+
+Customer
+
+Staff
+
+Manager
+
+Admin
+
+Thông tin tài khoản (Users, Roles)
+
+R/U (Own)
+
+R/U (Own)
+
+R/U (Own, Manage Staff)
+
+F
+
+Hồ sơ nhân viên (Employee Profiles)
+
+-
+
+R (Own)
+
+R/U (Own, Staff)
+
+F
+
+Danh mục thực đơn (Categories)
+
+R
+
+R
+
+R
+
+F
+
+Món ăn &amp; Giá (Products, Options)
+
+R
+
+R
+
+R
+
+F
+
+Giỏ hàng (Carts)
+
+F (Own)
+
+-
+
+-
+
+-
+
+Địa chỉ giao hàng (Address Book)
+
+F (Own)
+
+-
+
+-
+
+-
+
+Đơn hàng (Orders &amp; Items)
+
+C/R/U (Own)
+
+R/U (Update Status)
+
+R/U
+
+R
+
+Hàng đợi bếp (Kitchen Queue)
+
+R
+
+R/U
+
+R
+
+R
+
+Thanh toán (Payments)
+
+R (Own)
+
+R
+
+R/U
+
+R/U
+
+Đánh giá &amp; Phản hồi (Reviews)
+
+C/R (Own)
+
+-
+
+R/U (Moderate)
+
+R/U (Moderate)
+
+Tồn kho &amp; Nguyên liệu (Inventory)
+
+-
+
+-
+
+R/U
+
+R/U
+
+Ca làm việc &amp; Chấm công (Shifts)
+
+-
+
+R/U (Own)
+
+R/U
+
+R/U
+
+Mã khuyến mãi (Vouchers)
+
+R
+
+R
+
+R/U
+
+F
+
+Cấu hình hệ thống (Configuration)
+
+-
+
+-
+
+-
+
+F
+
+2.6. Site Map(Link)
+
+Giải thích cấu trúc:
+
+Giao diện Khách hàng (Customer): Tập trung vào trải nghiệm đặt món trực tuyến, từ xem thực đơn đến thanh toán và theo dõi đơn hàng.
+
+Giao diện Nhân viên (Staff/POS): Được thiết kế để tối ưu hóa vận hành tại cửa hàng, bao gồm tiếp nhận đơn, thao tác POS tại quầy và quản lý bếp.
+
+Giao diện Quản trị (Manager/Admin): Hệ thống các công cụ quản lý cấp cao, giám sát doanh thu, quản trị thực đơn, nhân sự và cấu hình toàn hệ thống.
+
+PHẦN 3: CHỨC NĂNG
+
+Phần này mô tả danh sách chức năng và đặc tả chi tiết từng Use Case chính của hệ thống.
+
+STT
+
+Mã
+
+Tên chức năng
+
+Phân hệ
+
+Tác nhân (Actor)
+
+1
+
+UC-01
+
+Đăng ký tài khoản (Register)
+
+Quản lý Tài khoản
+
+Khách hàng
+
+2
+
+UC-02
+
+Đăng nhập (Login)
+
+Quản lý Tài khoản
+
+Khách hàng, Nhân viên, Quản lý, Quản trị viên
+
+3
+
+UC-03
+
+Quản lý thông tin cá nhân (Profile)
+
+Quản lý Tài khoản
+
+Khách hàng, Nhân viên, Quản lý, Quản trị viên
+
+4
+
+UC-04
+
+Quản lý địa chỉ giao hàng (Address Book)
+
+Quản lý Tài khoản
+
+Khách hàng
+
+5
+
+UC-05
+
+Xem và tìm kiếm thực đơn (Browse Menu)
+
+Thực đơn &amp; Đặt hàng
+
+Khách hàng
+
+6
+
+UC-06
+
+Tùy chỉnh món ăn (Customize Options)
+
+Thực đơn &amp; Đặt hàng
+
+Khách hàng
+
+7
+
+UC-07
+
+Quản lý giỏ hàng (Cart Management)
+
+Thực đơn &amp; Đặt hàng
+
+Khách hàng
+
+8
+
+UC-08
+
+Áp dụng mã giảm giá (Apply Voucher)
+
+Khuyến mãi
+
+Khách hàng
+
+9
+
+UC-09
+
+Đặt hàng Online (Checkout)
+
+Thực đơn &amp; Đặt hàng
+
+Khách hàng
+
+10
+
+UC-10
+
+Thanh toán trực tuyến (Online Payment)
+
+Thanh toán
+
+Khách hàng
+
+11
+
+UC-11
+
+Theo dõi trạng thái đơn hàng (Tracking)
+
+Thực đơn &amp; Đặt hàng
+
+Khách hàng
+
+12
+
+UC-12
+
+Lịch sử đơn hàng (Order History)
+
+Thực đơn &amp; Đặt hàng
+
+Khách hàng
+
+13
+
+UC-13
+
+Đánh giá &amp; phản hồi (Review &amp; Feedback)
+
+Đánh giá
+
+Khách hàng
+
+14
+
+UC-14
+
+Tiếp nhận đơn trực tuyến (Acceptance)
+
+Vận hành &amp; POS
+
+Nhân viên, Quản lý
+
+15
+
+UC-15
+
+Cập nhật trạng thái đơn (Status Management)
+
+Vận hành &amp; POS
+
+Nhân viên, Quản lý
+
+16
+
+UC-16
+
+Quản lý bàn tại quán (Table Management)
+
+Vận hành &amp; POS
+
+Nhân viên, Quản lý
+
+17
+
+UC-17
+
+Gọi món tại quầy - POS (POS Ordering)
+
+Vận hành &amp; POS
+
+Nhân viên, Quản lý
+
+18
+
+UC-18
+
+Thanh toán tại quầy (POS Payment)
+
+Thanh toán
+
+Nhân viên, Quản lý
+
+19
+
+UC-19
+
+In hóa đơn (Invoice Printing)
+
+Vận hành &amp; POS
+
+Nhân viên, Quản lý
+
+20
+
+UC-20
+
+Quản lý trạng thái món ăn tại bếp
+
+Vận hành Nhà bếp
+
+Nhân viên
+
+21
+
+UC-21
+
+Quản lý tài khoản người dùng (User CRUD)
+
+Quản trị Hệ thống
+
+Quản trị viên
+
+22
+
+UC-22
+
+Quản lý danh mục thực đơn (Category CRUD)
+
+Quản trị Hệ thống
+
+Quản trị viên
+
+23
+
+UC-23
+
+Quản lý món ăn và giá cả (Product CRUD)
+
+Quản trị Hệ thống
+
+Quản trị viên
+
+24
+
+UC-24
+
+Quản lý mã khuyến mãi (Voucher CRUD)
+
+Khuyến mãi
+
+Quản trị viên
+
+25
+
+UC-25
+
+Kiểm duyệt đánh giá (Review Moderation)
+
+Đánh giá
+
+Quản lý
+
+26
+
+UC-26
+
+Quản lý cấu hình toàn hệ thống
+
+Quản trị Hệ thống
+
+Quản trị viên
+
+27
+
+UC-27
+
+Báo cáo &amp; Thống kê kinh doanh (Analytics)
+
+Quản lý &amp; Vận hành
+
+Quản lý, Quản trị viên
+
+28
+
+UC-28
+
+Quản lý ca làm việc &amp; Chấm công
+
+Quản lý &amp; Vận hành
+
+Quản lý
+
+29
+
+UC-29
+
+Quản lý kho nguyên liệu (Inventory)
+
+Quản lý &amp; Vận hành
+
+Quản lý
+
+Quy ước phân quyền:
+
+Vai trò
+
+Phạm vi chính trong Phần 3
+
+Khách hàng (Customer)
+
+Thực hiện các chức năng từ UC-01 đến UC-13: Đăng ký/đăng nhập tài khoản, quản lý địa chỉ giao hàng, xem thực đơn, tùy chỉnh món ăn, quản lý giỏ hàng, áp dụng mã giảm giá, đặt hàng trực tuyến, thanh toán online, theo dõi trạng thái đơn và gửi đánh giá/phản hồi.
+
+Nhân viên (Staff)
+
+Thực hiện các chức năng vận hành cửa hàng và nhà bếp: Tiếp nhận đơn trực tuyến (UC-14), cập nhật trạng thái đơn (UC-15), quản lý bàn tại quán (UC-16), gọi món và thanh toán tại quầy POS (UC-17, UC-18), in hóa đơn (UC-19) và điều phối trạng thái món ăn tại khu vực nhà bếp (UC-20).
+
+Quản lý (Manager)
+
+Thực hiện các chức năng giám sát vận hành và nhân sự: Kiểm duyệt các đánh giá/phản hồi của khách hàng (UC-25), xem báo cáo &amp; thống kê kinh doanh chuyên sâu (UC-27), quản lý ca làm việc &amp; chấm công cho nhân viên (UC-28), và quản lý lượng tồn kho nguyên liệu của quán (UC-29). Ngoài ra có quyền hỗ trợ nhân viên xử lý đơn hàng khi cần (UC-14 đến UC-19).
+
+Quản trị viên (Admin)
+
+Thực hiện các chức năng quản trị hệ thống cấp cao: Quản lý tài khoản người dùng và phân quyền (UC-21), quản lý danh mục thực đơn và món ăn/giá cả (UC-22, UC-23), quản lý chiến dịch mã khuyến mãi/Voucher (UC-24), cấu hình toàn bộ thông số hệ thống (UC-26) và theo dõi báo cáo tổng quan (UC-27).
+
+3.1. UC-01 - Đăng ký tài khoản (Register)
+
+3.1.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-01
+
+Mô tả
+
+Cho phép khách hàng mới tạo tài khoản bằng Email/Số điện thoại để đặt món, lưu địa chỉ và theo dõi đơn hàng.
+
+Tác nhân (Actor(s))
+
+Khách hàng vãng lai
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Người dùng chọn nút &quot;Đăng ký&quot; trên header hoặc màn hình đăng nhập.
+
+Điều kiện cần (Pre-Condition)
+
+Người dùng chưa đăng nhập và chưa có tài khoản hợp lệ trên hệ thống.
+
+Điều kiện sau (Post-Condition)
+
+Tài khoản được tạo, xác thực OTP thành công và chuyển sang trạng thái ACTIVE với vai trò Customer.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người dùng nhập họ tên, email, số điện thoại, mật khẩu và xác nhận mật khẩu.2. Hệ thống kiểm tra định dạng dữ liệu và độ mạnh mật khẩu.3. Hệ thống kiểm tra email/số điện thoại đã tồn tại hay chưa.4. Hệ thống mã hóa mật khẩu, tạo tài khoản PENDING_VERIFY và gửi OTP.5. Người dùng nhập OTP hợp lệ, hệ thống kích hoạt tài khoản.
+
+Luồng thay thế (Alternative Flow)
+
+Người dùng có thể chọn đăng ký nhanh bằng Google OAuth; hệ thống tạo tài khoản Customer nếu email chưa tồn tại.
+
+Luồng ngoại lệ (Exception Flow)
+
+Email/SĐT đã tồn tại, OTP sai/hết hạn hoặc mật khẩu không khớp thì hệ thống hiển thị lỗi và không tạo tài khoản ACTIVE.
+
+Ràng buộc (Business Rules)
+
+Mật khẩu tối thiểu 8 ký tự, có chữ hoa, chữ số và ký tự đặc biệt; OTP hiệu lực 5 phút; mặc định vai trò là Customer.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Mật khẩu phải được băm một chiều; thời gian gửi OTP mục tiêu &lt; 3 giây.
+
+3.1.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Khách hàng vãng lai
+
+Mở màn hình đăng ký và nhập thông tin cá nhân.
+
+Hệ thống hiển thị form và nhận dữ liệu đầu vào.
+
+Bước 2
+
+Hệ thống
+
+Kiểm tra định dạng, trùng email/SĐT và độ mạnh mật khẩu.
+
+Nếu hợp lệ thì cho phép tạo tài khoản; nếu không hợp lệ thì trả thông báo lỗi.
+
+Bước 3
+
+Hệ thống
+
+Tạo User ở trạng thái PENDING_VERIFY, mã hóa mật khẩu và gửi OTP.
+
+Bản ghi tài khoản được lưu tạm; OTP được gửi qua email/SMS.
+
+Bước 4
+
+Khách hàng vãng lai
+
+Nhập mã OTP xác thực.
+
+Hệ thống đối chiếu OTP và thời hạn hiệu lực.
+
+Bước 5
+
+Hệ thống
+
+Kích hoạt tài khoản Customer.
+
+Tài khoản chuyển ACTIVE và người dùng được điều hướng sang đăng nhập/trang chủ.
+
+3.1.3. Giao diện
+
+Màn hình đăng ký dạng form, có cảnh báo lỗi ngay dưới từng trường và màn hình nhập OTP sau khi gửi thông tin hợp lệ.
+
+3.1.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Họ và tên
+
+full_name
+
+String
+
+Có
+
+Tối đa 100 ký tự.
+
+Email
+
+email
+
+String
+
+Có
+
+Đúng định dạng email và duy nhất.
+
+Số điện thoại
+
+phone_number
+
+String
+
+Có
+
+10 chữ số, bắt đầu bằng số 0 và duy nhất.
+
+Mật khẩu
+
+password
+
+String
+
+Có
+
+Lưu dưới dạng hash, không lưu plain text.
+
+Mã OTP
+
+otp_code
+
+String
+
+Có
+
+Mã xác thực dùng một lần.
+
+3.2. UC-02 - Đăng nhập (Login)
+
+3.2.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-02
+
+Mô tả
+
+Xác thực người dùng và điều hướng đúng giao diện theo vai trò sau khi đăng nhập.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Nhân viên, Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Người dùng chọn nút &quot;Đăng nhập&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Tài khoản đã tồn tại, đang ở trạng thái ACTIVE và không bị khóa.
+
+Điều kiện sau (Post-Condition)
+
+Hệ thống tạo phiên đăng nhập/JWT, ghi nhận vai trò và điều hướng đến màn hình phù hợp.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người dùng nhập email hoặc số điện thoại và mật khẩu.2. Hệ thống xác thực thông tin đăng nhập.3. Hệ thống lấy vai trò của tài khoản.4. Hệ thống sinh token phiên làm việc.5. Hệ thống điều hướng: Customer sang Client App, Staff sang Staff Portal, Manager sang Manager Portal, Admin sang Admin Panel.
+
+Luồng thay thế (Alternative Flow)
+
+Đăng nhập bằng Google OAuth áp dụng cho Customer; tài khoản nội bộ Staff/Manager/Admin ưu tiên đăng nhập bằng tài khoản do hệ thống cấp.
+
+Luồng ngoại lệ (Exception Flow)
+
+Sai thông tin đăng nhập, tài khoản bị khóa hoặc chưa kích hoạt thì hệ thống từ chối đăng nhập và hiển thị cảnh báo.
+
+Ràng buộc (Business Rules)
+
+Sai mật khẩu quá 5 lần thì khóa tạm 15 phút; Manager không được tự nâng quyền; Admin có quyền cao nhất.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Xác thực mục tiêu &lt; 1 giây; refresh token lưu an toàn bằng HttpOnly Cookie.
+
+3.2.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Nhập tài khoản và mật khẩu rồi bấm Đăng nhập.
+
+Hệ thống nhận yêu cầu xác thực.
+
+Bước 2
+
+Hệ thống
+
+Đối chiếu tài khoản, trạng thái và mật khẩu trong DB.
+
+Nếu hợp lệ thì tiếp tục kiểm tra vai trò; nếu sai thì báo lỗi.
+
+Bước 3
+
+Hệ thống
+
+Truy vấn vai trò Customer/Staff/Manager/Admin.
+
+Vai trò được gắn vào token phiên làm việc.
+
+Bước 4
+
+Hệ thống
+
+Sinh JWT/Session và lưu vết đăng nhập.
+
+Phiên đăng nhập được tạo thành công.
+
+Bước 5
+
+Hệ thống
+
+Điều hướng theo vai trò.
+
+Người dùng vào đúng phân hệ được cấp quyền.
+
+3.2.3. Giao diện
+
+Form đăng nhập gồm tài khoản, mật khẩu, ghi nhớ đăng nhập, quên mật khẩu và thông báo lỗi rõ ràng.
+
+3.2.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Tài khoản đăng nhập
+
+username
+
+String
+
+Có
+
+Email hoặc số điện thoại.
+
+Mật khẩu
+
+password
+
+String
+
+Có
+
+Mật khẩu người dùng nhập.
+
+Vai trò
+
+role_code
+
+Enum
+
+Có
+
+CUSTOMER, STAFF, MANAGER, ADMIN.
+
+Token truy cập
+
+access_token
+
+String
+
+Có
+
+Token phiên làm việc.
+
+3.3. UC-03 - Quản lý thông tin cá nhân (Profile Management)
+
+3.3.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-03
+
+Mô tả
+
+Cho phép người dùng đã đăng nhập xem và cập nhật thông tin cá nhân trong phạm vi tài khoản của mình.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Nhân viên, Quản lý cửa hàng, Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Người dùng chọn mục &quot;Thông tin tài khoản&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Người dùng đã đăng nhập hợp lệ.
+
+Điều kiện sau (Post-Condition)
+
+Thông tin cá nhân được cập nhật và ghi nhận lịch sử chỉnh sửa nếu có thay đổi quan trọng.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống tải hồ sơ theo user_uuid trong token.2. Người dùng chỉnh sửa họ tên, số điện thoại hoặc ảnh đại diện.3. Hệ thống kiểm tra định dạng và trùng số điện thoại.4. Hệ thống lưu thông tin mới.5. Giao diện hiển thị thông báo cập nhật thành công.
+
+Luồng thay thế (Alternative Flow)
+
+Nếu có ảnh đại diện mới, hệ thống tải ảnh lên dịch vụ lưu trữ và lưu URL trả về.
+
+Luồng ngoại lệ (Exception Flow)
+
+Số điện thoại trùng, ảnh quá dung lượng hoặc phiên đăng nhập hết hạn thì hệ thống không cập nhật và hiển thị lỗi.
+
+Ràng buộc (Business Rules)
+
+Không cho phép người dùng tự đổi email định danh; Staff/Manager/Admin chỉ sửa hồ sơ cá nhân tại màn hình này, không sửa quyền.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Ảnh upload tối đa 2MB; phản hồi cập nhật thông tin trong điều kiện tải chuẩn &lt; 1 giây.
+
+3.3.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Mở trang thông tin cá nhân.
+
+Hệ thống tải dữ liệu hồ sơ hiện tại.
+
+Bước 2
+
+Người dùng
+
+Chỉnh sửa thông tin được phép thay đổi.
+
+Form ghi nhận dữ liệu mới.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra định dạng, trùng số điện thoại và quyền cập nhật.
+
+Dữ liệu hợp lệ được phép lưu.
+
+Bước 4
+
+Hệ thống
+
+Cập nhật hồ sơ trong DB.
+
+Bản ghi hồ sơ thay đổi theo dữ liệu mới.
+
+Bước 5
+
+Hệ thống
+
+Trả phản hồi thành công.
+
+Giao diện hiển thị thông báo và dữ liệu mới.
+
+3.3.3. Giao diện
+
+Form hồ sơ có avatar preview, trường thông tin cá nhân và nút Lưu thay đổi.
+
+3.3.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Họ và tên
+
+full_name
+
+String
+
+Có
+
+Tối đa 100 ký tự.
+
+Số điện thoại
+
+phone_number
+
+String
+
+Có
+
+Định dạng số di động.
+
+Ảnh đại diện
+
+avatar_url
+
+String
+
+Không
+
+URL ảnh đại diện.
+
+Mã người dùng
+
+user_uuid
+
+UUID
+
+Có
+
+Lấy từ token đăng nhập.
+
+3.4. UC-04 - Quản lý địa chỉ giao hàng (Address Book)
+
+3.4.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-04
+
+Mô tả
+
+Cho phép khách hàng thêm, sửa, xóa và đặt mặc định địa chỉ giao hàng phục vụ đặt món online.
+
+Tác nhân (Actor(s))
+
+Khách hàng
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Khách hàng chọn mục &quot;Sổ địa chỉ&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Khách hàng đã đăng nhập.
+
+Điều kiện sau (Post-Condition)
+
+Danh sách địa chỉ của khách hàng được cập nhật; chỉ có một địa chỉ mặc định.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị danh sách địa chỉ hiện có.2. Khách hàng chọn thêm hoặc sửa địa chỉ.3. Khách hàng nhập thông tin nhận hàng và địa chỉ chi tiết.4. Hệ thống kiểm tra dữ liệu và lưu địa chỉ.5. Giao diện cập nhật danh sách địa chỉ.
+
+Luồng thay thế (Alternative Flow)
+
+Khách hàng có thể xóa địa chỉ hoặc đặt một địa chỉ làm mặc định.
+
+Luồng ngoại lệ (Exception Flow)
+
+Vượt quá số lượng địa chỉ, thiếu thông tin bắt buộc hoặc lỗi gợi ý bản đồ thì hệ thống hiển thị cảnh báo.
+
+Ràng buộc (Business Rules)
+
+Mỗi khách hàng tối đa 5 địa chỉ; xóa địa chỉ mặc định thì phải chọn địa chỉ mặc định mới nếu còn địa chỉ khác.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Gợi ý địa chỉ phản hồi nhanh; thao tác CRUD địa chỉ mục tiêu &lt; 1 giây.
+
+3.4.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Khách hàng
+
+Mở sổ địa chỉ.
+
+Hệ thống hiển thị danh sách địa chỉ của khách.
+
+Bước 2
+
+Khách hàng
+
+Chọn thêm/sửa/xóa hoặc đặt mặc định.
+
+Hệ thống mở form hoặc hộp xác nhận tương ứng.
+
+Bước 3
+
+Khách hàng
+
+Nhập/cập nhật thông tin địa chỉ và lưu.
+
+Hệ thống nhận dữ liệu địa chỉ.
+
+Bước 4
+
+Hệ thống
+
+Kiểm tra dữ liệu, giới hạn số lượng và quyền sở hữu địa chỉ.
+
+Dữ liệu hợp lệ được lưu vào DB.
+
+Bước 5
+
+Hệ thống
+
+Cập nhật danh sách địa chỉ trên giao diện.
+
+Khách hàng nhìn thấy kết quả mới.
+
+3.4.3. Giao diện
+
+Danh sách địa chỉ dạng card, có nhãn Mặc định, nút Thêm/Sửa/Xóa rõ ràng.
+
+3.4.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Tên gợi nhớ
+
+address_label
+
+String
+
+Có
+
+Ví dụ: Nhà riêng, Công ty.
+
+Địa chỉ chi tiết
+
+address_detail
+
+String
+
+Có
+
+Địa chỉ nhận hàng.
+
+Vĩ độ
+
+latitude
+
+Decimal
+
+Không
+
+Tọa độ bản đồ nếu có.
+
+Kinh độ
+
+longitude
+
+Decimal
+
+Không
+
+Tọa độ bản đồ nếu có.
+
+Địa chỉ mặc định
+
+is_default
+
+Boolean
+
+Có
+
+Đánh dấu địa chỉ mặc định.
+
+3.5. UC-05 - Xem và tìm kiếm thực đơn (Browse &amp; Search Menu)
+
+3.5.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-05
+
+Mô tả
+
+Cho phép người dùng xem, tìm kiếm và lọc món ăn/đồ uống đang được phép hiển thị.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Khách hàng vãng lai, Nhân viên, Quản lý cửa hàng, Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Người dùng truy cập trang chủ, trang thực đơn hoặc màn hình POS.
+
+Điều kiện cần (Pre-Condition)
+
+Hệ thống có dữ liệu danh mục và món ăn đang hoạt động.
+
+Điều kiện sau (Post-Condition)
+
+Danh sách món phù hợp tiêu chí được hiển thị theo phạm vi quyền.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người dùng nhập từ khóa hoặc chọn danh mục.2. Hệ thống lọc món theo trạng thái, danh mục và từ khóa.3. Hệ thống trả danh sách món kèm giá, ảnh, trạng thái còn/hết.4. Người dùng chọn món để xem chi tiết hoặc thêm vào giỏ/POS.
+
+Luồng thay thế (Alternative Flow)
+
+Có thể lọc theo giá, trạng thái còn hàng hoặc món bán chạy.
+
+Luồng ngoại lệ (Exception Flow)
+
+Không có kết quả thì hệ thống hiển thị thông báo và gợi ý món phổ biến.
+
+Ràng buộc (Business Rules)
+
+Customer chỉ thấy món is_active=true; Staff/Manager/Admin có thể thấy trạng thái vận hành để phục vụ quản lý.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Tìm kiếm phân trang mục tiêu &lt; 1 giây với 10.000 dòng dữ liệu.
+
+3.5.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Nhập từ khóa hoặc chọn bộ lọc thực đơn.
+
+Hệ thống nhận tiêu chí tìm kiếm.
+
+Bước 2
+
+Hệ thống
+
+Truy vấn danh mục/món theo quyền hiển thị.
+
+Danh sách kết quả được lọc chính xác.
+
+Bước 3
+
+Hệ thống
+
+Trả tên món, ảnh, giá, option và trạng thái còn hàng.
+
+Giao diện hiển thị danh sách món.
+
+Bước 4
+
+Người dùng
+
+Chọn món cần xem chi tiết.
+
+Hệ thống mở trang/modal chi tiết món.
+
+Bước 5
+
+Hệ thống
+
+Xử lý trường hợp không có kết quả.
+
+Hiển thị thông báo và gợi ý món liên quan.
+
+3.5.3. Giao diện
+
+Thanh tìm kiếm, bộ lọc danh mục và grid/list thẻ món ăn có nhãn trạng thái.
+
+3.5.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Từ khóa tìm kiếm
+
+search_keyword
+
+String
+
+Không
+
+Chuỗi có dấu hoặc không dấu.
+
+Mã danh mục
+
+category_id
+
+UUID
+
+Không
+
+Lọc theo danh mục.
+
+Trạng thái món
+
+availability_status
+
+Enum
+
+Không
+
+AVAILABLE, SOLD_OUT, HIDDEN.
+
+Khoảng giá
+
+price_range
+
+Object
+
+Không
+
+Giá thấp nhất/cao nhất.
+
+3.6. UC-06 - Tùy chỉnh món ăn (Customize Product Options)
+
+3.6.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-06
+
+Mô tả
+
+Cho phép chọn size, nước dùng, topping, ghi chú đặc biệt cho món trước khi thêm vào giỏ hàng hoặc POS.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Nhân viên
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Người dùng chọn nút &quot;Lựa chọn&quot; hoặc chọn món tại POS.
+
+Điều kiện cần (Pre-Condition)
+
+Món ăn còn hoạt động và có cấu hình option hợp lệ.
+
+Điều kiện sau (Post-Condition)
+
+Cấu hình món tùy chỉnh được tạo thành dòng giỏ hàng/POS với giá cuối cùng.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống mở modal chi tiết món và danh sách option.2. Người dùng chọn các option bắt buộc và tùy chọn.3. Hệ thống tính giá cuối cùng theo thời gian thực.4. Người dùng nhập ghi chú nếu có.5. Người dùng thêm món vào giỏ hàng/POS.
+
+Luồng thay thế (Alternative Flow)
+
+Nhân viên tại quầy có thể ghi chú theo yêu cầu trực tiếp của khách tại quán.
+
+Luồng ngoại lệ (Exception Flow)
+
+Chưa chọn option bắt buộc hoặc món hết hàng thì hệ thống chặn thêm món và báo lỗi.
+
+Ràng buộc (Business Rules)
+
+Giá cuối cùng = giá nền + tổng giá option; option bắt buộc phải được chọn đủ.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Tính giá trên giao diện phải mượt, phản hồi tức thì.
+
+3.6.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Mở chi tiết món cần tùy chỉnh.
+
+Hệ thống hiển thị option hợp lệ của món.
+
+Bước 2
+
+Người dùng
+
+Chọn size, nước dùng, topping và nhập ghi chú.
+
+Hệ thống ghi nhận cấu hình món.
+
+Bước 3
+
+Hệ thống
+
+Tính lại giá theo option và số lượng.
+
+Tổng tiền tạm tính được cập nhật trên UI.
+
+Bước 4
+
+Người dùng
+
+Bấm Thêm vào giỏ/POS.
+
+Hệ thống kiểm tra option bắt buộc và tồn kho/trạng thái.
+
+Bước 5
+
+Hệ thống
+
+Tạo dòng món tùy chỉnh.
+
+Dòng món được thêm vào giỏ hàng hoặc hóa đơn POS.
+
+3.6.3. Giao diện
+
+Modal chi tiết món gồm ảnh, nhóm radio/checkbox option, ghi chú, số lượng và nút Thêm.
+
+3.6.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã món ăn
+
+product_id
+
+UUID
+
+Có
+
+Định danh món chính.
+
+Danh sách option
+
+selected_options
+
+Array
+
+Có
+
+Mảng ID option đã chọn.
+
+Số lượng
+
+quantity
+
+Integer
+
+Có
+
+Từ 1 đến 99.
+
+Ghi chú đặc biệt
+
+special_note
+
+String
+
+Không
+
+Tối đa 150 ký tự.
+
+Giá cuối cùng
+
+final_price
+
+Decimal
+
+Có
+
+Tính từ giá nền và option.
+
+3.7. UC-07 - Quản lý giỏ hàng (Cart Management)
+
+3.7.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-07
+
+Mô tả
+
+Cho phép khách hàng xem, cập nhật số lượng, xóa món và kiểm tra tổng tiền trước khi đặt hàng.
+
+Tác nhân (Actor(s))
+
+Khách hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Khách hàng bấm biểu tượng Giỏ hàng.
+
+Điều kiện cần (Pre-Condition)
+
+Khách hàng có giỏ hàng trong DB hoặc phiên tạm.
+
+Điều kiện sau (Post-Condition)
+
+Giỏ hàng được cập nhật, tổng tiền tạm tính chính xác.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị danh sách dòng món trong giỏ.2. Khách hàng tăng/giảm số lượng hoặc xóa món.3. Hệ thống kiểm tra trạng thái món và option.4. Hệ thống tính lại tổng tiền tạm tính.5. Khách hàng chuyển sang thanh toán nếu giỏ hợp lệ.
+
+Luồng thay thế (Alternative Flow)
+
+Nếu khách chưa đăng nhập, giỏ có thể lưu tạm và đồng bộ sau khi đăng nhập.
+
+Luồng ngoại lệ (Exception Flow)
+
+Món ngừng bán/hết hàng hoặc số lượng không hợp lệ thì hệ thống yêu cầu cập nhật giỏ.
+
+Ràng buộc (Business Rules)
+
+Các món tùy chỉnh khác nhau phải là các dòng giỏ hàng riêng; không đặt số lượng nhỏ hơn 1.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Thao tác cập nhật giỏ hàng mục tiêu &lt; 1 giây.
+
+3.7.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Khách hàng
+
+Mở giỏ hàng.
+
+Hệ thống hiển thị các món đã chọn.
+
+Bước 2
+
+Khách hàng
+
+Tăng/giảm số lượng hoặc xóa dòng món.
+
+Hệ thống nhận thao tác cập nhật.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra món còn bán và số lượng hợp lệ.
+
+Nếu hợp lệ thì cập nhật giỏ; nếu lỗi thì báo khách.
+
+Bước 4
+
+Hệ thống
+
+Tính lại tạm tính, phí phát sinh và tổng tiền.
+
+Giao diện cập nhật tổng giỏ hàng.
+
+Bước 5
+
+Khách hàng
+
+Bấm Tiến hành đặt hàng.
+
+Hệ thống chuyển đến checkout nếu giỏ hợp lệ.
+
+3.7.3. Giao diện
+
+Trang giỏ hàng hiển thị tên món, option con, số lượng, đơn giá, tổng dòng và nút đặt hàng.
+
+3.7.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã giỏ hàng
+
+cart_id
+
+UUID
+
+Có
+
+Giỏ của khách.
+
+Mã dòng giỏ
+
+cart_item_id
+
+UUID
+
+Có
+
+Dòng món + option.
+
+Số lượng
+
+quantity
+
+Integer
+
+Có
+
+Từ 1 đến 99.
+
+Tạm tính
+
+subtotal_amount
+
+Decimal
+
+Có
+
+Tổng tiền món trước phí/giảm giá.
+
+3.8. UC-08 - Áp dụng mã giảm giá (Apply Voucher)
+
+3.8.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-08
+
+Mô tả
+
+Cho phép áp mã khuyến mãi trong giỏ hàng/checkout/POS theo điều kiện cấu hình.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Người dùng nhập mã và bấm &quot;Áp dụng&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn tạm hoặc giỏ hàng có giá trị hợp lệ để kiểm tra voucher.
+
+Điều kiện sau (Post-Condition)
+
+Tổng tiền được giảm đúng điều kiện hoặc hệ thống hiển thị lý do không áp dụng.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người dùng nhập mã voucher.2. Hệ thống kiểm tra thời hạn, số lượng, đối tượng áp dụng và giá trị đơn tối thiểu.3. Hệ thống tính số tiền giảm.4. Giao diện cập nhật tổng tiền phải thanh toán.
+
+Luồng thay thế (Alternative Flow)
+
+Nhân viên có thể nhập mã tại POS; Manager có thể kiểm tra lý do mã không áp dụng khi hỗ trợ khách.
+
+Luồng ngoại lệ (Exception Flow)
+
+Mã hết hạn, hết lượt, sai đối tượng hoặc đơn chưa đạt điều kiện thì hệ thống không áp dụng và thông báo lỗi.
+
+Ràng buộc (Business Rules)
+
+Mỗi đơn chỉ áp dụng một voucher; Manager chỉ hỗ trợ áp dụng/kiểm tra trong phạm vi cửa hàng, không tạo mã tại màn hình này.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Kiểm tra voucher và cập nhật tổng tiền mục tiêu &lt; 1 giây.
+
+3.8.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Nhập mã giảm giá vào giỏ hàng/checkout/POS.
+
+Hệ thống nhận mã cần kiểm tra.
+
+Bước 2
+
+Hệ thống
+
+Kiểm tra voucher theo DB và điều kiện đơn hàng.
+
+Xác định mã hợp lệ hoặc lý do từ chối.
+
+Bước 3
+
+Hệ thống
+
+Tính số tiền giảm theo cấu hình phần trăm/cố định.
+
+Tổng tiền thanh toán được cập nhật.
+
+Bước 4
+
+Người dùng
+
+Xác nhận tiếp tục thanh toán/đặt hàng.
+
+Voucher được gắn vào đơn tạm.
+
+Bước 5
+
+Hệ thống
+
+Lưu mã đã áp dụng khi tạo đơn.
+
+Dữ liệu voucher_usage được ghi nhận sau khi đơn thành công.
+
+3.8.3. Giao diện
+
+Ô nhập mã giảm giá kèm nút áp dụng, trạng thái thành công/thất bại và dòng tiền giảm.
+
+3.8.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã giảm giá
+
+voucher_code
+
+String
+
+Có
+
+Chuỗi viết hoa, viết liền.
+
+Số tiền giảm
+
+discount_amount
+
+Decimal
+
+Có
+
+Tiền giảm được tính toán.
+
+Giá trị đơn tối thiểu
+
+min_order_amount
+
+Decimal
+
+Không
+
+Điều kiện áp dụng.
+
+Mã đơn/giỏ
+
+cart_or_order_id
+
+UUID
+
+Có
+
+Đối tượng áp mã.
+
+3.9. UC-09 - Đặt hàng Online (Checkout)
+
+3.9.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-09
+
+Mô tả
+
+Cho phép khách hàng xác nhận thông tin nhận hàng, hình thức nhận và tạo đơn hàng online.
+
+Tác nhân (Actor(s))
+
+Khách hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Khách hàng bấm &quot;Tiến hành đặt hàng&quot; từ giỏ hàng.
+
+Điều kiện cần (Pre-Condition)
+
+Khách hàng đã đăng nhập, giỏ hàng có ít nhất một món hợp lệ.
+
+Điều kiện sau (Post-Condition)
+
+Đơn hàng được tạo ở trạng thái CHO_XAC_NHAN hoặc CHO_THANH_TOAN tùy phương thức thanh toán.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị checkout và thông tin giỏ hàng.2. Khách hàng chọn địa chỉ, hình thức nhận và phương thức thanh toán.3. Hệ thống tính phí giao hàng, giảm giá và tổng tiền.4. Khách hàng xác nhận đặt hàng.5. Hệ thống tạo đơn, chi tiết đơn và xóa/đóng giỏ hàng.
+
+Luồng thay thế (Alternative Flow)
+
+Nếu chọn Pickup, hệ thống không yêu cầu địa chỉ giao hàng và phí giao hàng bằng 0.
+
+Luồng ngoại lệ (Exception Flow)
+
+Ngoài giờ mở cửa, món hết hàng hoặc thanh toán online chưa tạo được link thì hệ thống chặn tạo đơn và báo lỗi.
+
+Ràng buộc (Business Rules)
+
+Đơn giao tận nơi phải đạt giá trị tối thiểu; tạo đơn và trừ/khóa tồn kho phải nằm trong transaction.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Tạo đơn an toàn, tránh race condition và phản hồi ổn định trong điều kiện tải chuẩn.
+
+3.9.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Khách hàng
+
+Mở trang checkout từ giỏ hàng.
+
+Hệ thống tải giỏ hàng, địa chỉ mặc định và số điện thoại.
+
+Bước 2
+
+Khách hàng
+
+Chọn địa chỉ, hình thức nhận và phương thức thanh toán.
+
+Hệ thống tính phí ship, giảm giá và tổng thanh toán.
+
+Bước 3
+
+Khách hàng
+
+Bấm Xác nhận đặt hàng.
+
+Hệ thống kiểm tra giờ mở cửa, trạng thái món và tổng tiền.
+
+Bước 4
+
+Hệ thống
+
+Tạo bản ghi đơn hàng và chi tiết đơn.
+
+Đơn hàng được lưu với trạng thái ban đầu phù hợp.
+
+Bước 5
+
+Hệ thống
+
+Điều hướng khách đến thanh toán online hoặc theo dõi đơn.
+
+Giỏ hàng được đóng/xóa sau khi tạo đơn thành công.
+
+3.9.3. Giao diện
+
+Trang checkout hai cột: thông tin nhận hàng bên trái, tóm tắt đơn hàng và nút xác nhận bên phải.
+
+3.9.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Địa chỉ giao hàng
+
+delivery_address
+
+String
+
+Có nếu Delivery
+
+Địa chỉ nhận hàng cuối cùng.
+
+Số điện thoại nhận
+
+recipient_phone
+
+String
+
+Có
+
+SĐT người nhận.
+
+Phương thức thanh toán
+
+payment_method
+
+Enum
+
+Có
+
+COD, VNPAY, MOMO.
+
+Hình thức nhận
+
+order_type
+
+Enum
+
+Có
+
+DELIVERY, PICKUP.
+
+Tổng tiền
+
+total_amount
+
+Decimal
+
+Có
+
+Tổng phải thanh toán.
+
+3.10. UC-10 - Thanh toán trực tuyến (Online Payment)
+
+3.10.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-10
+
+Mô tả
+
+Tích hợp cổng thanh toán VNPay/MoMo để khách thanh toán online cho đơn hàng.
+
+Tác nhân (Actor(s))
+
+Khách hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Khách hàng chọn thanh toán trực tuyến ở UC-09.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn hàng đã được tạo và đang chờ thanh toán.
+
+Điều kiện sau (Post-Condition)
+
+Giao dịch thành công thì đơn chuyển PAID/DA_XAC_NHAN; thất bại hoặc quá hạn thì hủy/cho thanh toán lại theo quy định.
+
+Luồng cơ bản (Basic Flow)
+
+1. Backend tạo request thanh toán và checksum.2. Hệ thống chuyển hướng khách sang cổng thanh toán.3. Khách hoàn tất giao dịch trên cổng thanh toán.4. Cổng thanh toán redirect/IPN kết quả về hệ thống.5. Hệ thống xác minh chữ ký và cập nhật trạng thái thanh toán.
+
+Luồng thay thế (Alternative Flow)
+
+Nếu khách đóng trình duyệt, hệ thống vẫn nhận IPN để cập nhật trạng thái giao dịch.
+
+Luồng ngoại lệ (Exception Flow)
+
+Thanh toán thất bại, checksum sai hoặc quá hạn thì hệ thống đánh dấu thất bại và thông báo cho khách.
+
+Ràng buộc (Business Rules)
+
+Link thanh toán hiệu lực tối đa 15 phút; chỉ cập nhật paid khi xác thực chữ ký hợp lệ.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Dữ liệu giao dịch phải bảo mật; không lưu thông tin thẻ nhạy cảm trong hệ thống.
+
+3.10.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Hệ thống
+
+Tạo yêu cầu thanh toán và URL cổng thanh toán.
+
+URL thanh toán hợp lệ được sinh ra.
+
+Bước 2
+
+Khách hàng
+
+Thực hiện thanh toán trên VNPay/MoMo.
+
+Cổng thanh toán xử lý giao dịch.
+
+Bước 3
+
+Cổng thanh toán
+
+Gửi kết quả qua Return URL/IPN.
+
+Hệ thống nhận mã giao dịch và chữ ký.
+
+Bước 4
+
+Hệ thống
+
+Xác minh chữ ký, số tiền và mã đơn.
+
+Kết quả giao dịch được xác nhận hợp lệ/không hợp lệ.
+
+Bước 5
+
+Hệ thống
+
+Cập nhật trạng thái thanh toán và đơn hàng.
+
+Khách hàng thấy màn hình kết quả và trạng thái đơn mới.
+
+3.10.3. Giao diện
+
+Trang chuyển hướng cổng thanh toán và trang kết quả giao dịch rõ trạng thái thành công/thất bại.
+
+3.10.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã phản hồi
+
+response_code
+
+String
+
+Có
+
+Mã trạng thái từ cổng thanh toán.
+
+Mã tham chiếu
+
+txn_ref
+
+String
+
+Có
+
+Trùng mã đơn hệ thống.
+
+Số tiền giao dịch
+
+amount
+
+Decimal
+
+Có
+
+Số tiền thanh toán.
+
+Chữ ký bảo mật
+
+secure_hash
+
+String
+
+Có
+
+Dùng xác minh dữ liệu trả về.
+
+3.11. UC-11 - Theo dõi trạng thái đơn hàng (Order Tracking)
+
+3.11.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-11
+
+Mô tả
+
+Cho phép theo dõi tiến trình xử lý đơn theo thời gian thực từ lúc tạo đến hoàn thành/hủy.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Người dùng mở đơn đang xử lý hoặc nhận thông báo cập nhật trạng thái.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn hàng tồn tại và người dùng có quyền xem đơn đó.
+
+Điều kiện sau (Post-Condition)
+
+Timeline đơn hàng hiển thị trạng thái mới nhất.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống tải chi tiết đơn và trạng thái hiện tại.2. Giao diện hiển thị timeline trạng thái.3. Khi Staff/Manager cập nhật trạng thái ở UC-15, hệ thống phát event.4. Client nhận event và cập nhật timeline.
+
+Luồng thay thế (Alternative Flow)
+
+Đơn giao hàng có thể hiển thị thông tin giao nhận/bản đồ ước tính nếu tích hợp vận chuyển.
+
+Luồng ngoại lệ (Exception Flow)
+
+Không có quyền xem, đơn không tồn tại hoặc mất kết nối realtime thì hệ thống hiển thị thông báo và cho tải lại.
+
+Ràng buộc (Business Rules)
+
+Customer chỉ xem đơn của mình; Staff/Manager xem đơn trong phạm vi cửa hàng/ca được phân quyền.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Cập nhật realtime phải ổn định; khi mất realtime vẫn có cơ chế polling/tải lại.
+
+3.11.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Mở màn hình theo dõi đơn.
+
+Hệ thống kiểm tra quyền và tải dữ liệu đơn.
+
+Bước 2
+
+Hệ thống
+
+Hiển thị timeline trạng thái hiện tại.
+
+Người dùng nhìn thấy tiến trình đơn hàng.
+
+Bước 3
+
+Nhân viên/Manager
+
+Cập nhật trạng thái đơn ở phân hệ vận hành.
+
+Server ghi nhận trạng thái mới.
+
+Bước 4
+
+Hệ thống
+
+Phát sự kiện realtime đến client liên quan.
+
+Timeline tự động đổi sang trạng thái mới.
+
+Bước 5
+
+Người dùng
+
+Xem trạng thái hoặc thông báo mới.
+
+Thông tin đơn hàng được cập nhật nhất quán.
+
+3.11.3. Giao diện
+
+Màn hình timeline trạng thái đơn, chi tiết món, tổng tiền và thông báo thay đổi trạng thái.
+
+3.11.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã đơn hàng
+
+order_id
+
+UUID
+
+Có
+
+Định danh đơn hàng.
+
+Trạng thái đơn
+
+order_status
+
+Enum
+
+Có
+
+CHO_XAC_NHAN, DA_XAC_NHAN, DANG_CHE_BIEN...
+
+Thời gian cập nhật
+
+updated_at
+
+Datetime
+
+Có
+
+Mốc cập nhật trạng thái.
+
+Người cập nhật
+
+updated_by
+
+UUID
+
+Không
+
+Người thao tác nếu có.
+
+3.12. UC-12 - Lịch sử đơn hàng (Order History)
+
+3.12.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-12
+
+Mô tả
+
+Cho phép xem lại danh sách đơn đã phát sinh theo phạm vi quyền của từng vai trò.
+
+Tác nhân (Actor(s))
+
+Khách hàng, Nhân viên, Quản lý cửa hàng, Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Người dùng chọn mục &quot;Lịch sử đơn hàng&quot; hoặc &quot;Danh sách đơn&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Người dùng đã đăng nhập và có quyền truy cập dữ liệu đơn.
+
+Điều kiện sau (Post-Condition)
+
+Danh sách đơn được hiển thị, có thể lọc/tìm kiếm và xem chi tiết.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người dùng mở lịch sử đơn.2. Hệ thống xác định vai trò và phạm vi dữ liệu.3. Người dùng nhập bộ lọc nếu cần.4. Hệ thống trả danh sách đơn phân trang.5. Người dùng mở chi tiết đơn.
+
+Luồng thay thế (Alternative Flow)
+
+Manager xem lịch sử theo ca/ngày/cửa hàng; Admin xem toàn hệ thống; Customer chỉ xem đơn cá nhân.
+
+Luồng ngoại lệ (Exception Flow)
+
+Không có dữ liệu hoặc vượt phạm vi quyền thì hệ thống hiển thị thông báo phù hợp.
+
+Ràng buộc (Business Rules)
+
+Dữ liệu lịch sử không được xóa vật lý; chỉ được ẩn/hủy theo quy trình nghiệp vụ.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Danh sách phân trang, lọc theo thời gian và trạng thái phản hồi ổn định.
+
+3.12.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Người dùng
+
+Mở lịch sử đơn hàng.
+
+Hệ thống nhận yêu cầu xem danh sách.
+
+Bước 2
+
+Hệ thống
+
+Xác định vai trò và phạm vi dữ liệu được xem.
+
+Tạo điều kiện truy vấn phù hợp quyền.
+
+Bước 3
+
+Người dùng
+
+Chọn bộ lọc thời gian, trạng thái hoặc mã đơn.
+
+Hệ thống nhận tiêu chí lọc.
+
+Bước 4
+
+Hệ thống
+
+Truy vấn và phân trang danh sách đơn.
+
+Danh sách đơn phù hợp được trả về.
+
+Bước 5
+
+Người dùng
+
+Chọn một đơn để xem chi tiết.
+
+Hệ thống hiển thị chi tiết đơn và lịch sử trạng thái.
+
+3.12.3. Giao diện
+
+Danh sách đơn có bộ lọc thời gian, trạng thái, mã đơn; trang chi tiết đơn có món, tiền và lịch sử trạng thái.
+
+3.12.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã đơn
+
+order_code
+
+String
+
+Không
+
+Tìm theo mã đơn.
+
+Khoảng thời gian
+
+date_range
+
+Object
+
+Không
+
+Từ ngày - đến ngày.
+
+Trạng thái
+
+order_status
+
+Enum
+
+Không
+
+Lọc trạng thái đơn.
+
+Phạm vi dữ liệu
+
+scope
+
+Enum
+
+Có
+
+SELF, SHIFT, STORE, ALL.
+
+3.13. UC-13 - Đánh giá &amp; phản hồi (Review &amp; Feedback)
+
+3.13.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-13
+
+Mô tả
+
+Cho phép khách hàng đánh giá món/đơn hàng sau khi đơn hoàn thành.
+
+Tác nhân (Actor(s))
+
+Khách hàng
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Khách hàng mở đơn đã hoàn thành và chọn &quot;Đánh giá&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn hàng thuộc khách hàng hiện tại và ở trạng thái HOAN_THANH.
+
+Điều kiện sau (Post-Condition)
+
+Đánh giá được ghi nhận, chờ kiểm duyệt nếu cần.
+
+Luồng cơ bản (Basic Flow)
+
+1. Khách hàng chọn đơn đã hoàn thành.2. Hệ thống hiển thị form đánh giá sao và nội dung phản hồi.3. Khách hàng nhập đánh giá và gửi.4. Hệ thống kiểm tra nội dung hợp lệ.5. Hệ thống lưu đánh giá ở trạng thái hiển thị hoặc chờ duyệt.
+
+Luồng thay thế (Alternative Flow)
+
+Khách hàng có thể đính kèm ảnh phản hồi nếu hệ thống cho phép.
+
+Luồng ngoại lệ (Exception Flow)
+
+Đơn chưa hoàn thành, đã đánh giá trước đó hoặc nội dung vi phạm thì hệ thống không ghi nhận.
+
+Ràng buộc (Business Rules)
+
+Mỗi đơn chỉ được đánh giá một lần; đánh giá vi phạm được đưa vào hàng chờ kiểm duyệt UC-25.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Không hiển thị nội dung phản hồi có nguy cơ spam/xấu độc trước khi kiểm duyệt.
+
+3.13.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Khách hàng
+
+Chọn đánh giá đơn hàng đã hoàn thành.
+
+Hệ thống kiểm tra đơn thuộc khách và đủ điều kiện.
+
+Bước 2
+
+Khách hàng
+
+Nhập số sao, nội dung và ảnh nếu có.
+
+Form nhận dữ liệu đánh giá.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra độ dài, nội dung cấm và trạng thái đã đánh giá.
+
+Đánh giá hợp lệ được phép lưu.
+
+Bước 4
+
+Hệ thống
+
+Lưu đánh giá vào DB.
+
+Đánh giá chuyển trạng thái HIEN_THI hoặc CHO_DUYET.
+
+Bước 5
+
+Hệ thống
+
+Thông báo gửi đánh giá thành công.
+
+Khách hàng thấy kết quả phản hồi.
+
+3.13.3. Giao diện
+
+Form đánh giá gồm số sao, nội dung nhận xét, ảnh đính kèm tùy chọn và nút gửi.
+
+3.13.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Số sao
+
+rating
+
+Integer
+
+Có
+
+Từ 1 đến 5.
+
+Nội dung đánh giá
+
+comment
+
+String
+
+Không
+
+Tối đa 500 ký tự.
+
+Mã đơn hàng
+
+order_id
+
+UUID
+
+Có
+
+Đơn được đánh giá.
+
+Trạng thái duyệt
+
+moderation_status
+
+Enum
+
+Có
+
+CHO_DUYET, HIEN_THI, AN.
+
+3.14. UC-14 - Tiếp nhận đơn trực tuyến (Order Acceptance)
+
+3.14.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-14
+
+Mô tả
+
+Cho phép nhân viên hoặc quản lý tiếp nhận/duyệt đơn online trước khi chuyển xuống bếp.
+
+Tác nhân (Actor(s))
+
+Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Có đơn online mới ở trạng thái CHO_XAC_NHAN.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác đã đăng nhập Staff/Manager và có quyền xử lý đơn trong cửa hàng.
+
+Điều kiện sau (Post-Condition)
+
+Đơn được xác nhận để chế biến hoặc bị từ chối/hủy với lý do rõ ràng.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị danh sách đơn chờ xác nhận.2. Nhân viên/Manager mở chi tiết đơn.3. Người thao tác kiểm tra món, thanh toán, địa chỉ và ghi chú.4. Người thao tác bấm Xác nhận đơn.5. Hệ thống chuyển đơn sang DA_XAC_NHAN và tạo hàng đợi bếp.
+
+Luồng thay thế (Alternative Flow)
+
+Manager có thể từ chối đơn khi hết nguyên liệu/ngoài phạm vi giao hàng và nhập lý do hủy.
+
+Luồng ngoại lệ (Exception Flow)
+
+Đơn đã được người khác xử lý, thanh toán không hợp lệ hoặc món hết hàng thì hệ thống chặn xác nhận.
+
+Ràng buộc (Business Rules)
+
+Staff xử lý đơn trong ca/cửa hàng được phân công; Manager có quyền giám sát và xử lý thay.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Đơn mới phải hiển thị gần thời gian thực để không chậm quy trình vận hành.
+
+3.14.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Hệ thống
+
+Phát hiện đơn online mới.
+
+Đơn xuất hiện trong hàng chờ xác nhận.
+
+Bước 2
+
+Nhân viên/Manager
+
+Mở chi tiết đơn chờ xử lý.
+
+Hệ thống hiển thị món, tiền, địa chỉ, thanh toán.
+
+Bước 3
+
+Nhân viên/Manager
+
+Bấm Xác nhận hoặc Từ chối đơn.
+
+Hệ thống nhận quyết định xử lý.
+
+Bước 4
+
+Hệ thống
+
+Kiểm tra trạng thái đơn và quyền thao tác.
+
+Nếu hợp lệ thì cập nhật trạng thái đơn.
+
+Bước 5
+
+Hệ thống
+
+Tạo hàng đợi bếp hoặc ghi lý do hủy.
+
+Đơn được chuyển luồng xử lý tiếp theo hoặc kết thúc.
+
+3.14.3. Giao diện
+
+Màn hình danh sách đơn chờ xác nhận có âm báo, bộ lọc và nút Xác nhận/Từ chối.
+
+3.14.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã đơn
+
+order_id
+
+UUID
+
+Có
+
+Đơn cần tiếp nhận.
+
+Quyết định
+
+decision
+
+Enum
+
+Có
+
+ACCEPT, REJECT.
+
+Lý do từ chối
+
+reject_reason
+
+String
+
+Không
+
+Bắt buộc nếu từ chối.
+
+Người xử lý
+
+handled_by
+
+UUID
+
+Có
+
+Staff hoặc Manager.
+
+3.15. UC-15 - Cập nhật trạng thái đơn (Order Status Management)
+
+3.15.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-15
+
+Mô tả
+
+Cho phép cập nhật trạng thái đơn theo quy trình: xác nhận, chế biến, phục vụ/giao, hoàn thành hoặc hủy.
+
+Tác nhân (Actor(s))
+
+Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Nhân viên/Manager thao tác trên màn hình vận hành đơn.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn tồn tại, đang ở trạng thái cho phép chuyển tiếp và người thao tác có quyền.
+
+Điều kiện sau (Post-Condition)
+
+Trạng thái đơn được cập nhật, lịch sử trạng thái được ghi và khách hàng nhận thông báo.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người thao tác mở chi tiết đơn.2. Hệ thống hiển thị các trạng thái có thể chuyển tiếp.3. Người thao tác chọn trạng thái mới.4. Hệ thống kiểm tra quy tắc chuyển trạng thái.5. Hệ thống cập nhật trạng thái và phát thông báo.
+
+Luồng thay thế (Alternative Flow)
+
+Manager được phép hủy/điều chỉnh trạng thái khi có sự cố vận hành trong phạm vi cửa hàng.
+
+Luồng ngoại lệ (Exception Flow)
+
+Chuyển trạng thái ngược quy trình, không đủ quyền hoặc đơn đã hoàn thành thì hệ thống từ chối.
+
+Ràng buộc (Business Rules)
+
+Không được bỏ qua trạng thái bắt buộc; mọi lần đổi trạng thái phải ghi order_status_history.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Cập nhật trạng thái cần đồng bộ realtime với màn hình khách và bếp.
+
+3.15.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Nhân viên/Manager
+
+Mở đơn cần cập nhật.
+
+Hệ thống hiển thị trạng thái hiện tại và trạng thái kế tiếp hợp lệ.
+
+Bước 2
+
+Nhân viên/Manager
+
+Chọn trạng thái mới hoặc hủy đơn kèm lý do.
+
+Hệ thống nhận yêu cầu chuyển trạng thái.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra quyền, trạng thái hiện tại và quy tắc chuyển tiếp.
+
+Yêu cầu hợp lệ được phép ghi nhận.
+
+Bước 4
+
+Hệ thống
+
+Cập nhật Orders và ghi lịch sử trạng thái.
+
+Trạng thái mới được lưu vào DB.
+
+Bước 5
+
+Hệ thống
+
+Gửi thông báo realtime cho Customer/Staff/Bếp.
+
+Các màn hình liên quan cập nhật trạng thái mới.
+
+3.15.3. Giao diện
+
+Màn hình chi tiết đơn có nút chuyển trạng thái, timeline và ghi chú xử lý/hủy.
+
+3.15.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã đơn
+
+order_id
+
+UUID
+
+Có
+
+Đơn cần cập nhật.
+
+Trạng thái mới
+
+new_status
+
+Enum
+
+Có
+
+DA_XAC_NHAN, DANG_CHE_BIEN, DANG_GIAO...
+
+Lý do hủy
+
+cancel_reason
+
+String
+
+Không
+
+Bắt buộc nếu hủy.
+
+Người cập nhật
+
+updated_by
+
+UUID
+
+Có
+
+Staff hoặc Manager.
+
+3.16. UC-16 - Quản lý bàn tại quán (Table Management)
+
+3.16.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-16
+
+Mô tả
+
+Quản lý trạng thái bàn tại quán như trống, đang phục vụ, đã đặt trước hoặc cần dọn.
+
+Tác nhân (Actor(s))
+
+Nhân viên, Quản lý cửa hàng, Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Nhân viên/Manager mở màn hình sơ đồ bàn.
+
+Điều kiện cần (Pre-Condition)
+
+Người dùng nội bộ đã đăng nhập và có quyền truy cập khu vực bàn.
+
+Điều kiện sau (Post-Condition)
+
+Trạng thái bàn được cập nhật và đồng bộ với POS/đơn tại quầy.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị sơ đồ bàn theo khu vực.2. Nhân viên chọn bàn và thao tác mở bàn/đổi trạng thái.3. Hệ thống kiểm tra bàn có hóa đơn đang mở hay không.4. Hệ thống cập nhật trạng thái bàn.5. POS sử dụng trạng thái bàn mới khi gọi món/thanh toán.
+
+Luồng thay thế (Alternative Flow)
+
+Manager/Admin có thể cấu hình khu vực hoặc khóa bàn tạm thời để bảo trì/sắp xếp.
+
+Luồng ngoại lệ (Exception Flow)
+
+Bàn đang có hóa đơn chưa thanh toán thì không được chuyển về trống.
+
+Ràng buộc (Business Rules)
+
+Staff thao tác trạng thái phục vụ; Manager giám sát toàn bộ bàn trong cửa hàng; Admin cấu hình dữ liệu bàn nếu cần.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Sơ đồ bàn cần cập nhật nhanh để tránh trùng bàn khi đông khách.
+
+3.16.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Nhân viên/Manager
+
+Mở sơ đồ bàn tại quán.
+
+Hệ thống hiển thị danh sách bàn và trạng thái.
+
+Bước 2
+
+Nhân viên/Manager
+
+Chọn bàn và thao tác mở/đổi trạng thái.
+
+Hệ thống nhận yêu cầu thay đổi bàn.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra hóa đơn đang mở và quyền thao tác.
+
+Xác định có được đổi trạng thái hay không.
+
+Bước 4
+
+Hệ thống
+
+Cập nhật trạng thái bàn.
+
+Bàn hiển thị trạng thái mới trên sơ đồ.
+
+Bước 5
+
+Hệ thống
+
+Đồng bộ với POS và đơn tại quầy.
+
+Nhân viên có thể gọi món/thanh toán đúng bàn.
+
+3.16.3. Giao diện
+
+Sơ đồ bàn dạng card/matrix, màu sắc theo trạng thái và thao tác mở bàn/chuyển bàn/gộp bàn nếu có.
+
+3.16.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã bàn
+
+table_id
+
+UUID
+
+Có
+
+Định danh bàn.
+
+Tên/số bàn
+
+table_name
+
+String
+
+Có
+
+Ví dụ: Bàn 01.
+
+Trạng thái bàn
+
+table_status
+
+Enum
+
+Có
+
+EMPTY, OCCUPIED, RESERVED, CLEANING.
+
+Khu vực
+
+area
+
+String
+
+Không
+
+Tầng/khu vực bàn.
+
+3.17. UC-17 - Gọi món tại quầy - POS (Point of Sale Ordering)
+
+3.17.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-17
+
+Mô tả
+
+Cho phép nhân viên tạo đơn tại quầy hoặc theo bàn bằng giao diện POS.
+
+Tác nhân (Actor(s))
+
+Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Nhân viên/Manager chọn tạo đơn POS.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác đã đăng nhập Staff/Manager; món đang được phép bán.
+
+Điều kiện sau (Post-Condition)
+
+Đơn POS được tạo và chuyển bếp hoặc chờ thanh toán tùy quy trình.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người thao tác chọn bàn hoặc đơn mang đi.2. Chọn món, option, số lượng và ghi chú.3. Hệ thống tính tổng tiền tạm tính.4. Người thao tác xác nhận tạo đơn POS.5. Hệ thống tạo đơn và đẩy thông tin xuống bếp.
+
+Luồng thay thế (Alternative Flow)
+
+Manager có thể hỗ trợ chỉnh sửa đơn POS đang mở theo quyền được cấp.
+
+Luồng ngoại lệ (Exception Flow)
+
+Món hết hàng, bàn không hợp lệ hoặc đơn đang bị khóa thanh toán thì hệ thống từ chối thao tác.
+
+Ràng buộc (Business Rules)
+
+Staff không được tự ý sửa giá món; giảm giá tại POS phải theo voucher/quyền đã cấp.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Màn hình POS phải phản hồi nhanh và dùng được khi lượng khách cao.
+
+3.17.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Nhân viên/Manager
+
+Chọn bàn hoặc hình thức mang đi trên POS.
+
+Hệ thống tạo phiên đơn POS tạm.
+
+Bước 2
+
+Nhân viên/Manager
+
+Chọn món, option, số lượng và ghi chú.
+
+Hệ thống thêm dòng món vào hóa đơn tạm.
+
+Bước 3
+
+Hệ thống
+
+Tính tổng tiền và kiểm tra trạng thái món.
+
+Hóa đơn tạm hiển thị chính xác.
+
+Bước 4
+
+Nhân viên/Manager
+
+Bấm Gửi bếp hoặc Lưu đơn.
+
+Hệ thống tạo đơn POS chính thức.
+
+Bước 5
+
+Hệ thống
+
+Đẩy món xuống hàng đợi bếp.
+
+Bếp nhận danh sách món cần chế biến.
+
+3.17.3. Giao diện
+
+Giao diện POS gồm danh mục/món bên trái, hóa đơn tạm bên phải, chọn bàn và nút gửi bếp/thanh toán.
+
+3.17.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã bàn
+
+table_id
+
+UUID
+
+Không
+
+Bắt buộc nếu ăn tại bàn.
+
+Loại đơn POS
+
+pos_order_type
+
+Enum
+
+Có
+
+DINE_IN, TAKE_AWAY.
+
+Danh sách món
+
+order_items
+
+Array
+
+Có
+
+Món, option, số lượng.
+
+Ghi chú đơn
+
+order_note
+
+String
+
+Không
+
+Ghi chú phục vụ.
+
+3.18. UC-18 - Thanh toán tại quầy (POS Payment Handling)
+
+3.18.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-18
+
+Mô tả
+
+Cho phép thu ngân/nhân viên xử lý thanh toán tiền mặt, chuyển khoản hoặc ví điện tử tại quầy.
+
+Tác nhân (Actor(s))
+
+Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Nhân viên chọn thanh toán cho đơn POS/đơn tại bàn.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn POS tồn tại và có tổng tiền cần thanh toán.
+
+Điều kiện sau (Post-Condition)
+
+Thanh toán được ghi nhận, đơn/bàn chuyển trạng thái phù hợp và có thể in hóa đơn.
+
+Luồng cơ bản (Basic Flow)
+
+1. Nhân viên mở hóa đơn cần thanh toán.2. Hệ thống hiển thị tổng tiền, voucher và phí nếu có.3. Nhân viên chọn phương thức thanh toán và nhập số tiền khách đưa nếu tiền mặt.4. Hệ thống tính tiền thừa/còn thiếu.5. Nhân viên xác nhận thanh toán, hệ thống ghi payment và hoàn tất đơn.
+
+Luồng thay thế (Alternative Flow)
+
+Manager có thể xác nhận hủy thanh toán hoặc hoàn/điều chỉnh theo quyền khi có sai sót.
+
+Luồng ngoại lệ (Exception Flow)
+
+Số tiền không đủ, đơn đã thanh toán hoặc cổng ví lỗi thì hệ thống chặn hoàn tất.
+
+Ràng buộc (Business Rules)
+
+Mọi giao dịch thanh toán phải ghi payment_log; Staff không được xóa giao dịch đã ghi.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Thanh toán tại quầy phải nhanh, ổn định; tránh ghi trùng giao dịch khi bấm nhiều lần.
+
+3.18.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Nhân viên/Manager
+
+Mở hóa đơn cần thanh toán.
+
+Hệ thống tải tổng tiền và trạng thái đơn.
+
+Bước 2
+
+Nhân viên/Manager
+
+Chọn phương thức thanh toán và nhập thông tin tiền.
+
+Hệ thống tính tiền thừa/còn thiếu.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra đơn chưa thanh toán và số tiền hợp lệ.
+
+Cho phép xác nhận thanh toán nếu hợp lệ.
+
+Bước 4
+
+Nhân viên/Manager
+
+Bấm Xác nhận thanh toán.
+
+Hệ thống ghi nhận payment.
+
+Bước 5
+
+Hệ thống
+
+Cập nhật đơn hoàn thành và giải phóng bàn.
+
+Có thể chuyển sang in hóa đơn UC-19.
+
+3.18.3. Giao diện
+
+Màn hình thanh toán hiển thị tổng tiền, phương thức, tiền khách đưa, tiền thừa và nút in hóa đơn.
+
+3.18.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã thanh toán
+
+payment_id
+
+UUID
+
+Có
+
+Định danh giao dịch.
+
+Phương thức
+
+payment_method
+
+Enum
+
+Có
+
+CASH, BANK_TRANSFER, E_WALLET.
+
+Tiền khách đưa
+
+received_amount
+
+Decimal
+
+Không
+
+Áp dụng thanh toán tiền mặt.
+
+Tiền thừa
+
+change_amount
+
+Decimal
+
+Không
+
+Hệ thống tính toán.
+
+3.19. UC-19 - In hóa đơn (Invoice Printing)
+
+3.19.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-19
+
+Mô tả
+
+Cho phép in hoặc xuất hóa đơn cho đơn hàng sau khi thanh toán/xác nhận theo quy trình.
+
+Tác nhân (Actor(s))
+
+Nhân viên, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Người thao tác bấm nút &quot;In hóa đơn&quot;.
+
+Điều kiện cần (Pre-Condition)
+
+Đơn hàng tồn tại và có dữ liệu thanh toán/hóa đơn hợp lệ.
+
+Điều kiện sau (Post-Condition)
+
+Hóa đơn được in/xuất PDF và lịch sử in được ghi nhận nếu cần.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người thao tác mở đơn hoặc màn hình thanh toán.2. Chọn In hóa đơn.3. Hệ thống tạo mẫu hóa đơn từ dữ liệu đơn và thanh toán.4. Hệ thống gửi lệnh đến máy in hoặc xuất file PDF.5. Giao diện thông báo kết quả.
+
+Luồng thay thế (Alternative Flow)
+
+Có thể in lại hóa đơn; hệ thống ghi nhận số lần in lại và người in.
+
+Luồng ngoại lệ (Exception Flow)
+
+Máy in mất kết nối, đơn chưa thanh toán hoặc dữ liệu hóa đơn thiếu thì hệ thống báo lỗi.
+
+Ràng buộc (Business Rules)
+
+Hóa đơn in lại phải có ghi chú &quot;Bản in lại&quot; nếu cấu hình yêu cầu.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Mẫu hóa đơn ngắn gọn, rõ ràng, không bị cắt giấy in 80mm.
+
+3.19.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Nhân viên/Manager
+
+Chọn đơn và bấm In hóa đơn.
+
+Hệ thống nhận yêu cầu in.
+
+Bước 2
+
+Hệ thống
+
+Kiểm tra trạng thái đơn/thanh toán.
+
+Đơn hợp lệ được phép tạo hóa đơn.
+
+Bước 3
+
+Hệ thống
+
+Sinh nội dung hóa đơn theo mẫu.
+
+Hóa đơn có đủ món, tiền, giảm giá, thanh toán.
+
+Bước 4
+
+Hệ thống
+
+Gửi lệnh đến máy in hoặc xuất PDF.
+
+Hóa đơn được in/xuất file.
+
+Bước 5
+
+Hệ thống
+
+Ghi nhận lịch sử in.
+
+Giao diện thông báo in thành công/thất bại.
+
+3.19.3. Giao diện
+
+Nút in hóa đơn tại màn hình thanh toán/chi tiết đơn, có preview hoặc thông báo trạng thái in.
+
+3.19.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã hóa đơn
+
+invoice_id
+
+UUID
+
+Có
+
+Định danh hóa đơn.
+
+Mã đơn
+
+order_id
+
+UUID
+
+Có
+
+Đơn cần in.
+
+Số lần in
+
+print_count
+
+Integer
+
+Có
+
+Tăng khi in lại.
+
+Mẫu in
+
+template_code
+
+String
+
+Không
+
+Mẫu hóa đơn sử dụng.
+
+3.20. UC-20 - Quản lý trạng thái món ăn tại bếp (Kitchen Status Management)
+
+3.20.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-20
+
+Mô tả
+
+Cho phép bếp cập nhật trạng thái chế biến từng món và cho Manager giám sát tiến độ bếp.
+
+Tác nhân (Actor(s))
+
+Nhân viên bếp, Quản lý cửa hàng
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Có món mới được gửi xuống hàng đợi bếp.
+
+Điều kiện cần (Pre-Condition)
+
+Món thuộc đơn đã xác nhận/POS và có trạng thái chờ chế biến.
+
+Điều kiện sau (Post-Condition)
+
+Trạng thái món trong bếp được cập nhật; đơn liên quan được cập nhật khi toàn bộ món hoàn tất.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị hàng đợi bếp theo thời gian.2. Nhân viên bếp chọn món bắt đầu chế biến.3. Nhân viên bếp cập nhật đang chế biến/xong món.4. Hệ thống cập nhật kitchen_queue.5. Khi đủ món, hệ thống thông báo cho quầy/phục vụ.
+
+Luồng thay thế (Alternative Flow)
+
+Manager có thể đánh dấu ưu tiên hoặc can thiệp trạng thái khi bếp có sự cố.
+
+Luồng ngoại lệ (Exception Flow)
+
+Món đã hủy/đơn đã hủy hoặc người thao tác không thuộc bếp/cửa hàng thì hệ thống từ chối cập nhật.
+
+Ràng buộc (Business Rules)
+
+Mỗi lần đổi trạng thái món phải ghi thời gian; Manager chỉ giám sát/can thiệp trong phạm vi cửa hàng.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Màn hình bếp cần cập nhật realtime, chữ lớn, dễ thao tác trên tablet/màn hình bếp.
+
+3.20.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Hệ thống
+
+Nhận món từ đơn đã xác nhận/POS.
+
+Món xuất hiện trong hàng đợi bếp.
+
+Bước 2
+
+Nhân viên bếp
+
+Bấm Bắt đầu chế biến.
+
+Hệ thống chuyển món sang DANG_CHE_BIEN.
+
+Bước 3
+
+Nhân viên bếp
+
+Bấm Hoàn thành món khi chế biến xong.
+
+Hệ thống chuyển món sang DA_XONG.
+
+Bước 4
+
+Hệ thống
+
+Kiểm tra toàn bộ món trong đơn.
+
+Nếu tất cả món xong thì thông báo quầy/phục vụ.
+
+Bước 5
+
+Manager
+
+Theo dõi tiến độ và xử lý món trễ/hết nguyên liệu nếu có.
+
+Hệ thống ghi nhận điều chỉnh hoặc cảnh báo vận hành.
+
+3.20.3. Giao diện
+
+Kitchen Display System dạng card theo đơn, màu trạng thái và nút Bắt đầu/Xong món/Hết nguyên liệu.
+
+3.20.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã hàng đợi bếp
+
+kitchen_queue_id
+
+UUID
+
+Có
+
+Định danh dòng bếp.
+
+Trạng thái món
+
+item_status
+
+Enum
+
+Có
+
+CHO_LAM, DANG_LAM, DA_XONG, HET_NGUYEN_LIEU.
+
+Thời gian bắt đầu
+
+started_at
+
+Datetime
+
+Không
+
+Khi bếp bắt đầu làm.
+
+Thời gian hoàn tất
+
+completed_at
+
+Datetime
+
+Không
+
+Khi món xong.
+
+3.21. UC-21 - Quản lý tài khoản người dùng (User Account Management)
+
+3.21.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-21
+
+Mô tả
+
+Quản lý tài khoản nhân sự/khách hàng theo phân quyền; Manager quản lý nhân viên trong cửa hàng, Admin quản lý toàn hệ thống.
+
+Tác nhân (Actor(s))
+
+Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Manager/Admin mở màn hình quản lý tài khoản.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có vai trò Manager hoặc Admin.
+
+Điều kiện sau (Post-Condition)
+
+Tài khoản được tạo/cập nhật/khóa/mở khóa đúng phạm vi quyền.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người thao tác mở danh sách tài khoản.2. Hệ thống lọc dữ liệu theo phạm vi quyền.3. Người thao tác thêm/sửa/khóa/mở khóa tài khoản.4. Hệ thống kiểm tra quyền, dữ liệu trùng và vai trò được phép gán.5. Hệ thống lưu thay đổi và ghi audit log.
+
+Luồng thay thế (Alternative Flow)
+
+Admin có thể quản lý toàn bộ tài khoản và gán vai trò Admin/Manager; Manager chỉ tạo/sửa Staff trong cửa hàng mình.
+
+Luồng ngoại lệ (Exception Flow)
+
+Manager cố gán quyền vượt cấp, sửa tài khoản ngoài cửa hàng hoặc email trùng thì hệ thống từ chối.
+
+Ràng buộc (Business Rules)
+
+Manager không được tạo Admin/Manager mới nếu không có ủy quyền; mọi thay đổi tài khoản nội bộ phải ghi lịch sử.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Thông tin mật khẩu phải gửi qua cơ chế đặt mật khẩu an toàn, không hiển thị lại mật khẩu sau khi tạo.
+
+3.21.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Manager/Admin
+
+Mở màn hình quản lý tài khoản.
+
+Hệ thống hiển thị danh sách theo phạm vi quyền.
+
+Bước 2
+
+Manager/Admin
+
+Chọn thêm/sửa/khóa/mở khóa tài khoản.
+
+Hệ thống mở form hoặc hộp xác nhận.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra quyền thao tác, vai trò được gán và dữ liệu trùng.
+
+Yêu cầu hợp lệ được phép lưu.
+
+Bước 4
+
+Hệ thống
+
+Cập nhật tài khoản và vai trò.
+
+Bản ghi User/UserRole thay đổi theo yêu cầu.
+
+Bước 5
+
+Hệ thống
+
+Ghi audit log và thông báo kết quả.
+
+Người thao tác thấy danh sách tài khoản mới.
+
+3.21.3. Giao diện
+
+Bảng tài khoản có bộ lọc vai trò/trạng thái, form tạo/sửa và nút khóa/mở khóa.
+
+3.21.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã người dùng
+
+user_id
+
+UUID
+
+Có
+
+Tài khoản cần quản lý.
+
+Vai trò
+
+role_code
+
+Enum
+
+Có
+
+CUSTOMER, STAFF, MANAGER, ADMIN.
+
+Trạng thái
+
+account_status
+
+Enum
+
+Có
+
+ACTIVE, LOCKED, PENDING.
+
+Phạm vi cửa hàng
+
+store_id
+
+UUID
+
+Không
+
+Bắt buộc cho Staff/Manager.
+
+3.22. UC-22 - Quản lý danh mục thực đơn (Category CRUD)
+
+3.22.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-22
+
+Mô tả
+
+Cho phép Admin tạo, sửa, ẩn/hiện và sắp xếp danh mục thực đơn.
+
+Tác nhân (Actor(s))
+
+Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Admin mở mục quản lý danh mục.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có vai trò Admin.
+
+Điều kiện sau (Post-Condition)
+
+Danh mục được cập nhật và ảnh hưởng đến màn hình menu/POS.
+
+Luồng cơ bản (Basic Flow)
+
+1. Admin mở danh sách danh mục.2. Admin thêm/sửa/ẩn/hiện hoặc sắp xếp thứ tự danh mục.3. Hệ thống kiểm tra trùng tên/mã và ràng buộc sản phẩm.4. Hệ thống lưu thay đổi.5. Menu/POS cập nhật danh mục mới.
+
+Luồng thay thế (Alternative Flow)
+
+Nếu danh mục có món đang bán, Admin nên ẩn thay vì xóa để giữ dữ liệu lịch sử.
+
+Luồng ngoại lệ (Exception Flow)
+
+Tên danh mục trùng hoặc cố xóa danh mục đã phát sinh đơn thì hệ thống báo lỗi.
+
+Ràng buộc (Business Rules)
+
+Chỉ Admin quản lý master data danh mục; Manager không được tự tạo danh mục trong phạm vi mặc định.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Thay đổi danh mục cần đồng bộ cache/menu trong thời gian ngắn.
+
+3.22.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Admin
+
+Mở màn hình danh mục thực đơn.
+
+Hệ thống hiển thị danh sách danh mục.
+
+Bước 2
+
+Admin
+
+Thêm, sửa, ẩn/hiện hoặc sắp xếp danh mục.
+
+Hệ thống nhận dữ liệu thay đổi.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra trùng tên và ràng buộc dữ liệu lịch sử.
+
+Xác định thao tác hợp lệ.
+
+Bước 4
+
+Hệ thống
+
+Lưu danh mục vào DB.
+
+Danh mục được cập nhật.
+
+Bước 5
+
+Hệ thống
+
+Đồng bộ menu hiển thị.
+
+Client/POS thấy danh mục mới hoặc trạng thái mới.
+
+3.22.3. Giao diện
+
+Bảng danh mục có thứ tự hiển thị, trạng thái, nút thêm/sửa/ẩn.
+
+3.22.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã danh mục
+
+category_id
+
+UUID
+
+Có
+
+Định danh danh mục.
+
+Tên danh mục
+
+category_name
+
+String
+
+Có
+
+Tên nhóm món.
+
+Thứ tự hiển thị
+
+display_order
+
+Integer
+
+Không
+
+Sắp xếp menu.
+
+Trạng thái
+
+is_active
+
+Boolean
+
+Có
+
+Ẩn/hiện danh mục.
+
+3.23. UC-23 - Quản lý món ăn và giá cả (Product CRUD)
+
+3.23.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-23
+
+Mô tả
+
+Cho phép Admin quản lý món ăn, giá, hình ảnh, option và trạng thái kinh doanh.
+
+Tác nhân (Actor(s))
+
+Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Admin mở mục quản lý món ăn.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có vai trò Admin; danh mục liên quan tồn tại.
+
+Điều kiện sau (Post-Condition)
+
+Thông tin món ăn được cập nhật và áp dụng cho menu/POS.
+
+Luồng cơ bản (Basic Flow)
+
+1. Admin mở danh sách món ăn.2. Admin thêm/sửa thông tin món, giá, hình ảnh, danh mục, option.3. Hệ thống kiểm tra giá, danh mục, dữ liệu bắt buộc.4. Hệ thống lưu sản phẩm và cấu hình option.5. Menu/POS cập nhật món mới.
+
+Luồng thay thế (Alternative Flow)
+
+Admin có thể chuyển món sang hết hàng/ngừng bán thay vì xóa.
+
+Luồng ngoại lệ (Exception Flow)
+
+Giá âm, thiếu danh mục, trùng mã món hoặc ảnh không hợp lệ thì hệ thống từ chối lưu.
+
+Ràng buộc (Business Rules)
+
+Chỉ Admin được chỉnh giá gốc; Staff/Manager không được tự ý sửa giá món trong phạm vi mặc định.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Thay đổi giá/món phải ghi lịch sử để đối soát doanh thu.
+
+3.23.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Admin
+
+Mở màn hình quản lý món ăn.
+
+Hệ thống hiển thị danh sách món và trạng thái.
+
+Bước 2
+
+Admin
+
+Thêm/sửa món, giá, ảnh, option hoặc trạng thái.
+
+Hệ thống nhận dữ liệu sản phẩm.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra dữ liệu bắt buộc, giá và danh mục.
+
+Dữ liệu hợp lệ được phép lưu.
+
+Bước 4
+
+Hệ thống
+
+Cập nhật Products, Options và lịch sử giá.
+
+Thông tin món được lưu vào DB.
+
+Bước 5
+
+Hệ thống
+
+Đồng bộ menu/POS.
+
+Người dùng thấy món/giá/trạng thái mới.
+
+3.23.3. Giao diện
+
+Form quản lý món có ảnh, giá, danh mục, trạng thái và cấu hình option/topping.
+
+3.23.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã món
+
+product_id
+
+UUID
+
+Có
+
+Định danh món.
+
+Tên món
+
+product_name
+
+String
+
+Có
+
+Tên hiển thị.
+
+Giá gốc
+
+base_price
+
+Decimal
+
+Có
+
+Không âm.
+
+Mã danh mục
+
+category_id
+
+UUID
+
+Có
+
+Nhóm món.
+
+Trạng thái bán
+
+is_active
+
+Boolean
+
+Có
+
+Đang bán/ngừng bán.
+
+3.24. UC-24 - Quản lý mã khuyến mãi và chiến dịch (Voucher Management)
+
+3.24.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-24
+
+Mô tả
+
+Cho phép tạo và quản lý mã giảm giá/chiến dịch; Manager quản lý trong phạm vi được giao, Admin quản lý toàn hệ thống.
+
+Tác nhân (Actor(s))
+
+Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Manager/Admin mở mục khuyến mãi.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có quyền quản lý khuyến mãi.
+
+Điều kiện sau (Post-Condition)
+
+Voucher/chiến dịch được tạo, cập nhật, tạm dừng hoặc kết thúc.
+
+Luồng cơ bản (Basic Flow)
+
+1. Manager/Admin mở danh sách voucher.2. Người thao tác tạo/sửa mã, thời gian, số lượt, điều kiện áp dụng.3. Hệ thống kiểm tra quyền phạm vi, trùng mã và điều kiện hợp lệ.4. Hệ thống lưu voucher/chiến dịch.5. Voucher sẵn sàng áp dụng ở checkout/POS.
+
+Luồng thay thế (Alternative Flow)
+
+Admin có thể tạo chiến dịch toàn hệ thống; Manager có thể tạo mã cho cửa hàng/ca/ngày trong phạm vi được cấp.
+
+Luồng ngoại lệ (Exception Flow)
+
+Mã trùng, thời gian không hợp lệ, vượt ngân sách hoặc Manager tạo ngoài phạm vi thì hệ thống từ chối.
+
+Ràng buộc (Business Rules)
+
+Voucher phải có thời hạn; thay đổi sau khi có lượt dùng phải ghi lịch sử để đối soát.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Kiểm tra điều kiện voucher phải nhất quán giữa checkout online và POS.
+
+3.24.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Manager/Admin
+
+Mở màn hình khuyến mãi.
+
+Hệ thống hiển thị voucher theo phạm vi quyền.
+
+Bước 2
+
+Manager/Admin
+
+Tạo/sửa/tạm dừng voucher hoặc chiến dịch.
+
+Hệ thống nhận cấu hình khuyến mãi.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra trùng mã, thời hạn, ngân sách và phạm vi quyền.
+
+Cấu hình hợp lệ được phép lưu.
+
+Bước 4
+
+Hệ thống
+
+Lưu voucher và điều kiện áp dụng.
+
+Mã khuyến mãi có trạng thái mới.
+
+Bước 5
+
+Hệ thống
+
+Đồng bộ sang checkout/POS.
+
+Người dùng có thể áp dụng mã theo điều kiện.
+
+3.24.3. Giao diện
+
+Bảng voucher có trạng thái, thời gian hiệu lực, số lượt còn lại, form tạo/sửa mã.
+
+3.24.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã voucher
+
+voucher_code
+
+String
+
+Có
+
+Mã giảm giá duy nhất.
+
+Loại giảm
+
+discount_type
+
+Enum
+
+Có
+
+PERCENT, FIXED.
+
+Giá trị giảm
+
+discount_value
+
+Decimal
+
+Có
+
+Phần trăm hoặc số tiền.
+
+Thời gian hiệu lực
+
+valid_from_to
+
+Object
+
+Có
+
+Từ ngày - đến ngày.
+
+Phạm vi áp dụng
+
+scope
+
+Enum
+
+Có
+
+STORE, SYSTEM, CAMPAIGN.
+
+3.25. UC-25 - Kiểm duyệt đánh giá và phản hồi (Review Moderation)
+
+3.25.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-25
+
+Mô tả
+
+Cho phép Manager/Admin duyệt, ẩn hoặc phản hồi đánh giá của khách hàng.
+
+Tác nhân (Actor(s))
+
+Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Có đánh giá mới ở trạng thái CHO_DUYET hoặc người quản trị mở màn hình phản hồi.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có quyền kiểm duyệt đánh giá.
+
+Điều kiện sau (Post-Condition)
+
+Đánh giá được hiển thị, ẩn hoặc có phản hồi chính thức từ cửa hàng.
+
+Luồng cơ bản (Basic Flow)
+
+1. Hệ thống hiển thị danh sách đánh giá cần duyệt.2. Manager/Admin đọc nội dung, số sao và đơn liên quan.3. Người thao tác chọn Duyệt, Ẩn hoặc Phản hồi.4. Hệ thống cập nhật trạng thái kiểm duyệt.5. Nếu phản hồi, hệ thống hiển thị phản hồi của cửa hàng.
+
+Luồng thay thế (Alternative Flow)
+
+Admin có thể xem toàn hệ thống; Manager kiểm duyệt phản hồi liên quan cửa hàng của mình.
+
+Luồng ngoại lệ (Exception Flow)
+
+Đánh giá đã bị xử lý bởi người khác hoặc không thuộc phạm vi quyền thì hệ thống từ chối.
+
+Ràng buộc (Business Rules)
+
+Không xóa vật lý đánh giá; ẩn nội dung vi phạm nhưng vẫn giữ lịch sử kiểm duyệt.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Danh sách đánh giá cần hỗ trợ lọc nhanh theo số sao, trạng thái và thời gian.
+
+3.25.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Manager/Admin
+
+Mở màn hình kiểm duyệt đánh giá.
+
+Hệ thống hiển thị đánh giá theo phạm vi quyền.
+
+Bước 2
+
+Manager/Admin
+
+Chọn một đánh giá để xem chi tiết.
+
+Hệ thống hiển thị nội dung, đơn và khách liên quan.
+
+Bước 3
+
+Manager/Admin
+
+Chọn Duyệt, Ẩn hoặc nhập phản hồi.
+
+Hệ thống nhận quyết định kiểm duyệt.
+
+Bước 4
+
+Hệ thống
+
+Kiểm tra quyền và trạng thái đánh giá.
+
+Quyết định hợp lệ được phép lưu.
+
+Bước 5
+
+Hệ thống
+
+Cập nhật trạng thái/phản hồi.
+
+Đánh giá hiển thị hoặc ẩn theo kết quả xử lý.
+
+3.25.3. Giao diện
+
+Bảng đánh giá có nội dung, số sao, trạng thái, đơn liên quan và nút duyệt/ẩn/phản hồi.
+
+3.25.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã đánh giá
+
+review_id
+
+UUID
+
+Có
+
+Đánh giá cần duyệt.
+
+Trạng thái duyệt
+
+moderation_status
+
+Enum
+
+Có
+
+CHO_DUYET, HIEN_THI, AN.
+
+Phản hồi cửa hàng
+
+manager_reply
+
+String
+
+Không
+
+Nội dung phản hồi chính thức.
+
+Người duyệt
+
+moderated_by
+
+UUID
+
+Có
+
+Manager/Admin xử lý.
+
+3.26. UC-26 - Quản lý cấu hình toàn hệ thống (System Configuration)
+
+3.26.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-26
+
+Mô tả
+
+Cho phép Admin cấu hình tham số hệ thống như giờ mở cửa, phí giao hàng, thanh toán, phân quyền và thông báo.
+
+Tác nhân (Actor(s))
+
+Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Admin mở mục Cấu hình hệ thống.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có vai trò Admin.
+
+Điều kiện sau (Post-Condition)
+
+Cấu hình mới được lưu và áp dụng cho toàn hệ thống theo phạm vi cấu hình.
+
+Luồng cơ bản (Basic Flow)
+
+1. Admin mở màn hình cấu hình.2. Hệ thống hiển thị các nhóm cấu hình hiện tại.3. Admin chỉnh sửa tham số cần thay đổi.4. Hệ thống kiểm tra định dạng và xung đột cấu hình.5. Hệ thống lưu cấu hình và ghi lịch sử thay đổi.
+
+Luồng thay thế (Alternative Flow)
+
+Một số cấu hình có thể cần bật/tắt theo cửa hàng nếu hệ thống hỗ trợ nhiều chi nhánh.
+
+Luồng ngoại lệ (Exception Flow)
+
+Giá trị cấu hình không hợp lệ hoặc ảnh hưởng dữ liệu vận hành đang mở thì hệ thống cảnh báo/chặn lưu.
+
+Ràng buộc (Business Rules)
+
+Chỉ Admin được sửa cấu hình toàn hệ thống; Manager không có quyền trong mặc định.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Cấu hình quan trọng phải có audit log và cơ chế rollback/thông báo khi thay đổi.
+
+3.26.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Admin
+
+Mở màn hình cấu hình hệ thống.
+
+Hệ thống tải cấu hình hiện tại.
+
+Bước 2
+
+Admin
+
+Chỉnh sửa tham số cấu hình.
+
+Hệ thống nhận giá trị mới.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra định dạng, miền giá trị và xung đột nghiệp vụ.
+
+Cấu hình hợp lệ được phép lưu.
+
+Bước 4
+
+Hệ thống
+
+Lưu cấu hình và ghi audit log.
+
+Cấu hình mới được ghi nhận.
+
+Bước 5
+
+Hệ thống
+
+Áp dụng/đồng bộ cấu hình đến phân hệ liên quan.
+
+Quy trình vận hành sử dụng cấu hình mới.
+
+3.26.3. Giao diện
+
+Trang cấu hình theo nhóm: vận hành, thanh toán, giao hàng, bảo mật, thông báo.
+
+3.26.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã cấu hình
+
+config_key
+
+String
+
+Có
+
+Tên khóa cấu hình.
+
+Giá trị
+
+config_value
+
+String/JSON
+
+Có
+
+Giá trị cấu hình.
+
+Nhóm cấu hình
+
+config_group
+
+String
+
+Có
+
+Payment, Delivery, Security...
+
+Người cập nhật
+
+updated_by
+
+UUID
+
+Có
+
+Admin thao tác.
+
+3.27. UC-27 - Báo cáo &amp; Thống kê kinh doanh (Reporting &amp; Analytics)
+
+3.27.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-27
+
+Mô tả
+
+Cung cấp báo cáo doanh thu, đơn hàng, món bán chạy và chỉ số vận hành theo phạm vi quyền.
+
+Tác nhân (Actor(s))
+
+Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Manager/Admin mở Dashboard báo cáo.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có quyền xem báo cáo.
+
+Điều kiện sau (Post-Condition)
+
+Báo cáo được hiển thị/xuất file theo phạm vi dữ liệu.
+
+Luồng cơ bản (Basic Flow)
+
+1. Người thao tác chọn loại báo cáo và khoảng thời gian.2. Hệ thống xác định phạm vi dữ liệu theo vai trò.3. Hệ thống tổng hợp doanh thu, số đơn, trạng thái, món bán chạy.4. Giao diện hiển thị biểu đồ/bảng số liệu.5. Người thao tác xuất Excel/PDF nếu cần.
+
+Luồng thay thế (Alternative Flow)
+
+Manager xem theo ca/ngày/cửa hàng; Admin xem tổng thể toàn hệ thống, lãi/lỗ và xu hướng dài hạn.
+
+Luồng ngoại lệ (Exception Flow)
+
+Khoảng thời gian quá lớn, không có quyền hoặc không có dữ liệu thì hệ thống hiển thị thông báo.
+
+Ràng buộc (Business Rules)
+
+Báo cáo tài chính tổng thể chỉ dành cho Admin; Manager chỉ xem doanh thu vận hành trong phạm vi cửa hàng/ca.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Báo cáo thường dùng phải tải nhanh; dữ liệu lớn nên dùng tổng hợp/bộ nhớ đệm.
+
+3.27.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Manager/Admin
+
+Mở Dashboard báo cáo và chọn bộ lọc.
+
+Hệ thống nhận loại báo cáo, khoảng thời gian và phạm vi.
+
+Bước 2
+
+Hệ thống
+
+Kiểm tra quyền xem báo cáo.
+
+Xác định scope: ca/ngày/cửa hàng/toàn hệ thống.
+
+Bước 3
+
+Hệ thống
+
+Tổng hợp dữ liệu đơn hàng, thanh toán, món bán chạy.
+
+Số liệu báo cáo được tính toán.
+
+Bước 4
+
+Hệ thống
+
+Hiển thị biểu đồ và bảng thống kê.
+
+Người dùng xem được kết quả báo cáo.
+
+Bước 5
+
+Manager/Admin
+
+Xuất báo cáo nếu cần.
+
+Hệ thống tạo file báo cáo theo định dạng được chọn.
+
+3.27.3. Giao diện
+
+Dashboard gồm thẻ KPI, biểu đồ doanh thu, bảng món bán chạy, bộ lọc thời gian và nút xuất báo cáo.
+
+3.27.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Khoảng thời gian
+
+date_range
+
+Object
+
+Có
+
+Từ ngày - đến ngày.
+
+Loại báo cáo
+
+report_type
+
+Enum
+
+Có
+
+REVENUE, ORDER, PRODUCT, SHIFT.
+
+Phạm vi
+
+scope
+
+Enum
+
+Có
+
+SHIFT, STORE, ALL.
+
+Định dạng xuất
+
+export_format
+
+Enum
+
+Không
+
+PDF, XLSX.
+
+3.28. UC-28 - Quản lý ca làm việc &amp; Chấm công (Shift &amp; Attendance Management)
+
+3.28.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-28
+
+Mô tả
+
+Quản lý lịch ca, phân công nhân viên và ghi nhận chấm công tại cửa hàng.
+
+Tác nhân (Actor(s))
+
+Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Trung bình (Medium)
+
+Trigger
+
+Manager/Admin mở màn hình ca làm việc/chấm công.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có quyền quản lý nhân sự; nhân viên liên quan tồn tại.
+
+Điều kiện sau (Post-Condition)
+
+Ca làm việc và dữ liệu chấm công được cập nhật phục vụ vận hành/báo cáo.
+
+Luồng cơ bản (Basic Flow)
+
+1. Manager/Admin mở lịch ca.2. Người thao tác tạo/sửa ca và phân công nhân viên.3. Nhân viên check-in/check-out theo ca.4. Hệ thống ghi nhận thời gian chấm công.5. Manager/Admin duyệt hoặc điều chỉnh chấm công khi có lý do.
+
+Luồng thay thế (Alternative Flow)
+
+Admin cấu hình mẫu ca; Manager lập lịch và duyệt chấm công cho cửa hàng mình.
+
+Luồng ngoại lệ (Exception Flow)
+
+Trùng ca, nhân viên không thuộc cửa hàng hoặc check-in ngoài thời gian cho phép thì hệ thống cảnh báo.
+
+Ràng buộc (Business Rules)
+
+Manager không được chỉnh chấm công ngoài phạm vi cửa hàng; điều chỉnh chấm công phải có lý do.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Dữ liệu chấm công cần chính xác thời gian và có audit log khi chỉnh sửa.
+
+3.28.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Manager/Admin
+
+Mở màn hình quản lý ca.
+
+Hệ thống hiển thị lịch ca theo phạm vi quyền.
+
+Bước 2
+
+Manager/Admin
+
+Tạo/sửa ca và phân công nhân viên.
+
+Hệ thống kiểm tra trùng lịch và nhân viên hợp lệ.
+
+Bước 3
+
+Nhân viên
+
+Thực hiện check-in/check-out theo ca.
+
+Hệ thống ghi nhận thời gian chấm công.
+
+Bước 4
+
+Manager/Admin
+
+Duyệt hoặc điều chỉnh chấm công nếu có lý do.
+
+Hệ thống kiểm tra quyền và yêu cầu lý do điều chỉnh.
+
+Bước 5
+
+Hệ thống
+
+Lưu lịch ca/chấm công và ghi lịch sử.
+
+Dữ liệu phục vụ báo cáo nhân sự/doanh thu theo ca.
+
+3.28.3. Giao diện
+
+Lịch ca dạng calendar/bảng, danh sách nhân viên, trạng thái check-in/out và nút duyệt điều chỉnh.
+
+3.28.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã ca
+
+shift_id
+
+UUID
+
+Có
+
+Định danh ca làm việc.
+
+Thời gian ca
+
+shift_time
+
+Object
+
+Có
+
+Giờ bắt đầu/kết thúc.
+
+Nhân viên
+
+staff_id
+
+UUID
+
+Có
+
+Người được phân công.
+
+Check-in/out
+
+attendance_time
+
+Datetime
+
+Không
+
+Thời gian chấm công.
+
+Lý do điều chỉnh
+
+adjust_reason
+
+String
+
+Không
+
+Bắt buộc khi sửa chấm công.
+
+3.29. UC-29 - Quản lý kho nguyên liệu (Ingredient Inventory Management)
+
+3.29.1. Đặc tả Use Case
+
+Thuộc tính
+
+Nội dung
+
+Use Case ID
+
+UC-29
+
+Mô tả
+
+Quản lý nhập/xuất kho nguyên liệu, tồn kho, cảnh báo thiếu hàng và đối soát nguyên liệu.
+
+Tác nhân (Actor(s))
+
+Quản lý cửa hàng (Manager), Chủ cửa hàng/Admin
+
+Sự ưu tiên (Priority)
+
+Cao (High)
+
+Trigger
+
+Manager/Admin mở mục kho nguyên liệu hoặc hệ thống phát cảnh báo tồn kho thấp.
+
+Điều kiện cần (Pre-Condition)
+
+Người thao tác có quyền kho; nguyên liệu và đơn vị tính đã được cấu hình.
+
+Điều kiện sau (Post-Condition)
+
+Phiếu nhập/xuất/điều chỉnh kho được ghi nhận, tồn kho cập nhật và cảnh báo được xử lý.
+
+Luồng cơ bản (Basic Flow)
+
+1. Manager/Admin mở danh sách tồn kho.2. Người thao tác tạo phiếu nhập, xuất hoặc điều chỉnh.3. Hệ thống kiểm tra số lượng, đơn vị, lý do và phạm vi kho.4. Hệ thống cập nhật tồn kho và ghi lịch sử.5. Hệ thống cảnh báo nguyên liệu dưới định mức.
+
+Luồng thay thế (Alternative Flow)
+
+Admin có thể xem/duyệt toàn hệ thống; Manager tạo phiếu nhập/xuất cho cửa hàng và xử lý cảnh báo tồn kho thấp.
+
+Luồng ngoại lệ (Exception Flow)
+
+Số lượng âm, xuất vượt tồn hoặc nguyên liệu chưa cấu hình thì hệ thống từ chối lưu.
+
+Ràng buộc (Business Rules)
+
+Mọi biến động kho phải có loại phiếu và người thực hiện; xuất vượt tồn không được phép trừ khi Admin cấu hình ngoại lệ.
+
+Yêu cầu phi chức năng (Non-Functional Requirement)
+
+Tồn kho cần cập nhật nhất quán, tránh sai lệch khi nhiều người thao tác cùng lúc.
+
+3.29.2. Sơ đồ luồng chi tiết
+
+Bước
+
+Người thực hiện
+
+Hành động
+
+Kết quả hệ thống
+
+Bước 1
+
+Manager/Admin
+
+Mở màn hình kho nguyên liệu.
+
+Hệ thống hiển thị tồn kho theo phạm vi quyền.
+
+Bước 2
+
+Manager/Admin
+
+Tạo phiếu nhập/xuất/điều chỉnh.
+
+Hệ thống nhận thông tin nguyên liệu, số lượng và lý do.
+
+Bước 3
+
+Hệ thống
+
+Kiểm tra số lượng, tồn hiện tại, đơn vị và quyền kho.
+
+Phiếu hợp lệ được phép ghi nhận.
+
+Bước 4
+
+Hệ thống
+
+Cập nhật tồn kho và ghi lịch sử biến động.
+
+Số lượng tồn thay đổi chính xác.
+
+Bước 5
+
+Hệ thống
+
+Kiểm tra ngưỡng tồn tối thiểu.
+
+Cảnh báo thiếu nguyên liệu được hiển thị/gửi thông báo.
+
+3.29.3. Giao diện
+
+Bảng tồn kho có mức tối thiểu, nút nhập/xuất/điều chỉnh, lịch sử phiếu và cảnh báo màu.
+
+3.29.4. Mô tả chi tiết
+
+Mô tả chi tiết các trường thông tin trong Use Case
+
+Tên tiếng Việt
+
+Tên tiếng Anh
+
+Loại
+
+Bắt buộc?
+
+Mô tả
+
+Mã nguyên liệu
+
+ingredient_id
+
+UUID
+
+Có
+
+Định danh nguyên liệu.
+
+Loại phiếu
+
+transaction_type
+
+Enum
+
+Có
+
+IMPORT, EXPORT, ADJUST.
+
+Số lượng
+
+quantity
+
+Decimal
+
+Có
+
+Số lượng biến động.
+
+Đơn vị tính
+
+unit
+
+String
+
+Có
+
+Kg, gram, lít...
+
+Ngưỡng tối thiểu
+
+min_threshold
+
+Decimal
+
+Không
+
+Dùng cảnh báo tồn thấp.
+
+PHẦN 4: CÁC COMPONENT, THÔNG BÁO, CẢNH BÁO
+
+Phần này chuẩn hóa các component giao diện, thông báo và cảnh báo sử dụng trong hệ thống sau khi bổ sung vai trò Quản lý cửa hàng (Manager). Các component và thông báo phải phản ánh đúng phạm vi của Khách hàng, Nhân viên, Quản lý cửa hàng và Chủ cửa hàng/Admin trong Phần 3.
+
+4.1. Component chính
+
+Component
+
+Mục đích sử dụng
+
+Vai trò sử dụng
+
+Use Case liên quan
+
+AuthForm / OTPVerify
+
+Form đăng ký, đăng nhập, nhập OTP, Google OAuth và xử lý lỗi xác thực.
+
+Khách vãng lai, Khách hàng, Staff, Manager, Admin
+
+UC-01, UC-02
+
+RoleBasedRouter / Sidebar
+
+Kiểm tra vai trò sau đăng nhập và điều hướng đến Client App, Staff Portal, Manager Portal hoặc Admin Panel.
+
+Tất cả tác nhân
+
+UC-02, UC-03
+
+ProfileForm / AvatarUploader
+
+Hiển thị và cập nhật hồ sơ cá nhân, số điện thoại, ảnh đại diện.
+
+Khách hàng, Staff, Manager, Admin
+
+UC-03
+
+AddressCard / AddressForm
+
+Quản lý địa chỉ giao hàng, địa chỉ mặc định và gợi ý vị trí.
+
+Khách hàng
+
+UC-04
+
+MenuGrid / ProductCard / SearchFilter
+
+Hiển thị thực đơn, tìm kiếm, lọc món, trạng thái còn/hết hàng.
+
+Khách hàng, Staff, Manager, Admin
+
+UC-05
+
+ProductOptionModal
+
+Popup chọn size, nước dùng, topping, ghi chú và tính giá theo thời gian thực.
+
+Khách hàng, Staff
+
+UC-06
+
+CartList / CartSummary / VoucherBox
+
+Quản lý giỏ hàng, thay đổi số lượng, xóa món và áp dụng mã giảm giá.
+
+Khách hàng, Staff, Manager
+
+UC-07, UC-08
+
+CheckoutLayout / PaymentGateway
+
+Nhập thông tin giao nhận, chọn COD/VNPay/MoMo, xử lý kết quả thanh toán.
+
+Khách hàng
+
+UC-09, UC-10
+
+OrderTimeline / RealtimeNotification
+
+Theo dõi trạng thái đơn hàng realtime, nhận thông báo khi trạng thái thay đổi.
+
+Khách hàng, Staff, Manager
+
+UC-11, UC-15
+
+OrderHistoryTable / ReviewForm
+
+Hiển thị lịch sử đơn hàng và cho phép khách đánh giá sau khi hoàn thành đơn.
+
+Khách hàng
+
+UC-12, UC-13
+
+OrderKanban / OrderDetailDrawer
+
+Tiếp nhận đơn online, xem chi tiết món, xác nhận/từ chối và cập nhật trạng thái.
+
+Staff, Manager
+
+UC-14, UC-15
+
+TableMap / POSDashboard
+
+Sơ đồ bàn, gọi món tại quầy, chọn hình thức ăn tại chỗ/mang đi.
+
+Staff, Manager
+
+UC-16, UC-17
+
+POSPaymentPanel / InvoicePreview
+
+Xử lý thanh toán tại quầy và xem trước/in hóa đơn.
+
+Staff, Manager
+
+UC-18, UC-19
+
+KitchenQueueBoard
+
+Hiển thị hàng đợi bếp, cập nhật trạng thái món: chờ làm, đang làm, đã xong, hết nguyên liệu.
+
+Nhân viên bếp, Manager
+
+UC-20
+
+UserManagementTable
+
+Quản lý tài khoản theo phạm vi quyền: Manager quản lý Staff cửa hàng, Admin quản lý toàn hệ thống.
+
+Manager, Admin
+
+UC-21
+
+CategoryManagementTable
+
+Quản lý danh mục thực đơn cấp hệ thống.
+
+Admin
+
+UC-22
+
+ProductManagementForm / PricingPanel
+
+Quản lý món ăn, giá bán, option, trạng thái hiển thị và trạng thái còn hàng.
+
+Admin
+
+UC-23
+
+VoucherCampaignForm
+
+Tạo, sửa, kích hoạt/tạm dừng mã khuyến mãi và chiến dịch.
+
+Manager, Admin
+
+UC-24
+
+ReviewModerationQueue
+
+Kiểm duyệt đánh giá, ẩn/hiện phản hồi vi phạm, ghi nhận lý do xử lý.
+
+Manager, Admin
+
+UC-25
+
+SystemConfigPanel
+
+Cấu hình toàn hệ thống: giờ mở cửa, phương thức thanh toán, phí giao hàng, bảo mật.
+
+Admin
+
+UC-26
+
+AnalyticsDashboard / ReportExport
+
+Xem KPI, doanh thu theo ca/ngày/cửa hàng, báo cáo tổng hợp và xuất file.
+
+Manager, Admin
+
+UC-27
+
+ShiftCalendar / AttendanceTable
+
+Quản lý ca làm việc, chấm công, duyệt điều chỉnh công.
+
+Manager, Admin
+
+UC-28
+
+IngredientInventoryTable / StockAlert
+
+Theo dõi tồn kho nguyên liệu, nhập/xuất/điều chỉnh kho và cảnh báo tồn thấp.
+
+Manager, Admin
+
+UC-29
+
+4.2. Mẫu thông báo/cảnh báo
+
+Mã
+
+Nội dung
+
+Loại
+
+Vai trò nhận
+
+Use Case
+
+MSG-AUTH-001
+
+OTP đã được gửi tới email/SĐT của bạn. Vui lòng nhập mã trong 5 phút.
+
+Success/Info
+
+Khách hàng
+
+UC-01
+
+MSG-AUTH-002
+
+Email, số điện thoại hoặc mật khẩu không chính xác.
+
+Error
+
+Tất cả tác nhân
+
+UC-02
+
+MSG-AUTH-003
+
+Tài khoản bị khóa tạm thời do đăng nhập sai quá số lần cho phép.
+
+Warning
+
+Tất cả tác nhân
+
+UC-02
+
+MSG-AUTH-004
+
+Bạn không có quyền truy cập chức năng này.
+
+Error
+
+Tất cả tác nhân
+
+UC-02, UC-21 - UC-29
+
+MSG-PROFILE-001
+
+Thông tin cá nhân đã được cập nhật thành công.
+
+Success
+
+Tất cả tác nhân
+
+UC-03
+
+MSG-ADDR-001
+
+Địa chỉ giao hàng đã được lưu thành công.
+
+Success
+
+Khách hàng
+
+UC-04
+
+MSG-MENU-001
+
+Không tìm thấy món phù hợp với tiêu chí tìm kiếm.
+
+Warning
+
+Tất cả tác nhân
+
+UC-05
+
+MSG-OPTION-001
+
+Vui lòng chọn đầy đủ các tùy chọn bắt buộc trước khi thêm món.
+
+Warning
+
+Khách hàng, Staff
+
+UC-06
+
+MSG-CART-001
+
+Bạn có muốn xóa món ăn này khỏi giỏ hàng không?
+
+Confirm
+
+Khách hàng
+
+UC-07
+
+MSG-VOUCHER-001
+
+Áp dụng mã giảm giá thành công.
+
+Success
+
+Khách hàng, Staff, Manager
+
+UC-08, UC-24
+
+MSG-VOUCHER-002
+
+Mã giảm giá đã hết hạn, hết lượt sử dụng hoặc không đủ điều kiện áp dụng.
+
+Error
+
+Khách hàng, Staff, Manager
+
+UC-08, UC-24
+
+MSG-ORDER-001
+
+Đặt hàng thành công. Đơn hàng của bạn đang chờ xác nhận.
+
+Success
+
+Khách hàng
+
+UC-09
+
+MSG-ORDER-002
+
+Một số món trong giỏ hàng đã hết hàng. Vui lòng cập nhật giỏ hàng.
+
+Warning
+
+Khách hàng, Staff, Manager
+
+UC-09, UC-20
+
+MSG-ORDER-003
+
+Có đơn hàng online mới cần tiếp nhận.
+
+Info/Alert
+
+Staff, Manager
+
+UC-14
+
+MSG-ORDER-004
+
+Trạng thái đơn hàng đã được cập nhật.
+
+Info
+
+Khách hàng, Staff, Manager
+
+UC-11, UC-15
+
+MSG-PAY-001
+
+Thanh toán thành công.
+
+Success
+
+Khách hàng, Staff
+
+UC-10, UC-18
+
+MSG-PAY-002
+
+Thanh toán thất bại hoặc đã bị hủy. Vui lòng thử lại hoặc chọn COD.
+
+Error
+
+Khách hàng
+
+UC-10
+
+MSG-POS-001
+
+Bàn đang có đơn mở, không thể xóa hoặc chuyển sang trạng thái trống.
+
+Error
+
+Staff, Manager
+
+UC-16, UC-17
+
+MSG-KITCHEN-001
+
+Trạng thái món tại bếp đã được cập nhật.
+
+Success
+
+Nhân viên bếp, Manager
+
+UC-20
+
+MSG-USER-001
+
+Tài khoản đã được tạo/cập nhật thành công.
+
+Success
+
+Manager, Admin
+
+UC-21
+
+MSG-USER-002
+
+Manager không được gán quyền vượt cấp hoặc thao tác ngoài phạm vi cửa hàng.
+
+Error
+
+Manager
+
+UC-21
+
+MSG-ADMIN-001
+
+Dữ liệu đã được lưu thành công.
+
+Success
+
+Manager, Admin
+
+UC-22 - UC-26
+
+MSG-ADMIN-002
+
+Không thể xóa dữ liệu vì đang được liên kết với dữ liệu nghiệp vụ khác.
+
+Error
+
+Manager, Admin
+
+UC-22, UC-23, UC-24
+
+MSG-REVIEW-001
+
+Phản hồi/đánh giá đã được xử lý thành công.
+
+Success
+
+Manager, Admin
+
+UC-25
+
+MSG-REPORT-001
+
+Báo cáo đã được xuất thành công.
+
+Success
+
+Manager, Admin
+
+UC-27
+
+MSG-SHIFT-001
+
+Ca làm việc hoặc dữ liệu chấm công đã được cập nhật.
+
+Success
+
+Manager, Admin
+
+UC-28
+
+MSG-STOCK-001
+
+Nguyên liệu đang dưới ngưỡng tối thiểu. Vui lòng kiểm tra tồn kho.
+
+Warning
+
+Manager, Admin
+
+UC-29
+
+MSG-STOCK-002
+
+Phiếu nhập/xuất/điều chỉnh kho đã được ghi nhận.
+
+Success
+
+Manager, Admin
+
+UC-29
+
+PHẦN 5: LINK ISSUE
+
+Đính kèm các mã yêu cầu trên hệ thống quản lý issue/Jira nội bộ. Bảng dưới đây đã được đồng bộ với danh sách UC-01 đến UC-29 trong Phần 3 sau khi bổ sung vai trò Quản lý cửa hàng (Manager). Khi triển khai thực tế, cột Trạng thái link sẽ được cập nhật từ &quot;Chưa gắn link&quot; sang đường dẫn issue tương ứng.
+
+Issue nội bộ
+
+Use Case
+
+Tên chức năng
+
+Phân hệ / Vai trò chính
+
+Trạng thái link
+
+SRS-UC-01
+
+UC-01
+
+Đăng ký tài khoản (Register)
+
+Khách hàng / Khách vãng lai
+
+Chưa gắn link
+
+SRS-UC-02
+
+UC-02
+
+Đăng nhập (Login)
+
+Hệ thống / Tất cả tác nhân
+
+Chưa gắn link
+
+SRS-UC-03
+
+UC-03
+
+Quản lý thông tin cá nhân (Profile Management)
+
+Hệ thống / Tất cả tác nhân
+
+Chưa gắn link
+
+SRS-UC-04
+
+UC-04
+
+Quản lý địa chỉ giao hàng (Address Book)
+
+Khách hàng
+
+Chưa gắn link
+
+SRS-UC-05
+
+UC-05
+
+Xem và tìm kiếm thực đơn (Browse &amp; Search Menu)
+
+Thực đơn / Tất cả tác nhân
+
+Chưa gắn link
+
+SRS-UC-06
+
+UC-06
+
+Tùy chỉnh món ăn (Customize Product Options)
+
+Thực đơn / Khách hàng, Staff
+
+Chưa gắn link
+
+SRS-UC-07
+
+UC-07
+
+Quản lý giỏ hàng (Cart Management)
+
+Khách hàng
+
+Chưa gắn link
+
+SRS-UC-08
+
+UC-08
+
+Áp dụng mã giảm giá (Apply Voucher)
+
+Khuyến mãi / Khách hàng, Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-09
+
+UC-09
+
+Đặt hàng Online (Checkout)
+
+Đơn hàng / Khách hàng
+
+Chưa gắn link
+
+SRS-UC-10
+
+UC-10
+
+Thanh toán trực tuyến (Online Payment)
+
+Thanh toán / Khách hàng
+
+Chưa gắn link
+
+SRS-UC-11
+
+UC-11
+
+Theo dõi trạng thái đơn hàng (Order Tracking)
+
+Đơn hàng / Khách hàng, Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-12
+
+UC-12
+
+Lịch sử đơn hàng (Order History)
+
+Đơn hàng / Theo phạm vi quyền
+
+Chưa gắn link
+
+SRS-UC-13
+
+UC-13
+
+Đánh giá &amp; phản hồi (Review &amp; Feedback)
+
+Đánh giá / Khách hàng
+
+Chưa gắn link
+
+SRS-UC-14
+
+UC-14
+
+Tiếp nhận đơn trực tuyến (Order Acceptance)
+
+Vận hành / Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-15
+
+UC-15
+
+Cập nhật trạng thái đơn (Order Status Management)
+
+Vận hành / Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-16
+
+UC-16
+
+Quản lý bàn tại quán (Table Management)
+
+Vận hành / Staff, Manager, Admin
+
+Chưa gắn link
+
+SRS-UC-17
+
+UC-17
+
+Gọi món tại quầy - POS (Point of Sale Ordering)
+
+POS / Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-18
+
+UC-18
+
+Thanh toán tại quầy (POS Payment Handling)
+
+Thanh toán / Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-19
+
+UC-19
+
+In hóa đơn (Invoice Printing)
+
+Hệ thống / Staff, Manager
+
+Chưa gắn link
+
+SRS-UC-20
+
+UC-20
+
+Quản lý trạng thái món ăn tại bếp (Kitchen Status Management)
+
+Nhà bếp / Bếp, Manager
+
+Chưa gắn link
+
+SRS-UC-21
+
+UC-21
+
+Quản lý tài khoản người dùng (User Account Management)
+
+Quản trị / Manager, Admin
+
+Chưa gắn link
+
+SRS-UC-22
+
+UC-22
+
+Quản lý danh mục thực đơn (Category CRUD)
+
+Quản trị / Admin
+
+Chưa gắn link
+
+SRS-UC-23
+
+UC-23
+
+Quản lý món ăn và giá cả (Product CRUD)
+
+Quản trị / Admin
+
+Chưa gắn link
+
+SRS-UC-24
+
+UC-24
+
+Quản lý mã khuyến mãi và chiến dịch (Voucher Management)
+
+Khuyến mãi / Manager, Admin
+
+Chưa gắn link
+
+SRS-UC-25
+
+UC-25
+
+Kiểm duyệt đánh giá và phản hồi (Review Moderation)
+
+Đánh giá / Manager, Admin
+
+Chưa gắn link
+
+SRS-UC-26
+
+UC-26
+
+Quản lý cấu hình toàn hệ thống (System Configuration)
+
+Quản trị / Admin
+
+Chưa gắn link
+
+SRS-UC-27
+
+UC-27
+
+Báo cáo &amp; Thống kê kinh doanh (Reporting &amp; Analytics)
+
+Báo cáo / Manager, Admin
+
+Chưa gắn link
+
+SRS-UC-28
+
+UC-28
+
+Quản lý ca làm việc &amp; Chấm công (Shift &amp; Attendance Management)
+
+Nhân sự / Manager, Admin
+
+Chưa gắn link
+
+SRS-UC-29
+
+UC-29
+
+Quản lý kho nguyên liệu (Ingredient Inventory Management)
+
+Kho hàng / Manager, Admin
+
+Chưa gắn link
+
+Ghi chú: Manager chỉ được gắn và xử lý issue trong phạm vi cửa hàng/ca làm việc được phân quyền; Admin được xử lý issue cấp hệ thống và toàn bộ cấu hình dữ liệu nền.
