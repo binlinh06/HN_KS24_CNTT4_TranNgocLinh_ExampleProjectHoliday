@@ -1,30 +1,43 @@
 'use client';
 
 import React from 'react';
-import { PageHeader } from '@/components/ui/page-header';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { ShieldAlert, ArrowLeft, Home } from 'lucide-react';
 
-export default function PublicUnauthorizedPage() {
+export default function UnauthorizedPage() {
   return (
-    <div className="space-y-6">
-      <PageHeader
-        title="Không có quyền truy cập"
-        description="Chi tiết đặc tả yêu cầu và trạng thái thiết kế màn hình."
-      />
-      
-      <div className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
-        <div className="flex flex-col items-center justify-center py-12 text-center">
-          <div className="w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-            </svg>
+    <div className="min-h-[calc(100vh-4rem-60px)] flex items-center justify-center p-4 bg-stone-50">
+      <Card className="w-full max-w-md border-stone-200 text-center">
+        <CardContent className="pt-8 pb-8">
+          <div className="mx-auto w-14 h-14 rounded-full bg-error-50 flex items-center justify-center text-error-600 mb-6 border border-error-100">
+            <ShieldAlert size={28} />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Đang phát triển</h3>
-          <p className="text-gray-500 max-w-md">
-            Giao diện cho chức năng này đang được thiết kế và phát triển đồng bộ với Backend APIs.
+          
+          <h1 className="text-3xl font-extrabold text-stone-900 tracking-tight">403</h1>
+          <h2 className="text-lg font-bold text-stone-850 mt-2">Truy cập bị từ chối</h2>
+          
+          <p className="text-stone-500 text-sm mt-3 leading-relaxed">
+            Bạn không có quyền truy cập vào đường dẫn này. Vui lòng kiểm tra lại tài khoản hoặc liên hệ quản trị viên để biết thêm chi tiết.
           </p>
-        </div>
-      </div>
-    
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/login" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full gap-2">
+                <ArrowLeft size={16} />
+                Đăng nhập lại
+              </Button>
+            </Link>
+            <Link href="/" className="w-full sm:w-auto">
+              <Button className="w-full gap-2 bg-primary-500 hover:bg-primary-600">
+                <Home size={16} />
+                Về trang chủ
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

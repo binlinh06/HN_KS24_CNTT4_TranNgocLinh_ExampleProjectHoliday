@@ -9,75 +9,41 @@ export interface AuthUser {
   fullName: string;
 }
 
+export type AuthStatus = 'loading' | 'authenticated' | 'unauthenticated';
+
 interface AuthState {
-  accessToken: string | null;
   user: AuthUser | null;
+  accessToken: string | null;
+  authStatus: AuthStatus;
   isAuthenticated: boolean;
-  login: (accessToken: string, user: AuthUser) => void;
-  logout: () => void;
-  setAccessToken: (token: string) => void;
-  initialize: () => void;
+  setAuth: (user: AuthUser, accessToken: string) => void;
   clearAuth: () => void;
+  setStatus: (status: AuthStatus) => void;
+  setAccessToken: (token: string) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  accessToken: null,
   user: null,
+  accessToken: null,
+  authStatus: 'loading',
   isAuthenticated: false,
-  login: (accessToken, user) => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('access_token', accessToken);
-      localStorage.setItem('auth_user', JSON.stringify(user));
-    }
-    set({
-      accessToken,
-      user,
-      isAuthenticated: true,
-    });
+
+  setAuth: (user, accessToken) => {
+    set({ user, accessToken, authStatus: 'authenticated', isAuthenticated: true });
   },
-  logout: () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('auth_user');
-    }
-    set({
-      accessToken: null,
-      user: null,
-      isAuthenticated: false,
-    });
-  },
-  setAccessToken: (accessToken) => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('access_token', accessToken);
-    }
-    set({
-      accessToken,
-    });
-  },
-  initialize: () => {
-    if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('access_token');
-      const userStr = localStorage.getItem('auth_user');
-      if (token && userStr) {
-        try {
-          const user = JSON.parse(userStr);
-          set({ accessToken: token, user, isAuthenticated: true });
-        } catch (e) {
-          localStorage.removeItem('access_token');
-          localStorage.removeItem('auth_user');
-        }
-      }
-    }
-  },
+
   clearAuth: () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('auth_user');
-    }
-    set({
-      accessToken: null,
-      user: null,
-      isAuthenticated: false,
+    set({ user: null, accessToken: null, authStatus: 'unauthenticated', isAuthenticated: false });
+  },
+
+  setStatus: (authStatus) => {
+    set({ 
+      authStatus,
+      isAuthenticated: authStatus === 'authenticated'
     });
+  },
+
+  setAccessToken: (accessToken) => {
+    set({ accessToken });
   },
 }));

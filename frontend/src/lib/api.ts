@@ -11,7 +11,7 @@ export const api = axios.create({
   },
 });
 
-// Request Interceptor
+// Request Interceptor — attach in-memory access token
 api.interceptors.request.use(
   (config) => {
     const token = useAuthStore.getState().accessToken;
@@ -23,11 +23,14 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response Interceptor for Auto Refresh
+// Response Interceptor — auto refresh on 401
 let isRefreshing = false;
-let failedQueue: any[] = [];
+let failedQueue: Array<{
+  resolve: (token: string) => void;
+  reject: (error: unknown) => void;
+}> = [];
 
-const processQueue = (error: any, token: string | null = null) => {
+const processQueue = (error: unknown, token: string | null = null) => {
   failedQueue.forEach((prom) => {
     if (token) {
       prom.resolve(token);
@@ -45,7 +48,7 @@ api.interceptors.response.use(
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       if (isRefreshing) {
-        return new Promise((resolve, reject) => {
+        return new Promise<string>((resolve, reject) => {
           failedQueue.push({ resolve, reject });
         })
           .then((token) => {
@@ -59,7 +62,7 @@ api.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        // Call refresh token endpoint (sends httpOnly refresh_token cookie)
+        // Refresh sends HttpOnly cookie automatically
         const response = await axios.post(
           `${API_URL}/auth/refresh`,
           {},
@@ -69,9 +72,7 @@ api.interceptors.response.use(
         const { accessToken } = response.data.data;
         useAuthStore.getState().setAccessToken(accessToken);
 
-        api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-
         processQueue(null, accessToken);
         isRefreshing = false;
 
@@ -79,7 +80,7 @@ api.interceptors.response.use(
       } catch (refreshError) {
         processQueue(refreshError, null);
         isRefreshing = false;
-        useAuthStore.getState().logout();
+        useAuthStore.getState().clearAuth();
         return Promise.reject(refreshError);
       }
     }

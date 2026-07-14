@@ -2,8 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =============================================
+   DESIGN SYSTEM - CSS Custom Properties
+   Font: Be Vietnam Pro (loaded via next/font/google in root layout)
+   ============================================= */
+
 @layer base {
+  :root {
+    /* Primary Green */
+    --color-primary: #0F6B4F;
+    --color-primary-light: #13856A;
+    --color-primary-dark: #0A4F3A;
+    --color-primary-50: #ECFDF5;
+    --color-primary-100: #D1FAE5;
+    --color-primary-500: #0F6B4F;
+    --color-primary-600: #0A5C42;
+    --color-primary-700: #084D37;
+    --color-primary-900: #042F22;
+
+    /* Accent Gold */
+    --color-accent: #C7A45B;
+    --color-accent-light: #D4B76E;
+    --color-accent-dark: #B89344;
+    --color-accent-50: #FDF8EB;
+
+    /* Semantic Colors */
+    --color-success: #16A34A;
+    --color-error: #DC2626;
+    --color-warning: #D97706;
+    --color-info: #2563EB;
+
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-dropdown: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-slate-50 text-slate-900 min-h-screen antialiased;
+    @apply bg-stone-50 text-stone-900 min-h-screen;
+  }
+
+  /* Focus visible styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-500/40 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-stone-300 rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-stone-400;
   }
 }
