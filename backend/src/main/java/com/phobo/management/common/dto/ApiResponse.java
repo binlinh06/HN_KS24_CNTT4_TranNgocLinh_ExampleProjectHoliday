@@ -30,4 +30,14 @@ public class ApiResponse<T> {
     public static <T> ApiResponse<T> success(T data) {
         return success(data, "Thành công");
     }
+
+    public static <T> ApiResponse<T> success(T data, Object meta, String message) {
+        return ApiResponse.<T>builder()
+                .success(true)
+                .message(message)
+                .data(data)
+                .meta(meta)
+                .timestamp(LocalDateTime.now().toString())
+                .build();
+    }
 }

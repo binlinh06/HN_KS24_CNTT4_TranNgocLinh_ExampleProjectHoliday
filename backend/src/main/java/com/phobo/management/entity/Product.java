@@ -25,6 +25,9 @@ public class Product {
     @Column(name = "product_name", nullable = false)
     private String productName;
 
+    @Column(name = "slug", nullable = false)
+    private String slug;
+
     @Column(name = "base_price", nullable = false)
     private BigDecimal basePrice;
 
@@ -35,10 +38,27 @@ public class Product {
     private String imageUrl;
 
     @Column(name = "is_available", nullable = false)
+    @Builder.Default
     private Boolean isAvailable = true;
+
+    @Column(name = "is_featured", nullable = false)
+    @Builder.Default
+    private Boolean isFeatured = false;
+
+    @Column(name = "preparation_time_minutes", nullable = false)
+    @Builder.Default
+    private Integer preparationTimeMinutes = 15;
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "updated_at", nullable = false)
+    @Builder.Default
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
     @ManyToMany
     @JoinTable(
@@ -47,4 +67,15 @@ public class Product {
         inverseJoinColumns = @JoinColumn(name = "group_id")
     )
     private Set<OptionGroup> optionGroups;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }

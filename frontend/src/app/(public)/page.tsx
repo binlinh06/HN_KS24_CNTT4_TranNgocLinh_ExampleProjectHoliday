@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { mockMenuItems, mockVouchers } from '@/mocks/dashboard';
+import { mockVouchers } from '@/mocks/dashboard';
+import { useFeaturedProducts } from '@/features/products/api';
 import { 
   ArrowRight, 
   CheckCircle, 
@@ -19,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export default function PublicHomepage() {
-  const bestSellers = mockMenuItems.slice(0, 3);
+  const { data: bestSellers = [], isLoading: isLoadingFeatured } = useFeaturedProducts();
 
   const categories = [
     { name: 'Phở Bò', count: '10 món', description: 'Nước dùng hầm xương 24h đặc trưng', icon: ChefHat },
@@ -149,36 +150,52 @@ export default function PublicHomepage() {
               Những món phở đậm đà được khách hàng ưa chuộng và lựa chọn nhiều nhất tại hệ thống
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {bestSellers.map((item) => (
-              <Card key={item.id} className="overflow-hidden hover:shadow-md transition-all duration-300">
-                <CardContent className="p-0">
-                  <div className="aspect-video w-full bg-stone-200 relative flex items-center justify-center text-stone-450 border-b border-stone-100">
-                    <Utensils size={32} className="text-stone-300" />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-start">
-                      <h3 className="text-lg font-bold text-stone-900 leading-tight">{item.name}</h3>
-                      <Badge variant="primary" className="text-[10px]">
-                        Bán chạy
-                      </Badge>
+          {isLoadingFeatured ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-64 bg-stone-100 rounded-xl animate-pulse" />
+              ))}
+            </div>
+          ) : bestSellers.length === 0 ? (
+            <div className="text-center text-stone-500 text-sm py-12">
+              Không có món ăn nổi bật nào được thiết lập.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {bestSellers.slice(0, 3).map((item) => (
+                <Card key={item.id} className="overflow-hidden hover:shadow-md transition-all duration-300 border-stone-200 bg-white">
+                  <CardContent className="p-0">
+                    <div className="aspect-video w-full bg-stone-50 relative flex items-center justify-center text-stone-400 border-b border-stone-100 overflow-hidden">
+                      {item.imageUrl ? (
+                        <img src={item.imageUrl} alt={item.productName} className="w-full h-full object-cover" />
+                      ) : (
+                        <Utensils size={32} className="text-stone-300" />
+                      )}
                     </div>
-                    <p className="text-xs text-stone-500 mt-1">{item.category}</p>
-                    <div className="mt-6 flex items-center justify-between">
-                      <span className="text-lg font-bold text-primary-600">
-                        {item.price.toLocaleString('vi-VN')}đ
-                      </span>
-                      <Link href="/login">
-                        <Button size="sm" className="bg-primary-500 hover:bg-primary-600 text-xs">
-                          Đặt mua
-                        </Button>
-                      </Link>
+                    <div className="p-6">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-lg font-bold text-stone-900 leading-tight line-clamp-1">{item.productName}</h3>
+                        <Badge variant="primary" className="text-[10px]">
+                          Bán chạy
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-stone-500 mt-1">{item.category.categoryName}</p>
+                      <div className="mt-6 flex items-center justify-between">
+                        <span className="text-lg font-bold text-primary">
+                          {item.basePrice.toLocaleString('vi-VN')}đ
+                        </span>
+                        <Link href="/menu">
+                          <Button size="sm" className="bg-primary hover:bg-primary-dark text-xs">
+                            Đặt mua
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

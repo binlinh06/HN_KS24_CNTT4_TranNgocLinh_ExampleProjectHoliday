@@ -56,3 +56,69 @@ export interface UserPayload {
   email: string;
   roles: RoleCode[];
 }
+
+// Category Entity
+export interface Category {
+  id: string;
+  categoryName: string;
+  description?: string;
+  displayOrder: number;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+// Category Summary for Products
+export interface CategorySummary {
+  id: string;
+  categoryName: string;
+}
+
+// Product Entity
+export interface Product {
+  id: string;
+  productName: string;
+  slug: string;
+  basePrice: number;
+  description?: string;
+  imageUrl?: string;
+  isAvailable: boolean;
+  isFeatured: boolean;
+  preparationTimeMinutes: number;
+  category: CategorySummary;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+// Option Entity
+export interface Option {
+  id: string;
+  optionName: string;
+  incrementalPrice: number;
+  isAvailable: boolean;
+  displayOrder: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+// Option Group Entity
+export interface OptionGroup {
+  id: string;
+  groupName: string;
+  isRequired: boolean;
+  minSelectable: number;
+  maxSelectable: number;
+  displayOrder: number;
+  isActive: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  options: Option[];
+}
+
+// Page Metadata format
+export interface PageMetadata {
+  page: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
