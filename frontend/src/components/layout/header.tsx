@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/auth';
 import { Badge } from '@/components/ui/badge';
 import { Bell, ChevronRight, User } from 'lucide-react';
 import Link from 'next/link';
+import { CartBadge } from '@/components/cart/cart-badge';
 
 interface BreadcrumbItem {
   title: string;
@@ -40,8 +41,11 @@ export function Header({ breadcrumbs }: HeaderProps) {
       <div className="flex items-center gap-4">
         {/* Stage Indicator Badge */}
         <Badge variant="accent" className="hidden sm:inline-flex text-[10px] font-bold tracking-wider py-0.5 px-2">
-          GIAI ĐOẠN 2
+          GIAI ĐOẠN 4
         </Badge>
+
+        {/* Cart Badge */}
+        <CartBadge />
 
         {/* Notifications Icon (Placeholder) */}
         <button className="p-1.5 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-50 transition-colors focus:outline-none">

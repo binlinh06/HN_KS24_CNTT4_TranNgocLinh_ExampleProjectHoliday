@@ -122,3 +122,77 @@ export interface PageMetadata {
   totalElements: number;
   totalPages: number;
 }
+
+// ============ Cart Types ============
+
+export interface CartOptionResponse {
+  optionId: string;
+  optionName: string;
+  incrementalPrice: number;
+}
+
+export interface CartItemResponse {
+  id: string;
+  productId: string;
+  productName: string;
+  imageUrl?: string;
+  basePrice: number;
+  quantity: number;
+  options: CartOptionResponse[];
+  specialNote?: string;
+  unitPriceSnapshot: number;
+  currentUnitPrice: number;
+  priceChanged: boolean;
+  lineTotal: number;
+  isValid: boolean;
+  validationErrors: string[];
+}
+
+export interface VoucherSummary {
+  code: string;
+  discountType: 'PERCENTAGE' | 'FIXED_AMOUNT';
+  discountValue: number;
+}
+
+export interface CartResponse {
+  cartId: string;
+  items: CartItemResponse[];
+  subtotal: number;
+  discountAmount: number;
+  estimatedTotal: number;
+  itemCount: number;
+  isCartValid: boolean;
+  appliedVoucher?: VoucherSummary;
+  voucherRemovalReason?: string;
+}
+
+export interface CartMergeAccepted {
+  clientItemId: string;
+  cartItemId: string;
+  merged: boolean;
+  newQuantity: number;
+}
+
+export interface CartMergeRejected {
+  clientItemId: string;
+  reason: string;
+}
+
+export interface CartMergeResponse {
+  acceptedItems: CartMergeAccepted[];
+  rejectedItems: CartMergeRejected[];
+  cart: CartResponse;
+}
+
+// Guest Cart (localStorage)
+export interface GuestCartItem {
+  clientItemId: string;
+  productId: string;
+  productName: string;
+  imageUrl?: string;
+  optionIds: string[];
+  optionNames: string[];
+  quantity: number;
+  specialNote?: string;
+  displayPrice: number; // for display only, NOT trusted by backend
+}

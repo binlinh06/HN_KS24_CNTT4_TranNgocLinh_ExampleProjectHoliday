@@ -7,6 +7,7 @@ import { useAuthStore } from '@/stores/auth';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { showToast } from '@/components/ui/toast';
+import { CartBadge } from '@/components/cart/cart-badge';
 import { Utensils, LogOut, LayoutDashboard, LogIn, UserPlus } from 'lucide-react';
 import { api } from '@/lib/api';
 
@@ -47,10 +48,13 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-stone-600">
             <Link href="/" className="hover:text-primary-600 transition-colors">Trang chủ</Link>
-            <Link href="/#categories" className="hover:text-primary-600 transition-colors">Danh mục</Link>
+            <Link href="/menu" className="hover:text-primary-600 transition-colors">Thực đơn</Link>
             <Link href="/#best-sellers" className="hover:text-primary-600 transition-colors">Món bán chạy</Link>
             <Link href="/#reviews" className="hover:text-primary-600 transition-colors">Đánh giá</Link>
           </nav>
+
+          {/* Cart Badge */}
+          <CartBadge />
 
           <div className="flex items-center gap-3">
             {authStatus === 'loading' ? (
@@ -150,7 +154,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
           </div>
 
           <div className="border-t border-stone-850 mt-12 pt-6 text-center text-xs text-stone-500">
-            <p>© {new Date().getFullYear()} Phở Bò Gia Truyền Management System. Giai đoạn 2 - Thiết kế & Xác thực.</p>
+            <p>© {new Date().getFullYear()} Phở Bò Gia Truyền Management System. Giai đoạn 4 – Giỏ hàng & Mã giảm giá.</p>
           </div>
         </div>
       </footer>

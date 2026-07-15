@@ -63,4 +63,31 @@ public class SecurityTest {
                 .content("{\"categoryName\":\"Phở nước\", \"displayOrder\": 1}"))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    public void anonymousCannotAccessCart() throws Exception {
+        mockMvc.perform(get("/api/v1/cart"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    @WithMockUser(username = "staff", roles = "STAFF")
+    public void staffCannotAccessCart() throws Exception {
+        mockMvc.perform(get("/api/v1/cart"))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "manager", roles = "MANAGER")
+    public void managerCannotAccessCart() throws Exception {
+        mockMvc.perform(get("/api/v1/cart"))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(username = "admin", roles = "ADMIN")
+    public void adminCannotAccessCart() throws Exception {
+        mockMvc.perform(get("/api/v1/cart"))
+                .andExpect(status().isForbidden());
+    }
 }

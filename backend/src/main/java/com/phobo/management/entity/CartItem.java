@@ -2,6 +2,7 @@ package com.phobo.management.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,12 @@ public class CartItem {
     @Column(nullable = false)
     private Integer quantity = 1;
 
+    @Column(name = "special_note", length = 150)
+    private String specialNote;
+
+    @Column(name = "unit_price_snapshot")
+    private BigDecimal unitPriceSnapshot;
+
     @ManyToMany
     @JoinTable(
         name = "cart_item_options",
@@ -35,3 +42,4 @@ public class CartItem {
     )
     private Set<ProductOption> options;
 }
+

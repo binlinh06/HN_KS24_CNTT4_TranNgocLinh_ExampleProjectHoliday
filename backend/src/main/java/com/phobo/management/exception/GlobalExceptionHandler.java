@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(CartException.class)
+    public ResponseEntity<ApiErrorResponse> handleCartException(CartException ex) {
+        return ResponseEntity.status(ex.getStatus())
+                .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)

@@ -13,6 +13,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Modal } from '@/components/ui/modal';
 import { showToast } from '@/components/ui/toast';
 import { calculateItemPrice } from '@/utils/price';
+import { useAuthStore } from '@/stores/auth';
+import { useGuestCartStore } from '@/stores/cart';
+import { useAddCartItem } from '@/features/cart/api';
 
 function PublicMenuPageContent() {
   const router = useRouter();
@@ -317,6 +320,10 @@ interface CustomizationProps {
 const ProductCustomizationModal: React.FC<CustomizationProps> = ({ product, onClose }) => {
   const { data: optionGroups = [], isLoading } = useProductOptions(product.id);
 
+  const { user, isAuthenticated } = useAuthStore();
+  const addGuestItem = useGuestCartStore((s) => s.addItem);
+  const addMutation = useAddCartItem();
+
   // States
   const [selectedOptions, setSelectedOptions] = useState<Record<string, Option[]>>({});
   const [quantity, setQuantity] = useState(1);
@@ -408,9 +415,47 @@ const ProductCustomizationModal: React.FC<CustomizationProps> = ({ product, onCl
       return;
     }
 
-    // Success Simulation
-    showToast.success('Cấu hình món hợp lệ. Giỏ hàng sẽ được hoàn thiện trong Giai đoạn 4.');
-    onClose();
+    const allSelectedOptions = Object.values(selectedOptions).flat();
+    const optionIds = allSelectedOptions.map((o) => o.id);
+    const optionNames = allSelectedOptions.map((o) => o.optionName);
+
+    if (isAuthenticated) {
+      if (user?.roles.includes('CUSTOMER')) {
+        addMutation.mutate(
+          {
+            productId: product.id,
+            optionIds,
+            quantity,
+            specialNote: note.trim() || undefined,
+          },
+          {
+            onSuccess: () => {
+              showToast.success('Đã thêm món ăn vào giỏ hàng.');
+              onClose();
+            },
+            onError: (err: any) => {
+              const msg = err.response?.data?.message || 'Không thể thêm món vào giỏ hàng';
+              showToast.error(msg);
+            },
+          }
+        );
+      } else {
+        showToast.error('Vui lòng sử dụng tài khoản Khách hàng để mua hàng.');
+      }
+    } else {
+      addGuestItem({
+        productId: product.id,
+        productName: product.productName,
+        imageUrl: product.imageUrl,
+        optionIds,
+        optionNames,
+        quantity,
+        specialNote: note.trim() || undefined,
+        displayPrice: totalPrice,
+      });
+      showToast.success('Đã thêm món vào giỏ hàng tạm thời.');
+      onClose();
+    }
   };
 
   return (
@@ -555,11 +600,11 @@ const ProductCustomizationModal: React.FC<CustomizationProps> = ({ product, onCl
         </div>
 
         <div className="flex items-center justify-end space-x-3 pt-4 border-t border-stone-100">
-          <Button variant="secondary" onClick={onClose}>
+          <Button variant="secondary" onClick={onClose} disabled={addMutation.isPending}>
             Đóng
           </Button>
-          <Button onClick={handleAddToCart}>
-            Thêm vào giỏ hàng
+          <Button onClick={handleAddToCart} disabled={addMutation.isPending}>
+            {addMutation.isPending ? 'Đang thêm...' : 'Thêm vào giỏ hàng'}
           </Button>
         </div>
       </div>

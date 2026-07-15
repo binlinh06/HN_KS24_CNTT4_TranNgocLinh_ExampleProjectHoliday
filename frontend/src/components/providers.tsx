@@ -18,9 +18,27 @@ const queryClient = new QueryClient({
   },
 });
 
+import { useGuestCartStore } from '@/stores/cart';
+import { useMergeCart } from '@/features/cart/api';
+import { showToast } from '@/components/ui/toast';
+
 function AuthInitializer({ children }: { children: React.ReactNode }) {
-  const { setAuth, clearAuth, setStatus } = useAuthStore();
+  const { user, setAuth, clearAuth, setStatus, authStatus } = useAuthStore();
   const initialized = useRef(false);
+
+  // Guest cart hooks & store selectors
+  const loadFromStorage = useGuestCartStore((s) => s.loadFromStorage);
+  const guestItems = useGuestCartStore((s) => s.items);
+  const getMergeKey = useGuestCartStore((s) => s.getMergeKey);
+  const removeAcceptedItems = useGuestCartStore((s) => s.removeAcceptedItems);
+  const setHasMerged = useGuestCartStore((s) => s.setHasMerged);
+  const hasMerged = useGuestCartStore((s) => s.hasMerged);
+  const mergeMutation = useMergeCart();
+
+  // Load guest cart on client mount
+  useEffect(() => {
+    loadFromStorage();
+  }, [loadFromStorage]);
 
   useEffect(() => {
     if (initialized.current) return;
@@ -53,6 +71,60 @@ function AuthInitializer({ children }: { children: React.ReactNode }) {
 
     initAuth();
   }, [setAuth, clearAuth, setStatus]);
+
+  // Trigger merge when user is CUSTOMER and guest cart is not empty
+  useEffect(() => {
+    if (
+      authStatus === 'authenticated' &&
+      user?.roles.includes('CUSTOMER') &&
+      !hasMerged &&
+      guestItems.length > 0 &&
+      !mergeMutation.isPending
+    ) {
+      const idempotencyKey = getMergeKey();
+      const payloadItems = guestItems.map((item) => ({
+        clientItemId: item.clientItemId,
+        productId: item.productId,
+        optionIds: item.optionIds,
+        quantity: item.quantity,
+        specialNote: item.specialNote,
+      }));
+
+      mergeMutation.mutate(
+        { items: payloadItems, idempotencyKey },
+        {
+          onSuccess: (data) => {
+            const acceptedIds = data.acceptedItems.map((i) => i.clientItemId);
+            removeAcceptedItems(acceptedIds);
+            setHasMerged(true);
+
+            if (data.rejectedItems.length > 0) {
+              showToast.error(
+                `Có ${data.rejectedItems.length} món không thể gộp: ${data.rejectedItems
+                  .map((i) => i.reason)
+                  .join(', ')}`
+              );
+            } else {
+              showToast.success('Hệ thống đã gộp giỏ hàng tạm thời của bạn!');
+            }
+          },
+          onError: (error: any) => {
+            const msg = error.response?.data?.message || 'Lỗi gộp giỏ hàng';
+            showToast.error(`Gặp lỗi khi gộp giỏ hàng: ${msg}`);
+          },
+        }
+      );
+    }
+  }, [
+    authStatus,
+    user,
+    guestItems,
+    hasMerged,
+    getMergeKey,
+    removeAcceptedItems,
+    setHasMerged,
+    mergeMutation,
+  ]);
 
   return <>{children}</>;
 }

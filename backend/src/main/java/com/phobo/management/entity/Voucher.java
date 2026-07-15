@@ -43,4 +43,9 @@ public class Voucher {
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
+
+    @Column(name = "is_active", nullable = false)
+    @Builder.Default
+    private Boolean isActive = true;
 }
+
