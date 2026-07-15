@@ -27,3 +27,10 @@ dist/
 # Scratch files
 scratch/
 C:/Users/MyPC/.gemini/antigravity-ide/brain/0636ba08-3283-4aec-84e1-5794720fb2a5/scratch/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+frontend/.env.local
+backend/.env
