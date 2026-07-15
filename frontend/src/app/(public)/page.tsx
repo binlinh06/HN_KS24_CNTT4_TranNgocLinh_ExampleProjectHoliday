@@ -306,7 +306,7 @@ export default function PublicHomepage() {
                     ))}
                   </div>
                   <p className="text-stone-600 text-sm italic leading-relaxed">
-                    "{rev.text}"
+                    &ldquo;{rev.text}&rdquo;
                   </p>
                   <div className="mt-6 pt-6 border-t border-stone-150 flex items-center justify-between">
                     <div>

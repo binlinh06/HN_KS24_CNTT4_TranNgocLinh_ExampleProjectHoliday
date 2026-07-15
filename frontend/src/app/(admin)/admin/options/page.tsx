@@ -338,7 +338,7 @@ export default function AdminOptionsPage() {
                   <CardContent className="p-0 border-t border-stone-100 bg-stone-50/20">
                     {group.options.length === 0 ? (
                       <div className="p-6 text-center text-stone-500 text-sm">
-                        Nhóm này chưa có tùy chọn chi tiết nào. Hãy bấm "Thêm lựa chọn".
+                        Nhóm này chưa có tùy chọn chi tiết nào. Hãy bấm &quot;Thêm lựa chọn&quot;.
                       </div>
                     ) : (
                       <div className="w-full overflow-x-auto">
