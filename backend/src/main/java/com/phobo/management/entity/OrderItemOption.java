@@ -2,7 +2,7 @@ package com.phobo.management.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "order_item_options")
@@ -10,21 +10,26 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@IdClass(OrderItemOption.OrderItemOptionId.class)
+@Builder
 public class OrderItemOption {
     @Id
-    @Column(name = "order_item_id", columnDefinition = "CHAR(36)")
-    private String orderItemId;
+    @Column(columnDefinition = "CHAR(36)")
+    private String id;
 
-    @Id
-    @Column(name = "option_id", columnDefinition = "CHAR(36)")
-    private String optionId;
+    @ManyToOne
+    @JoinColumn(name = "order_item_id", nullable = false)
+    private OrderItem orderItem;
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class OrderItemOptionId implements Serializable {
-        private String orderItemId;
-        private String optionId;
-    }
+    @ManyToOne
+    @JoinColumn(name = "option_id", nullable = true)
+    private ProductOption option;
+
+    @Column(name = "option_group_name_snapshot", nullable = false)
+    private String optionGroupNameSnapshot;
+
+    @Column(name = "option_name_snapshot", nullable = false)
+    private String optionNameSnapshot;
+
+    @Column(name = "incremental_price_snapshot", nullable = false)
+    private BigDecimal incrementalPriceSnapshot;
 }

@@ -1,16 +1,17 @@
 package com.phobo.management.order.controller;
 
+import com.phobo.management.checkout.dto.CheckoutPreviewRequest;
+import com.phobo.management.order.dto.OrderResponse;
 import com.phobo.management.order.service.OrderService;
 import com.phobo.management.common.dto.ApiResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Skeleton Controller for Order.
- * Relevant Use Cases: UC-09, UC-11, UC-12, UC-14, UC-15
- */
 @RestController
-@RequestMapping("/api/v1/order")
+@RequestMapping("/api/v1/orders")
+@PreAuthorize("hasRole('CUSTOMER')")
 public class OrderController {
 
     private final OrderService orderService;
@@ -19,9 +20,17 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping
-    public ResponseEntity<ApiResponse<String>> getPlaceholder() {
-        // TODO: Implement business logic for UC-09, UC-11, UC-12, UC-14, UC-15 in Giai đoạn 2
-        return ResponseEntity.ok(ApiResponse.success(orderService.getInfo(), "Skeleton active"));
+    @PostMapping("/checkout")
+    public ResponseEntity<ApiResponse<OrderResponse>> checkout(
+            @RequestHeader("Idempotency-Key") String idempotencyKey,
+            @Validated @RequestBody CheckoutPreviewRequest request) {
+        OrderResponse response = orderService.checkoutOrder(request, idempotencyKey);
+        return ResponseEntity.ok(ApiResponse.success(response, "Đặt hàng thành công"));
+    }
+
+    @GetMapping("/{orderId}")
+    public ResponseEntity<ApiResponse<OrderResponse>> getOrderDetails(@PathVariable String orderId) {
+        OrderResponse response = orderService.getOrderDetails(orderId);
+        return ResponseEntity.ok(ApiResponse.success(response, "Lấy chi tiết đơn hàng thành công"));
     }
 }

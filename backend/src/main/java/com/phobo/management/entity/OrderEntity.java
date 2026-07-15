@@ -2,6 +2,7 @@ package com.phobo.management.entity;
 
 import com.phobo.management.common.enums.OrderStatus;
 import com.phobo.management.common.enums.OrderType;
+import com.phobo.management.common.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -38,12 +39,14 @@ public class OrderEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private OrderStatus status = OrderStatus.CHO_XAC_NHAN;
 
     @Column(name = "total_amount", nullable = false)
     private BigDecimal totalAmount;
 
     @Column(name = "discount_amount", nullable = false)
+    @Builder.Default
     private BigDecimal discountAmount = BigDecimal.ZERO;
 
     @Column(name = "final_amount", nullable = false)
@@ -56,11 +59,40 @@ public class OrderEntity {
     private String notes;
 
     @Column(name = "created_at", nullable = false, updatable = false)
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "updated_at", nullable = false)
+    @Builder.Default
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    // Snapshot fields added in Giai đoạn 5
+    @Column(name = "order_code", nullable = false, unique = true)
+    private String orderCode;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_method", nullable = false)
+    private PaymentMethod paymentMethod;
+
+    @Column(name = "shipping_address_snapshot", columnDefinition = "TEXT")
+    private String shippingAddressSnapshot;
+
+    @Column(name = "receiver_name_snapshot")
+    private String receiverNameSnapshot;
+
+    @Column(name = "receiver_phone_snapshot")
+    private String receiverPhoneSnapshot;
+
+    @Column(name = "voucher_code_snapshot")
+    private String voucherCodeSnapshot;
+
+    @Column(name = "shipping_fee", nullable = false)
+    @Builder.Default
+    private BigDecimal shippingFee = BigDecimal.ZERO;
+
+    @Column(name = "canceled_at")
+    private LocalDateTime canceledAt;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items;
 }

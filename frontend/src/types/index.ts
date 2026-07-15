@@ -21,7 +21,7 @@ export type OrderStatus =
 export type KitchenItemStatus = 'CHO' | 'DANG_NAU' | 'DA_XONG';
 
 // Payment Status
-export type PaymentStatus = 'PENDING' | 'SUCCESS' | 'FAILED' | 'REFUNDED';
+export type PaymentStatus = 'PENDING' | 'SUCCESS' | 'FAILED' | 'CANCELED' | 'EXPIRED' | 'REFUNDED';
 
 // Payment Method
 export type PaymentMethod = 'CASH' | 'COD' | 'BANK_TRANSFER' | 'ONLINE_GATEWAY';
@@ -196,3 +196,68 @@ export interface GuestCartItem {
   specialNote?: string;
   displayPrice: number; // for display only, NOT trusted by backend
 }
+
+// ============ Address Types ============
+export interface AddressRequest {
+  receiverName: string;
+  receiverPhone: string;
+  addressDetail: string;
+  addressLabel?: string;
+  isDefault?: boolean;
+}
+
+export interface AddressResponse {
+  id: string;
+  receiverName: string;
+  receiverPhone: string;
+  addressDetail: string;
+  addressLabel?: string;
+  isDefault: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// ============ Checkout & Order Types ============
+export interface CheckoutPreviewRequest {
+  addressId?: string;
+  paymentMethod?: string;
+  customerNote?: string;
+}
+
+export interface CheckoutPreviewResponse {
+  address?: AddressResponse;
+  items: CartItemResponse[];
+  subtotal: number;
+  appliedVoucherCode?: string;
+  discountAmount: number;
+  shippingFee: number;
+  finalAmount: number;
+  paymentMethod?: string;
+  warnings: string[];
+  valid: boolean;
+}
+
+export interface OrderResponse {
+  orderId: string;
+  orderCode: string;
+  status: OrderStatus;
+  paymentMethod: PaymentMethod;
+  paymentStatus: PaymentStatus;
+  subtotal: number;
+  discountAmount: number;
+  finalAmount: number;
+  createdAt: string;
+}
+
+export interface PaymentResponse {
+  orderId: string;
+  paymentId: string;
+  provider: string;
+  paymentUrl?: string;
+  paymentStatus: PaymentStatus;
+  amount: number;
+  providerTransactionId?: string;
+  paidAt?: string;
+  createdAt?: string;
+}
+

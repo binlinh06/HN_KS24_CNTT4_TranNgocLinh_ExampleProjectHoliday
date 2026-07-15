@@ -7,10 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, String> {
-    
-    
-    
-    
-    
-    
+    java.util.List<Address> findByCustomerIdOrderByCreatedAtAsc(String customerId);
+    java.util.Optional<Address> findByCustomerIdAndIsDefaultTrue(String customerId);
 }

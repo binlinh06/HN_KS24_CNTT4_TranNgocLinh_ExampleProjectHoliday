@@ -32,9 +32,18 @@ public class Address {
     @Column(name = "address_label")
     private String addressLabel;
 
+    @Builder.Default
     @Column(name = "is_default", nullable = false)
     private Boolean isDefault = false;
 
     private BigDecimal latitude;
     private BigDecimal longitude;
+
+    @Builder.Default
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private java.time.LocalDateTime createdAt = java.time.LocalDateTime.now();
+
+    @Builder.Default
+    @Column(name = "updated_at", nullable = false)
+    private java.time.LocalDateTime updatedAt = java.time.LocalDateTime.now();
 }

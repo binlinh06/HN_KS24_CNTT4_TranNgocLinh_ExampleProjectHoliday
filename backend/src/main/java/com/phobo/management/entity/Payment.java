@@ -29,14 +29,35 @@ public class Payment {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_status", nullable = false)
+    @Builder.Default
     private PaymentStatus paymentStatus = PaymentStatus.PENDING;
 
-    @Column(name = "transaction_id")
-    private String transactionId;
+    @Column(name = "provider_transaction_id", unique = true)
+    private String providerTransactionId;
+
+    @Column(name = "provider", nullable = false)
+    private String provider;
 
     @Column(nullable = false)
     private BigDecimal amount;
 
+    @Column(name = "idempotency_key", columnDefinition = "CHAR(36)")
+    private String idempotencyKey;
+
+    @Column(name = "failure_code")
+    private String failureCode;
+
+    @Column(name = "failure_message")
+    private String failureMessage;
+
     @Column(name = "paid_at")
     private LocalDateTime paidAt;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "updated_at", nullable = false)
+    @Builder.Default
+    private LocalDateTime updatedAt = LocalDateTime.now();
 }

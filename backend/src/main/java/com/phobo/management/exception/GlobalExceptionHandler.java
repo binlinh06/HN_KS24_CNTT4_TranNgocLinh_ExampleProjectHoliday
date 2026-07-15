@@ -22,6 +22,24 @@ public class GlobalExceptionHandler {
                 .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
     }
 
+    @ExceptionHandler(AddressException.class)
+    public ResponseEntity<ApiErrorResponse> handleAddressException(AddressException ex) {
+        return ResponseEntity.status(ex.getStatus())
+                .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
+    }
+
+    @ExceptionHandler(OrderException.class)
+    public ResponseEntity<ApiErrorResponse> handleOrderException(OrderException ex) {
+        return ResponseEntity.status(ex.getStatus())
+                .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
+    }
+
+    @ExceptionHandler(PaymentException.class)
+    public ResponseEntity<ApiErrorResponse> handlePaymentException(PaymentException ex) {
+        return ResponseEntity.status(ex.getStatus())
+                .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
