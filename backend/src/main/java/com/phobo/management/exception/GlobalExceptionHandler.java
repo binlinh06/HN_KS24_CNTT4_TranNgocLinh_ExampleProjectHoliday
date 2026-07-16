@@ -40,6 +40,12 @@ public class GlobalExceptionHandler {
                 .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
     }
 
+    @ExceptionHandler(ReviewException.class)
+    public ResponseEntity<ApiErrorResponse> handleReviewException(ReviewException ex) {
+        return ResponseEntity.status(ex.getStatus())
+                .body(ApiErrorResponse.error(ex.getMessage(), ex.getErrorCode()));
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleNotFound(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)

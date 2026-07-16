@@ -237,15 +237,91 @@ export interface CheckoutPreviewResponse {
   valid: boolean;
 }
 
+export interface OrderItemOptionResponse {
+  id: string;
+  optionGroupNameSnapshot: string;
+  optionNameSnapshot: string;
+  incrementalPriceSnapshot: number;
+}
+
+export interface OrderItemResponse {
+  id: string;
+  productNameSnapshot: string;
+  basePriceSnapshot: number;
+  optionsPriceSnapshot: number;
+  unitPriceSnapshot: number;
+  lineTotal: number;
+  specialNote?: string;
+  quantity: number;
+  options: OrderItemOptionResponse[];
+}
+
 export interface OrderResponse {
   orderId: string;
   orderCode: string;
+  orderType: OrderType;
   status: OrderStatus;
   paymentMethod: PaymentMethod;
   paymentStatus: PaymentStatus;
   subtotal: number;
   discountAmount: number;
   finalAmount: number;
+  createdAt: string;
+  receiverNameSnapshot?: string;
+  receiverPhoneSnapshot?: string;
+  shippingAddressSnapshot?: string;
+  notes?: string;
+  shippingFee?: number;
+  voucherCodeSnapshot?: string;
+  items?: OrderItemResponse[];
+  canReview?: boolean;
+  reviewId?: string | null;
+  statusUpdatedAt?: string;
+}
+
+export interface OrderStatusHistoryResponse {
+  previousStatus: OrderStatus | null;
+  status: OrderStatus;
+  changedAt: string;
+  changedByRole: string;
+  source: string;
+  reason?: string;
+}
+
+export interface OrderTrackingResponse {
+  orderId: string;
+  orderCode: string;
+  currentStatus: OrderStatus;
+  statusUpdatedAt: string;
+  terminal: boolean;
+  timeline: OrderStatusHistoryResponse[];
+}
+
+export interface OrderSummaryResponse {
+  orderId: string;
+  orderCode: string;
+  createdAt: string;
+  status: OrderStatus;
+  paymentMethod: PaymentMethod;
+  paymentStatus: PaymentStatus;
+  finalAmount: number;
+  totalQuantity: number;
+  itemPreview: string;
+  canReview: boolean;
+  reviewStatus: 'NONE' | 'PENDING' | 'APPROVED' | 'REJECTED';
+}
+
+export interface ReviewRequest {
+  rating: number;
+  comment?: string;
+}
+
+export interface ReviewResponse {
+  id: string;
+  orderId: string;
+  rating: number;
+  comment?: string;
+  moderationStatus: ReviewModerationStatus;
   createdAt: string;
 }
 

@@ -66,6 +66,14 @@ public class OrderEntity {
     @Builder.Default
     private LocalDateTime updatedAt = LocalDateTime.now();
 
+    @Column(name = "status_updated_at")
+    private LocalDateTime statusUpdatedAt;
+
+    @Version
+    @Column(nullable = false)
+    @Builder.Default
+    private Long version = 0L;
+
     // Snapshot fields added in Giai đoạn 5
     @Column(name = "order_code", nullable = false, unique = true)
     private String orderCode;

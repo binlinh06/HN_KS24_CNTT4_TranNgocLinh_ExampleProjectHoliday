@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
+    "@microsoft/fetch-event-source": "^2.0.1",
     "@tanstack/react-query": "^5.28.9",
     "@types/uuid": "^11.0.0",
     "axios": "^1.6.8",

@@ -10,7 +10,7 @@ import com.phobo.management.cart.service.CartPricingService;
 import com.phobo.management.cart.service.CartValidationService;
 import com.phobo.management.cart.service.VoucherValidationService;
 import com.phobo.management.checkout.dto.CheckoutPreviewRequest;
-import com.phobo.management.order.dto.OrderResponse;
+import com.phobo.management.order.dto.*;
 import com.phobo.management.entity.*;
 import com.phobo.management.exception.AddressException;
 import com.phobo.management.exception.CartException;
@@ -43,6 +43,9 @@ public class OrderService {
     private final PaymentRepository paymentRepository;
     private final IdempotencyRecordRepository idempotencyRecordRepository;
     private final CustomerProfileRepository customerProfileRepository;
+    private final ReviewRepository reviewRepository;
+    private final OrderStatusHistoryRepository historyRepository;
+    private final OrderStatusTransitionService transitionService;
     private final CartPricingService cartPricingService;
     private final CartValidationService cartValidationService;
     private final VoucherValidationService voucherValidationService;
@@ -58,6 +61,9 @@ public class OrderService {
             PaymentRepository paymentRepository,
             IdempotencyRecordRepository idempotencyRecordRepository,
             CustomerProfileRepository customerProfileRepository,
+            ReviewRepository reviewRepository,
+            OrderStatusHistoryRepository historyRepository,
+            OrderStatusTransitionService transitionService,
             CartPricingService cartPricingService,
             CartValidationService cartValidationService,
             VoucherValidationService voucherValidationService,
@@ -71,6 +77,9 @@ public class OrderService {
         this.paymentRepository = paymentRepository;
         this.idempotencyRecordRepository = idempotencyRecordRepository;
         this.customerProfileRepository = customerProfileRepository;
+        this.reviewRepository = reviewRepository;
+        this.historyRepository = historyRepository;
+        this.transitionService = transitionService;
         this.cartPricingService = cartPricingService;
         this.cartValidationService = cartValidationService;
         this.voucherValidationService = voucherValidationService;
@@ -261,7 +270,7 @@ public class OrderService {
             finalAmount = BigDecimal.ZERO;
         }
 
-        // 8. Generate Unique Order Code (e.g. PB-yyyyMMdd-XXXXXX)
+        // 8. Generate Unique Order Code
         String orderCode = generateUniqueOrderCode();
 
         // 9. Save Order
@@ -295,6 +304,9 @@ public class OrderService {
 
         OrderEntity savedOrder = orderRepository.save(order);
 
+        // Record initial status history entry
+        transitionService.recordInitialHistory(savedOrder, "CHECKOUT");
+
         // 10. Increment Voucher usedCount
         if (voucher != null) {
             voucher.setUsedCount(voucher.getUsedCount() + 1);
@@ -321,22 +333,12 @@ public class OrderService {
         cartRepository.save(cart);
 
         // 13. Map to Response
-        OrderResponse response = OrderResponse.builder()
-                .orderId(savedOrder.getId())
-                .orderCode(savedOrder.getOrderCode())
-                .status(savedOrder.getStatus())
-                .paymentMethod(savedOrder.getPaymentMethod())
-                .paymentStatus(payment.getPaymentStatus())
-                .subtotal(savedOrder.getTotalAmount())
-                .discountAmount(savedOrder.getDiscountAmount())
-                .finalAmount(savedOrder.getFinalAmount())
-                .createdAt(savedOrder.getCreatedAt())
-                .build();
+        OrderResponse response = mapToResponse(savedOrder, payment.getPaymentStatus());
 
         // 14. Update Idempotency Record
         IdempotencyRecord record = idempotencyRecordRepository.findByCustomerIdAndOperationAndIdempotencyKey(
                 customer.getId(), "CREATE_ORDER", idempotencyKey
-        ).orElseThrow(() -> new OrderException("Lỗi hệ thống ghi nhận idempotency", "INTERNAL_SERVER_ERROR", HttpStatus.INTERNAL_SERVER_ERROR));
+            ).orElseThrow(() -> new OrderException("Lỗi hệ thống ghi nhận idempotency", "INTERNAL_SERVER_ERROR", HttpStatus.INTERNAL_SERVER_ERROR));
 
         try {
             record.setResponseBody(objectMapper.writeValueAsString(response));
@@ -365,6 +367,174 @@ public class OrderService {
             paymentStatus = paymentOpt.get().getPaymentStatus();
         }
 
+        return mapToResponse(order, paymentStatus);
+    }
+
+    @Transactional(readOnly = true)
+    public OrderTrackingResponse getOrderTracking(String orderId) {
+        CustomerProfile customer = getCurrentCustomerProfile();
+        OrderEntity order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new OrderException("Không tìm thấy đơn hàng này", "ORDER_NOT_FOUND", HttpStatus.NOT_FOUND));
+
+        if (!order.getCustomer().getId().equals(customer.getId())) {
+            throw new OrderException("Bạn không có quyền xem theo dõi đơn hàng này", "ORDER_FORBIDDEN", HttpStatus.FORBIDDEN);
+        }
+
+        List<OrderStatusHistory> historyList = historyRepository.findByOrderIdOrderByCreatedAtAsc(orderId);
+        List<OrderStatusHistoryResponse> timeline = historyList.stream().map(h ->
+            OrderStatusHistoryResponse.builder()
+                .previousStatus(h.getPreviousStatus())
+                .status(h.getNewStatus())
+                .changedAt(h.getCreatedAt())
+                .changedByRole(h.getChangedByRole())
+                .source(h.getChangeSource())
+                .reason(h.getReason())
+                .build()
+        ).collect(Collectors.toList());
+
+        boolean isTerminal = order.getStatus() == OrderStatus.HOAN_THANH || order.getStatus() == OrderStatus.DA_HUY;
+
+        return OrderTrackingResponse.builder()
+                .orderId(order.getId())
+                .orderCode(order.getOrderCode())
+                .currentStatus(order.getStatus())
+                .statusUpdatedAt(order.getStatusUpdatedAt() != null ? order.getStatusUpdatedAt() : order.getCreatedAt())
+                .terminal(isTerminal)
+                .timeline(timeline)
+                .build();
+    }
+
+    @Transactional(readOnly = true)
+    public org.springframework.data.domain.Page<OrderSummaryResponse> getOrdersHistory(
+            OrderStatus status,
+            String orderCode,
+            LocalDateTime from,
+            LocalDateTime to,
+            int page,
+            int size,
+            String sortField,
+            String sortDirection) {
+
+        // Validations
+        if (page < 0) {
+            throw new OrderException("Số trang không được âm", "BAD_REQUEST", HttpStatus.BAD_REQUEST);
+        }
+        if (size < 1 || size > 50) {
+            throw new OrderException("Kích thước trang phải từ 1 đến 50", "BAD_REQUEST", HttpStatus.BAD_REQUEST);
+        }
+        if (from != null && to != null && from.isAfter(to)) {
+            throw new OrderException("Ngày bắt đầu không được lớn hơn ngày kết thúc", "BAD_REQUEST", HttpStatus.BAD_REQUEST);
+        }
+
+        Set<String> whitelist = Set.of("createdAt", "totalAmount", "finalAmount");
+        if (sortField != null && !whitelist.contains(sortField)) {
+            throw new OrderException("Trường sắp xếp không hợp lệ", "BAD_REQUEST", HttpStatus.BAD_REQUEST);
+        }
+
+        CustomerProfile customer = getCurrentCustomerProfile();
+
+        // Build specifications to search
+        org.springframework.data.jpa.domain.Specification<OrderEntity> spec = (root, query, cb) -> {
+            List<jakarta.persistence.criteria.Predicate> predicates = new ArrayList<>();
+            predicates.add(cb.equal(root.get("customer").get("id"), customer.getId()));
+
+            if (status != null) {
+                predicates.add(cb.equal(root.get("status"), status));
+            }
+            if (orderCode != null && !orderCode.trim().isEmpty()) {
+                predicates.add(cb.like(root.get("orderCode"), "%" + orderCode.trim() + "%"));
+            }
+            if (from != null) {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("createdAt"), from));
+            }
+            if (to != null) {
+                predicates.add(cb.lessThanOrEqualTo(root.get("createdAt"), to));
+            }
+
+            return cb.and(predicates.toArray(new jakarta.persistence.criteria.Predicate[0]));
+        };
+
+        org.springframework.data.domain.Sort sort = org.springframework.data.domain.Sort.by(
+                "desc".equalsIgnoreCase(sortDirection) ? org.springframework.data.domain.Sort.Direction.DESC : org.springframework.data.domain.Sort.Direction.ASC,
+                sortField != null ? sortField : "createdAt"
+        );
+        org.springframework.data.domain.Pageable pageable = org.springframework.data.domain.PageRequest.of(page, size, sort);
+
+        org.springframework.data.domain.Page<OrderEntity> orderPage = orderRepository.findAll(spec, pageable);
+
+        return orderPage.map(order -> {
+            PaymentStatus paymentStatus = PaymentStatus.PENDING;
+            Optional<Payment> paymentOpt = paymentRepository.findByOrderId(order.getId());
+            if (paymentOpt.isPresent()) {
+                paymentStatus = paymentOpt.get().getPaymentStatus();
+            }
+
+            int totalQuantity = order.getItems().stream().mapToInt(OrderItem::getQuantity).sum();
+
+            String itemPreview = order.getItems().stream()
+                    .map(item -> item.getProductNameSnapshot() + " x " + item.getQuantity())
+                    .collect(Collectors.joining(", "));
+
+            boolean hasReviewed = reviewRepository.existsByOrderId(order.getId());
+            String reviewStatus = "NONE";
+            if (hasReviewed) {
+                reviewStatus = reviewRepository.findByOrderId(order.getId())
+                        .map(r -> r.getModerationStatus().name())
+                        .orElse("NONE");
+            }
+
+            boolean canReview = order.getStatus() == OrderStatus.HOAN_THANH && !hasReviewed;
+
+            return OrderSummaryResponse.builder()
+                    .orderId(order.getId())
+                    .orderCode(order.getOrderCode())
+                    .createdAt(order.getCreatedAt())
+                    .status(order.getStatus())
+                    .paymentMethod(order.getPaymentMethod())
+                    .paymentStatus(paymentStatus)
+                    .finalAmount(order.getFinalAmount())
+                    .totalQuantity(totalQuantity)
+                    .itemPreview(itemPreview)
+                    .canReview(canReview)
+                    .reviewStatus(reviewStatus)
+                    .build();
+        });
+    }
+
+    private OrderResponse mapToResponse(OrderEntity order, PaymentStatus paymentStatus) {
+        List<OrderItemResponse> itemResponses = order.getItems().stream().map(item -> {
+            List<OrderItemOptionResponse> optionResponses = item.getOptions().stream().map(opt ->
+                OrderItemOptionResponse.builder()
+                    .id(opt.getId())
+                    .optionGroupNameSnapshot(opt.getOptionGroupNameSnapshot())
+                    .optionNameSnapshot(opt.getOptionNameSnapshot())
+                    .incrementalPriceSnapshot(opt.getIncrementalPriceSnapshot())
+                    .build()
+            ).collect(Collectors.toList());
+
+            return OrderItemResponse.builder()
+                    .id(item.getId())
+                    .productNameSnapshot(item.getProductNameSnapshot())
+                    .basePriceSnapshot(item.getBasePriceSnapshot())
+                    .optionsPriceSnapshot(item.getOptionsPriceSnapshot())
+                    .unitPriceSnapshot(item.getUnitPriceSnapshot())
+                    .lineTotal(item.getLineTotal())
+                    .specialNote(item.getSpecialNote())
+                    .quantity(item.getQuantity())
+                    .options(optionResponses)
+                    .build();
+        }).collect(Collectors.toList());
+
+        boolean hasReviewed = reviewRepository.existsByOrderId(order.getId());
+        String reviewId = null;
+        if (hasReviewed) {
+            reviewId = reviewRepository.findByOrderId(order.getId())
+                    .map(Review::getId)
+                    .orElse(null);
+        }
+
+        boolean canReview = order.getStatus() == OrderStatus.HOAN_THANH && !hasReviewed;
+
         return OrderResponse.builder()
                 .orderId(order.getId())
                 .orderCode(order.getOrderCode())
@@ -375,26 +545,23 @@ public class OrderService {
                 .discountAmount(order.getDiscountAmount())
                 .finalAmount(order.getFinalAmount())
                 .createdAt(order.getCreatedAt())
+                .receiverNameSnapshot(order.getReceiverNameSnapshot())
+                .receiverPhoneSnapshot(order.getReceiverPhoneSnapshot())
+                .shippingAddressSnapshot(order.getShippingAddressSnapshot())
+                .notes(order.getNotes())
+                .shippingFee(order.getShippingFee())
+                .voucherCodeSnapshot(order.getVoucherCodeSnapshot())
+                .items(itemResponses)
+                .canReview(canReview)
+                .reviewId(reviewId)
+                .statusUpdatedAt(order.getStatusUpdatedAt() != null ? order.getStatusUpdatedAt() : order.getCreatedAt())
                 .build();
     }
 
     private String generateUniqueOrderCode() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String dateStr = LocalDateTime.now().format(formatter);
-        Random random = new Random();
-        for (int i = 0; i < 5; i++) {
-            int num = random.nextInt(900000) + 100000; // 6-digit random
-            String code = "PB-" + dateStr + "-" + num;
-            // Validate unique constraint
-            // Simple query check
-            // Since this is in the same transaction, if it conflicts it will retry or throw.
-            // Using check:
-            // Since JpaRepository has no custom query, let's just make it very unique
-            // Combining UUID portion is even more robust and prevents collisions:
-            String uniquePart = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
-            String codeUUID = "PB-" + dateStr + "-" + uniquePart;
-            return codeUUID;
-        }
-        return "PB-" + dateStr + "-" + UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+        String uniquePart = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+        return "PB-" + dateStr + "-" + uniquePart;
     }
 }

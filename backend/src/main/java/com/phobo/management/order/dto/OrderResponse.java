@@ -6,6 +6,7 @@ import com.phobo.management.common.enums.PaymentStatus;
 import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -22,4 +23,16 @@ public class OrderResponse {
     private BigDecimal finalAmount;
     private String paymentAction;
     private LocalDateTime createdAt;
+
+    // Detailed snapshots and attributes for Phase 6
+    private String receiverNameSnapshot;
+    private String receiverPhoneSnapshot;
+    private String shippingAddressSnapshot;
+    private String notes; // Customer notes
+    private BigDecimal shippingFee;
+    private String voucherCodeSnapshot;
+    private List<OrderItemResponse> items;
+    private Boolean canReview;
+    private String reviewId;
+    private LocalDateTime statusUpdatedAt;
 }
