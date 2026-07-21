@@ -30,12 +30,12 @@ export function CartBadge() {
     <>
       <button
         onClick={() => setIsDrawerOpen(true)}
-        className="relative p-1.5 rounded-full text-stone-500 hover:text-primary-600 hover:bg-stone-50 transition-colors focus:outline-none"
-        aria-label="Giỏ hàng"
+        className="relative p-2 rounded-2xl border border-[#E8E1D7] text-[#1F2937] hover:text-[#0F6B4F] hover:bg-[#FFF9F0] hover:border-[#0F6B4F] transition-all focus:outline-none shadow-sm flex items-center justify-center"
+        aria-label="Mở giỏ hàng"
       >
         <ShoppingBag size={20} />
         {totalCount > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] flex items-center justify-center bg-primary-500 text-white text-[10px] font-bold rounded-full px-1 leading-none shadow-sm">
+          <span className="absolute -top-1.5 -right-1.5 min-w-[20px] h-[20px] flex items-center justify-center bg-[#0F6B4F] text-white text-[10px] font-black rounded-full px-1 leading-none shadow-md border-2 border-white">
             {totalCount > 99 ? '99+' : totalCount}
           </span>
         )}
