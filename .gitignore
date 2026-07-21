@@ -21,6 +21,8 @@ frontend/dist/
 # Backend build
 backend/build/
 backend/.gradle/
+backend/bin/
+bin/
 build/
 .gradle/
 *.class
