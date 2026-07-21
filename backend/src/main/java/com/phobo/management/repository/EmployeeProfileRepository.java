@@ -25,6 +25,10 @@ public interface EmployeeProfileRepository extends JpaRepository<EmployeeProfile
     @Query("SELECT ep FROM EmployeeProfile ep WHERE ep.id = :id")
     Optional<EmployeeProfile> findByIdForUpdate(@Param("id") String id);
 
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query("SELECT ep FROM EmployeeProfile ep WHERE ep.user.id = :userId")
+    Optional<EmployeeProfile> findByUserIdForUpdate(@Param("userId") String userId);
+
     @Query("SELECT ep FROM EmployeeProfile ep WHERE " +
            "(:keyword IS NULL OR LOWER(ep.fullName) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(ep.employeeCode) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(ep.user.email) LIKE LOWER(CONCAT('%', :keyword, '%'))) AND " +
            "(:position IS NULL OR ep.position = :position) AND " +

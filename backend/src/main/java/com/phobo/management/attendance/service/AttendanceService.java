@@ -37,10 +37,10 @@ public class AttendanceService {
 
     private static final ZoneId VN_ZONE = ZoneId.of("Asia/Ho_Chi_Minh");
 
-    @Transactional
+    @Transactional(noRollbackFor = AppException.class)
     public AttendanceResponse checkIn() {
         String currentUserId = employeeAuthService.getCurrentUserId();
-        EmployeeProfile employee = employeeRepository.findByUserId(currentUserId)
+        EmployeeProfile employee = employeeRepository.findByUserIdForUpdate(currentUserId)
                 .orElseThrow(() -> new AppException("Không tìm thấy thông tin nhân viên", "EMPLOYEE_NOT_FOUND"));
 
         if (Boolean.FALSE.equals(employee.getIsActive())) {
@@ -71,7 +71,7 @@ public class AttendanceService {
         return mapToResponse(attendance);
     }
 
-    @Transactional
+    @Transactional(noRollbackFor = AppException.class)
     public AttendanceResponse checkOut() {
         String currentUserId = employeeAuthService.getCurrentUserId();
         EmployeeProfile employee = employeeRepository.findByUserId(currentUserId)
@@ -83,7 +83,7 @@ public class AttendanceService {
 
         LocalDateTime now = LocalDateTime.now(VN_ZONE);
         if (now.isBefore(attendance.getCheckIn())) {
-            throw new AppException("Thời gian check-out không được trước thời gian check-in", "INVALID_CHECKOUT_TIME");
+            now = attendance.getCheckIn().plusSeconds(1);
         }
 
         attendance.setCheckOut(now);

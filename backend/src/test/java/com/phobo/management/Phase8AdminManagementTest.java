@@ -45,6 +45,11 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -454,5 +459,60 @@ public class Phase8AdminManagementTest {
         assertThrows(AppException.class, () -> {
             adminUserService.updateUserStatus(adminUser.getId(), "INACTIVE");
         });
+    }
+
+    @Test
+    @DisplayName("Test 10: Concurrent check-in requests result in exactly one active attendance record")
+    void testConcurrentAttendanceCheckIn() throws Exception {
+        String uAtt = UUID.randomUUID().toString().substring(0, 6);
+        Role staffRole = roleRepository.findByCode(RoleCode.STAFF).orElseThrow();
+        User attUser = userRepository.save(User.builder()
+                .id(UUID.randomUUID().toString())
+                .username("att_c_" + uAtt)
+                .passwordHash("hashed")
+                .email("att_c_" + uAtt + "@phobo.com")
+                .phone("09" + String.format("%08d", Math.abs(uAtt.hashCode() % 100000000)))
+                .status(UserStatus.ACTIVE)
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build());
+        userRoleRepository.save(UserRole.builder().userId(attUser.getId()).roleId(staffRole.getId()).build());
+
+        EmployeeProfile emp = employeeRepository.save(EmployeeProfile.builder()
+                .id(UUID.randomUUID().toString())
+                .user(attUser)
+                .fullName("Concurrent Staff Test")
+                .position("CASHIER")
+                .employeeCode("EMP-C-" + uAtt)
+                .isActive(true)
+                .build());
+
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+        CountDownLatch latch = new CountDownLatch(1);
+
+        AtomicInteger successCount = new AtomicInteger(0);
+        AtomicInteger failCount = new AtomicInteger(0);
+
+        Runnable checkInTask = () -> {
+            try {
+                latch.await();
+                authenticateUser(attUser.getId(), "ROLE_STAFF");
+                attendanceService.checkIn();
+                successCount.incrementAndGet();
+            } catch (Exception e) {
+                failCount.incrementAndGet();
+            }
+        };
+
+        Future<?> f1 = executor.submit(checkInTask);
+        Future<?> f2 = executor.submit(checkInTask);
+
+        latch.countDown();
+        f1.get();
+        f2.get();
+        executor.shutdown();
+
+        assertEquals(1, successCount.get());
+        assertEquals(1, failCount.get());
     }
 }
