@@ -157,7 +157,7 @@ export function BestSellerSection() {
                             </Badge>
                           )}
                           {!product.isAvailable ? (
-                            <Badge variant="destructive" className="font-bold text-[10px] px-2 py-0.5">
+                            <Badge variant="error" className="font-bold text-[10px] px-2 py-0.5">
                               Hết hàng
                             </Badge>
                           ) : (
