@@ -1,36 +1,40 @@
-# Gradle
-.gradle/
-build/
-!gradle/wrapper/gradle-wrapper.jar
-
-# Node / Next.js
-node_modules/
-.next/
-out/
-dist/
-
-# Local Environment Variables
+# Environment and secrets
 .env
-.env.local
-.env.production
-.env.development
+env
+.env.*
+!.env.example
+*.pem
+*.key
+frontend/.env.local
+backend/.env
 
-# IDEs
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Frontend build
+frontend/.next/
+.next/
+frontend/out/
+frontend/dist/
+
+# Backend build
+backend/build/
+backend/.gradle/
+build/
+.gradle/
+*.class
+*.jar
+
+# Logs
+*.log
+logs/
+
+# IDE / OS
 .idea/
 .vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.DS_Store
+Thumbs.db
 
 # Scratch files
 scratch/
-C:/Users/MyPC/.gemini/antigravity-ide/brain/0636ba08-3283-4aec-84e1-5794720fb2a5/scratch/
-
-# Environment secrets
-.env
-.env.*
-!.env.example
-frontend/.env.local
-backend/.env
