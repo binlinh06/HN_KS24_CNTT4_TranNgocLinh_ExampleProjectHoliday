@@ -50,8 +50,27 @@ export const getProductBySlug = async (slug: string): Promise<Product> => {
 };
 
 export const getFeaturedProducts = async (): Promise<Product[]> => {
-  const response = await api.get<ApiResponse<Product[]>>('/products/featured');
-  return response.data.data || [];
+  try {
+    const response = await api.get<ApiResponse<Product[]>>('/products/featured');
+    if (response.data?.data && response.data.data.length > 0) {
+      return response.data.data;
+    }
+    // Fallback if empty array returned from featured
+    const fallbackRes = await api.get<ApiResponse<Product[]>>('/products', {
+      params: { size: 8, isAvailable: true },
+    });
+    return fallbackRes.data?.data || [];
+  } catch {
+    // Fallback if /products/featured endpoint does not exist
+    try {
+      const fallbackRes = await api.get<ApiResponse<Product[]>>('/products', {
+        params: { size: 8, isAvailable: true },
+      });
+      return fallbackRes.data?.data || [];
+    } catch {
+      return [];
+    }
+  }
 };
 
 export const createProduct = async (data: Omit<Product, 'id' | 'category' | 'createdAt' | 'updatedAt'> & { categoryId: string }): Promise<Product> => {

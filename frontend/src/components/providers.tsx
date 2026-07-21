@@ -53,19 +53,32 @@ function AuthInitializer({ children }: { children: React.ReactNode }) {
           { withCredentials: true }
         );
 
-        const { accessToken } = refreshRes.data.data;
+        const accessToken = refreshRes.data?.data?.accessToken;
 
-        // Step 2: Call /auth/me with the new access token
-        const meRes = await axios.get(`${API_URL}/auth/me`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-          withCredentials: true,
-        });
+        if (accessToken) {
+          // Step 2: Call /auth/me with the new access token
+          const meRes = await axios.get(`${API_URL}/auth/me`, {
+            headers: { Authorization: `Bearer ${accessToken}` },
+            withCredentials: true,
+          });
 
-        const user = meRes.data.data;
-        setAuth(user, accessToken);
+          const user = meRes.data?.data;
+          if (user) {
+            setAuth(user, accessToken);
+          } else {
+            clearAuth();
+          }
+        } else {
+          clearAuth();
+        }
       } catch {
-        // No valid session — user is not authenticated
+        // No valid session or network error — user is not authenticated
         clearAuth();
+      } finally {
+        // Guarantee auth initialization ends — no infinite loading spinner
+        if (useAuthStore.getState().authStatus === 'loading') {
+          useAuthStore.getState().setStatus('unauthenticated');
+        }
       }
     };
 

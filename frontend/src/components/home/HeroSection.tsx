@@ -9,7 +9,7 @@ import { ShoppingBag, ArrowRight, Star, Users, Flame, Clock, ShieldCheck, Truck 
 
 export function HeroSection() {
   return (
-    <section className="relative bg-[#FFF9F0] border-b border-[#E8E1D7] overflow-hidden py-12 lg:py-20">
+    <section id="home" className="scroll-mt-24 relative bg-[#FFF9F0] border-b border-[#E8E1D7] overflow-hidden py-12 lg:py-20">
       {/* Background Decorative Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#0F6B4F_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
       

@@ -10,7 +10,7 @@ import { Ticket, ArrowRight, Sparkles } from 'lucide-react';
 
 export function PromotionSection() {
   return (
-    <section id="promotions" className="py-20 bg-[#084C38] text-white relative overflow-hidden">
+    <section id="promotions" className="scroll-mt-24 py-20 bg-[#084C38] text-white relative overflow-hidden">
       {/* Background Decorative Graphic */}
       <div className="absolute inset-0 bg-[radial-gradient(#C7A45B_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
       <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-[#C7A45B]/15 rounded-full blur-3xl pointer-events-none" />

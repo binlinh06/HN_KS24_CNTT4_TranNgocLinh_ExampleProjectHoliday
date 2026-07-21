@@ -33,7 +33,7 @@ export function ReviewSection() {
   ];
 
   return (
-    <section id="reviews" className="py-20 bg-[#FFF9F0] border-b border-[#E8E1D7]">
+    <section id="reviews" className="scroll-mt-24 py-20 bg-[#FFF9F0] border-b border-[#E8E1D7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
