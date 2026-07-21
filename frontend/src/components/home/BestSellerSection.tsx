@@ -32,10 +32,11 @@ export function BestSellerSection() {
     useGuestCartStore.getState().addItem({
       productId: product.id,
       productName: product.productName,
-      basePrice: product.basePrice,
+      displayPrice: product.basePrice,
       imageUrl: product.imageUrl || '/images/hero_pho_bowl.png',
       quantity: 1,
       optionIds: [],
+      optionNames: [],
       specialNote: '',
     });
 
