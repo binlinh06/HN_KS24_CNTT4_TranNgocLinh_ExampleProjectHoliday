@@ -555,6 +555,9 @@ public class OrderService {
                 .canReview(canReview)
                 .reviewId(reviewId)
                 .statusUpdatedAt(order.getStatusUpdatedAt() != null ? order.getStatusUpdatedAt() : order.getCreatedAt())
+                .tableId(order.getTable() != null ? order.getTable().getId() : null)
+                .tableNumber(order.getTable() != null ? order.getTable().getTableNumber() : null)
+                .orderType(order.getOrderType() != null ? order.getOrderType().name() : null)
                 .build();
     }
 

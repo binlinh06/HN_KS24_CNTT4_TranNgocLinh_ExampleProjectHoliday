@@ -277,6 +277,8 @@ export interface OrderResponse {
   canReview?: boolean;
   reviewId?: string | null;
   statusUpdatedAt?: string;
+  tableId?: string | null;
+  tableNumber?: string | null;
 }
 
 export interface OrderStatusHistoryResponse {
@@ -336,4 +338,13 @@ export interface PaymentResponse {
   paidAt?: string;
   createdAt?: string;
 }
+export type RestaurantTableStatus = 'AVAILABLE' | 'OCCUPIED' | 'CLEANING' | 'INACTIVE';
 
+export interface RestaurantTable {
+  id: string;
+  tableNumber: string;
+  capacity: number;
+  status: RestaurantTableStatus;
+  statusUpdatedAt?: string;
+  version: number;
+}

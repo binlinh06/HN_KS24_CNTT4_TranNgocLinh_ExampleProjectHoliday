@@ -101,6 +101,29 @@ public class OrderEntity {
     @Column(name = "canceled_at")
     private LocalDateTime canceledAt;
 
+    @Column(name = "accepted_at")
+    private LocalDateTime acceptedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "accepted_by_employee_id")
+    private EmployeeProfile acceptedBy;
+
+    @Column(name = "rejected_at")
+    private LocalDateTime rejectedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "rejected_by_employee_id")
+    private EmployeeProfile rejectedBy;
+
+    @Column(name = "rejection_reason")
+    private String rejectionReason;
+
+    @Column(name = "served_at")
+    private LocalDateTime servedAt;
+
+    @Column(name = "handed_over_at")
+    private LocalDateTime handedOverAt;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items;
 }

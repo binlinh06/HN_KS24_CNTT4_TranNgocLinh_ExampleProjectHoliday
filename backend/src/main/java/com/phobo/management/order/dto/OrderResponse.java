@@ -35,4 +35,7 @@ public class OrderResponse {
     private Boolean canReview;
     private String reviewId;
     private LocalDateTime statusUpdatedAt;
+    private String tableId;
+    private String tableNumber;
+    private String orderType;
 }

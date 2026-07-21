@@ -38,6 +38,8 @@ public class PaymentService {
     private final IdempotencyRecordRepository idempotencyRecordRepository;
     private final PaymentGatewayRegistry gatewayRegistry;
     private final com.phobo.management.order.service.OrderStatusTransitionService transitionService;
+    private final com.phobo.management.kitchen.service.KitchenQueueService kitchenQueueService;
+    private final com.phobo.management.order.service.OrderCompletionService completionService;
     private final ObjectMapper objectMapper;
 
     public PaymentService(
@@ -47,6 +49,8 @@ public class PaymentService {
             IdempotencyRecordRepository idempotencyRecordRepository,
             PaymentGatewayRegistry gatewayRegistry,
             com.phobo.management.order.service.OrderStatusTransitionService transitionService,
+            com.phobo.management.kitchen.service.KitchenQueueService kitchenQueueService,
+            com.phobo.management.order.service.OrderCompletionService completionService,
             ObjectMapper objectMapper) {
         this.paymentRepository = paymentRepository;
         this.orderRepository = orderRepository;
@@ -54,6 +58,8 @@ public class PaymentService {
         this.idempotencyRecordRepository = idempotencyRecordRepository;
         this.gatewayRegistry = gatewayRegistry;
         this.transitionService = transitionService;
+        this.kitchenQueueService = kitchenQueueService;
+        this.completionService = completionService;
         this.objectMapper = objectMapper;
     }
 
@@ -253,7 +259,13 @@ public class PaymentService {
             // Lock and update OrderStatus to DA_XAC_NHAN using OrderStatusTransitionService
             OrderEntity order = orderRepository.findByIdWithLock(payment.getOrder().getId())
                     .orElseThrow(() -> new PaymentException("Không tìm thấy đơn hàng của giao dịch", "ORDER_NOT_FOUND", HttpStatus.NOT_FOUND));
-            transitionService.transitionStatus(order, OrderStatus.DA_XAC_NHAN, null, null, "PAYMENT_GATEWAY", "Thanh toán trực tuyến thành công");
+            
+            if (order.getStatus() == OrderStatus.CHO_XAC_NHAN) {
+                transitionService.transitionStatus(order, OrderStatus.DA_XAC_NHAN, null, null, "PAYMENT_GATEWAY", "Thanh toán trực tuyến thành công");
+                kitchenQueueService.ensureQueueEntries(order);
+            }
+            
+            completionService.tryComplete(order);
         } else {
             // Keep Order Status as CHO_XAC_NHAN to allow retry
             payment.setPaymentStatus(callbackStatus);

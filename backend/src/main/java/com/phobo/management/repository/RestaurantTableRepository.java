@@ -7,10 +7,7 @@ import java.util.Optional;
 
 @Repository
 public interface RestaurantTableRepository extends JpaRepository<RestaurantTable, String> {
-    
-    
-    
-    
-    
-    
+    @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
+    @org.springframework.data.jpa.repository.Query("SELECT t FROM RestaurantTable t WHERE t.id = :id")
+    Optional<RestaurantTable> findByIdWithLock(String id);
 }

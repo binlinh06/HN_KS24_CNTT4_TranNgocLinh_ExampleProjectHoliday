@@ -32,9 +32,9 @@ public class OrderStatusTransitionService {
     static {
         TRANSITION_MATRIX.put(OrderStatus.CHO_XAC_NHAN, EnumSet.of(OrderStatus.DA_XAC_NHAN, OrderStatus.DA_HUY));
         TRANSITION_MATRIX.put(OrderStatus.DA_XAC_NHAN, EnumSet.of(OrderStatus.DANG_CHE_BIEN, OrderStatus.DA_HUY));
-        TRANSITION_MATRIX.put(OrderStatus.DANG_CHE_BIEN, EnumSet.of(OrderStatus.DANG_GIAO, OrderStatus.DANG_PHUC_VU));
-        TRANSITION_MATRIX.put(OrderStatus.DANG_GIAO, EnumSet.of(OrderStatus.HOAN_THANH));
-        TRANSITION_MATRIX.put(OrderStatus.DANG_PHUC_VU, EnumSet.of(OrderStatus.HOAN_THANH));
+        TRANSITION_MATRIX.put(OrderStatus.DANG_CHE_BIEN, EnumSet.of(OrderStatus.DANG_GIAO, OrderStatus.DANG_PHUC_VU, OrderStatus.HOAN_THANH, OrderStatus.DA_HUY));
+        TRANSITION_MATRIX.put(OrderStatus.DANG_GIAO, EnumSet.of(OrderStatus.HOAN_THANH, OrderStatus.DA_HUY));
+        TRANSITION_MATRIX.put(OrderStatus.DANG_PHUC_VU, EnumSet.of(OrderStatus.HOAN_THANH, OrderStatus.DA_HUY));
         // Terminal states have no transitions
         TRANSITION_MATRIX.put(OrderStatus.HOAN_THANH, EnumSet.noneOf(OrderStatus.class));
         TRANSITION_MATRIX.put(OrderStatus.DA_HUY, EnumSet.noneOf(OrderStatus.class));
@@ -103,20 +103,27 @@ public class OrderStatusTransitionService {
 
     @Transactional
     public void recordInitialHistory(OrderEntity order, String changeSource) {
+        recordInitialHistory(order, changeSource, 
+                order.getCustomer() != null ? order.getCustomer().getUser().getId() : null, 
+                "CUSTOMER", "Khởi tạo đơn hàng");
+    }
+
+    @Transactional
+    public void recordInitialHistory(OrderEntity order, String changeSource, String changedByUserId, String changedByRole, String reason) {
         OrderStatusHistory history = OrderStatusHistory.builder()
                 .id(UUID.randomUUID().toString())
                 .order(order)
                 .previousStatus(null)
                 .newStatus(order.getStatus())
-                .changedByUserId(order.getCustomer() != null ? order.getCustomer().getUser().getId() : null)
-                .changedByRole("CUSTOMER")
+                .changedByUserId(changedByUserId)
+                .changedByRole(changedByRole)
                 .changeSource(changeSource)
-                .reason("Khởi tạo đơn hàng")
-                .createdAt(order.getCreatedAt())
+                .reason(reason)
+                .createdAt(order.getCreatedAt() != null ? order.getCreatedAt() : LocalDateTime.now())
                 .build();
         historyRepository.save(history);
 
-        order.setStatusUpdatedAt(order.getCreatedAt());
+        order.setStatusUpdatedAt(order.getCreatedAt() != null ? order.getCreatedAt() : LocalDateTime.now());
         orderRepository.save(order);
     }
 }

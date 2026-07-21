@@ -16,6 +16,13 @@ public interface IdempotencyRecordRepository extends JpaRepository<IdempotencyRe
         String customerId, String operation, String idempotencyKey
     );
 
+    @Query("SELECT r FROM IdempotencyRecord r WHERE (:customerId IS NULL AND r.customer IS NULL OR r.customer.id = :customerId) AND r.operation = :operation AND r.idempotencyKey = :idempotencyKey")
+    Optional<IdempotencyRecord> findByIdempotencyKeyAndOperation(
+        @Param("customerId") String customerId, 
+        @Param("operation") String operation, 
+        @Param("idempotencyKey") String idempotencyKey
+    );
+
     @Modifying
     @Query(value = "INSERT IGNORE INTO idempotency_records (id, customer_id, idempotency_key, operation, request_hash, status, response_body, created_at, expires_at) " +
                    "VALUES (:id, :customerId, :idempotencyKey, :operation, :requestHash, 'PROCESSING', NULL, :createdAt, :expiresAt)", 

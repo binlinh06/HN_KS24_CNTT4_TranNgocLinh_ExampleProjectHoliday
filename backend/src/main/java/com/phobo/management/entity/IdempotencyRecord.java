@@ -19,7 +19,7 @@ public class IdempotencyRecord {
     private String id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = true)
     private CustomerProfile customer;
 
     @Column(name = "idempotency_key", columnDefinition = "CHAR(36)", nullable = false)

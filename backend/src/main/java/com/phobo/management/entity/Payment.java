@@ -44,6 +44,22 @@ public class Payment {
     @Column(name = "idempotency_key", columnDefinition = "CHAR(36)")
     private String idempotencyKey;
 
+    @Column(name = "cash_received")
+    private BigDecimal cashReceived;
+
+    @Column(name = "change_amount")
+    private BigDecimal changeAmount;
+
+    @ManyToOne
+    @JoinColumn(name = "received_by_employee_id")
+    private EmployeeProfile receivedBy;
+
+    @Column(name = "terminal_reference")
+    private String terminalReference;
+
+    @Column(name = "payment_channel")
+    private String paymentChannel;
+
     @Column(name = "failure_code")
     private String failureCode;
 

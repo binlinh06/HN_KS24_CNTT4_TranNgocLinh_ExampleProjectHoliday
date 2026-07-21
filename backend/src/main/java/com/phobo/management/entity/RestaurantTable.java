@@ -24,5 +24,14 @@ public class RestaurantTable {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private RestaurantTableStatus status = RestaurantTableStatus.AVAILABLE;
+
+    @Column(name = "status_updated_at")
+    private java.time.LocalDateTime statusUpdatedAt;
+
+    @Version
+    @Column(nullable = false)
+    @Builder.Default
+    private Long version = 0L;
 }
