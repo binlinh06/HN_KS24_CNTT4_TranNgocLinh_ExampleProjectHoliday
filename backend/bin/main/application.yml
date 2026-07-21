@@ -1,0 +1,38 @@
+server:
+  port: ${BACKEND_PORT:8080}
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/pho_bo_management?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&characterEncoding=UTF-8}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        show_sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+jwt:
+  access:
+    secret: ${JWT_ACCESS_SECRET:dGhpc19pc19hX2RldmVsb3BtZW50X2FjY2Vzc190b2tlbl9zZWNyZXRfa2V5XzEyMzQ1X3N1cGVyX3NlY3VyZV81MTJfYml0X2tleV9mb3Jfand0}
+    expiration: ${JWT_ACCESS_EXPIRATION:900000} # 15 minutes
+  refresh:
+    secret: ${JWT_REFRESH_SECRET:dGhpc19pc19hX2RldmVsb3BtZW50X3JlZnJlc2hfdG9rZW5fc2VjcmV0X2tleV82Nzg5MF9zdXBlcl9zZWN1cmVfNTEyX2JpdF9rZXlfZm9yX2p3dA==}
+    expiration: ${JWT_REFRESH_EXPIRATION:604800000} # 7 days
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui/index.html
+    operations-sorter: alpha

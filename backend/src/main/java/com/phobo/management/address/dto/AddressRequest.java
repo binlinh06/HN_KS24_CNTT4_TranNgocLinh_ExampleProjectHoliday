@@ -15,7 +15,7 @@ public class AddressRequest {
     private String receiverName;
 
     @NotBlank(message = "Số điện thoại không được trống")
-    @Pattern(regexp = "^(0|\\+84)(\\s|\\.)?[35789]\\d{2}(\\s|\\.)?\\d{3}(\\s|\\.)?\\d{4}$", message = "Số điện thoại Việt Nam không hợp lệ")
+    @Pattern(regexp = "^(0|\\+84)(\\s|\\.)?[35789](\\s|\\.)?\\d{8}$", message = "Số điện thoại Việt Nam không hợp lệ")
     private String receiverPhone;
 
     @NotBlank(message = "Chi tiết địa chỉ không được trống")
