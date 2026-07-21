@@ -15,16 +15,26 @@ public class EmployeeAuthorizationService {
 
     private final EmployeeProfileRepository employeeProfileRepository;
 
-    private EmployeeProfile getCurrentEmployeeProfile() {
+    public String getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
             return null;
         }
         Object principal = authentication.getPrincipal();
-        if (!(principal instanceof CustomUserPrincipal)) {
+        if (principal instanceof CustomUserPrincipal) {
+            return ((CustomUserPrincipal) principal).getId();
+        }
+        if (principal instanceof String) {
+            return (String) principal;
+        }
+        return authentication.getName();
+    }
+
+    private EmployeeProfile getCurrentEmployeeProfile() {
+        String userId = getCurrentUserId();
+        if (userId == null) {
             return null;
         }
-        String userId = ((CustomUserPrincipal) principal).getId();
         return employeeProfileRepository.findByUserId(userId).orElse(null);
     }
 

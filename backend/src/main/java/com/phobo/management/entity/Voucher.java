@@ -38,6 +38,7 @@ public class Voucher {
     @Column(name = "usage_limit", nullable = false)
     private Integer usageLimit;
 
+    @Builder.Default
     @Column(name = "used_count", nullable = false)
     private Integer usedCount = 0;
 
@@ -47,5 +48,8 @@ public class Voucher {
     @Column(name = "is_active", nullable = false)
     @Builder.Default
     private Boolean isActive = true;
+
+    @Version
+    private Integer version;
 }
 

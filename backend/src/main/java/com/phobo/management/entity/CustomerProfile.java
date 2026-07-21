@@ -22,6 +22,7 @@ public class CustomerProfile {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
+    @Builder.Default
     @Column(name = "loyalty_points", nullable = false)
     private Integer loyaltyPoints = 0;
 }

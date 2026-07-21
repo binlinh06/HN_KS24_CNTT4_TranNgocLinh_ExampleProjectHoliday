@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @IdClass(UserRole.UserRoleId.class)
 public class UserRole {
     @Id
@@ -19,6 +20,14 @@ public class UserRole {
     @Id
     @Column(name = "role_id", columnDefinition = "CHAR(36)")
     private String roleId;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "role_id", insertable = false, updatable = false)
+    private Role role;
 
     @Data
     @NoArgsConstructor

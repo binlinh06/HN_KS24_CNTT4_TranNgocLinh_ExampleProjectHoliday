@@ -24,6 +24,20 @@ public class SystemConfiguration {
     @Column(name = "config_group", nullable = false)
     private String configGroup;
 
+    @Column(name = "description")
+    private String description;
+
+    @Builder.Default
+    @Column(name = "value_type", nullable = false)
+    private String valueType = "STRING";
+
+    @Builder.Default
+    @Column(name = "is_public", nullable = false)
+    private Boolean isPublic = false;
+
     @Column(name = "updated_by", nullable = false, columnDefinition = "CHAR(36)")
     private String updatedBy;
+
+    @Version
+    private Integer version;
 }

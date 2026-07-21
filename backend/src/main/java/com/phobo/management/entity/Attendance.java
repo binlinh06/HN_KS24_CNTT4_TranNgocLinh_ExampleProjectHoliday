@@ -22,7 +22,10 @@ public class Attendance {
 
     @ManyToOne
     @JoinColumn(name = "shift_id")
-    private Shift shift;
+    private ShiftAssignment shiftAssignment;
+
+    @Column(name = "work_date")
+    private java.time.LocalDate workDate;
 
     @Column(name = "check_in")
     private LocalDateTime checkIn;
@@ -30,6 +33,25 @@ public class Attendance {
     @Column(name = "check_out")
     private LocalDateTime checkOut;
 
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "check_in_source")
+    private String checkInSource;
+
+    @Column(name = "check_out_source")
+    private String checkOutSource;
+
     @Column(name = "adjust_reason", columnDefinition = "TEXT")
     private String adjustReason;
+
+    @ManyToOne
+    @JoinColumn(name = "approved_by_user_id")
+    private User approvedBy;
+
+    @Column(name = "approved_at")
+    private LocalDateTime approvedAt;
+
+    @Version
+    private Integer version;
 }
