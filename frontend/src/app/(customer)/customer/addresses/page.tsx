@@ -58,15 +58,16 @@ export default function CustomerAddressesPage() {
       return;
     }
 
-    const phoneRegex = /^[0-9]{9,11}$/;
-    if (!phoneRegex.test(receiverPhone.trim())) {
-      setValidationError('Số điện thoại không hợp lệ. Phải chứa từ 9 đến 11 số.');
+    const cleanPhone = receiverPhone.trim().replace(/[\s\.]/g, '');
+    const phoneRegex = /^(0|\+84)[35789]\d{8}$/;
+    if (!phoneRegex.test(cleanPhone)) {
+      setValidationError('Số điện thoại Việt Nam không hợp lệ. Ví dụ: 0987654321, 0381234567.');
       return;
     }
 
     const payload = {
       receiverName: receiverName.trim(),
-      receiverPhone: receiverPhone.trim(),
+      receiverPhone: cleanPhone,
       addressDetail: addressDetail.trim(),
       addressLabel: addressLabel.trim(),
       isDefault,
@@ -80,7 +81,12 @@ export default function CustomerAddressesPage() {
       }
       setIsModalOpen(false);
     } catch (err: any) {
-      setValidationError(err.response?.data?.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+      const data = err.response?.data;
+      if (data?.errors && Array.isArray(data.errors) && data.errors.length > 0) {
+        setValidationError(`${data.message || 'Dữ liệu đầu vào không hợp lệ'}: ${data.errors.join(', ')}`);
+      } else {
+        setValidationError(data?.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+      }
     }
   };
 
